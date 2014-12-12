@@ -1,5 +1,4 @@
-#BIOL 4306 and 4106: Bioinformatics lecture and lab
-##Syllabus and schedule
-##Spring 2015
-##Department of Biology
-##The University of Texas at Tyler
+#BIOL 4306: Bioinformatics lecture, Spring 2015
+##Department of Biology, The University of Texas at Tyler
+
+Scheduled class time: Tuesday and Thursday, 9:30-10:50 am
