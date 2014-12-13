@@ -3,12 +3,12 @@ Placeholder for BioinformaticsSpring2015syllabus
 Module order:
 
 header
+instructor
 description
-objectives
 prerequisites
+objectives
 textbook
 supplementalinfo
-instructor
 grading
 honorCode
 exams
