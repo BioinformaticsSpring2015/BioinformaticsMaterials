@@ -1,6 +1,8 @@
 ##Textbooks, materials, and websites
 
 ###Texts: 
+These are the same as for the lecture.
+ 
 **OpenIntro Statistics**, available to download for free online at http://www.openintro.org/stat/ or purchase hard copy through Amazon (see link).
 
 **Practical Computing for Biologists**, Haddock and Dunn, ISBN 978-0-87893-391-4

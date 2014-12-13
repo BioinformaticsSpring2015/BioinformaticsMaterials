@@ -1,4 +1,4 @@
-#BIOL 4306: Bioinformatics lecture, Spring 2015
+#BIOL 4106: Bioinformatics lab, Spring 2015
 ##Department of Biology, The University of Texas at Tyler
 
-Scheduled class time: Tuesday and Thursday, 9:30-10:50 am
+Scheduled class time: Thursday, 5-7:50 pm, BEP 139
