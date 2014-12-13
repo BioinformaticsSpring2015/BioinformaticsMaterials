@@ -10,4 +10,4 @@
 You should be prepared with the following materials for class:
 **Flashdrive**, at least 1 GB
 
-**Github Education Student Developer Pack**, available for free with your UT Tyler student email and ID card (https://education.github.com/pack).
+**Github Education Student Developer Pack**, available for free with your UT Tyler student email and ID card (https://education.github.com/pack). We will set this up together in your first lab meeting.
