@@ -31,3 +31,4 @@ Week 13: Apr 14-16 Combining data types
 Week 14: Apr 21-22 Student projects
 
 Final: Thursday, May 30, 9:30-11:30 am
+

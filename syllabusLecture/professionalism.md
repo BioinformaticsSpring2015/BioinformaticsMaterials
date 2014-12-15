@@ -2,7 +2,7 @@
 
 This is an upper-division class and you are expected to participate and behave accordingly.
 
-**Attendance*
+**Attendance**
 
 **Assignment due dates**
 
