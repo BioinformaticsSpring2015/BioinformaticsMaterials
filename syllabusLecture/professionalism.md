@@ -1,8 +1,13 @@
-###Honor code and academic integrity
+###Professionalism
 
-Students should be aware that absolute academic integrity is expected of every student in all undertakings at The University of Texas at Tyler. Failure to comply can result in strong university-imposed penalties. Plagiarism (copying the work of others without proper citation), talking during test time, having mobile electronic devices on (cell pones, PDA’s, laptops) during exams are some examples of behavior to be avoided.
+This course was designed to emulate a collaborative research environment you may encounter professionally after graduating. You are expected to attend and participate in class discussions as would suit a working environment.
 
-Be forewarned that while taking an exam, the possession of anything containing course content will be considered cheating, whether or not you actually refer to it during the exam. TALKING during an EXAM to anyone other than the instructor or proctor will automatically be considered cheating. It does not matter what you were talking about. This includes the use of cell phones (even if they call YOU) or any other electronic device that could be used to record test material. Violation of this policy will be considered cheating and treated accordingly. Penalties for cheating include anything from a zero on the exam or quiz during which the cheating occurred, up to an F for the course in question.
 
-You are encouraged to study together and to discuss information and concepts covered in lecture and the sections with other students. You can give and receive “consulting” help. However, this permission to cooperate should never involve one student having possession of a copy of all or part of work done by someone else, in the form of digital or hard copy. If copying occurs, both the student who copied the work from another student and the student who gave material to be copied will both automatically receive a zero for the assignment. Penalty for violation of this Code can also be extended to include failure of the course and University disciplinary action.
+Given the relevance of technology to the study of bioinformatics, you are encouraged to use laptops or tablets to take notes and share information during class. However, the use of technology should be a supplement to in-class learning and should never interfere with other students' ability to concentrate, so be judicious in your use of cell phones (i.e., texting during class is considered rude). 
+
+
+I encourage you to work in groups to study and discuss class materials. You assume full responsibility for all submitted assignments, however, which means that you are expected to fully and accurately document your sources for relevant code and concepts. Please see the supplemental document on Blackboard for more information about plagiarism and appropriate citations.
+
+
+The University of Texas at Tyler's honor code compels us to embrace: "Honor and integrity that will not allow me to lie, cheat, or steal, nor to accept the actions of those who do." I will not tolerate violations of academic integrity; possibly penalties may include failure of this course and University disciplinary action as described by the Manual of Policies and Procedures for Student Affairs, Chapter 8: Student Conduct and Discipline (http://www.uttyler.edu/mopp/).
 
