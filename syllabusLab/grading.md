@@ -6,3 +6,4 @@ Your performance in this class will be based on rubric-based scoring of assignme
 
 
 **A class project** will be conducted in the second part of the semester. You will be assigned a unique dataset to analyze using the tools learned each week. You will submit preliminary results for grading prior to a short presentation at the end of the semester. Each submission for the class project will be assessed the same as a regular assignment.
+
