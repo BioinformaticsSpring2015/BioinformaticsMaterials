@@ -1,15 +1,8 @@
-##Grading
+###Grading
 
-Student assessment will be based on two types of tasks: 1) weekly assignments, and 2) a class project.
+Your performance in this class will be based on rubric-based scoring of assignments submitted throughout the semester. Rubric scores on all assignments will be averaged and converted to a percentage with final grades assigned using the following scale: 100-90%: A; 89-80%: B; 79-70%: C; 69-60%: D; <59: F
 
-Weekly assignments may occur both inside and outside of class, including but not limited to the following formats: informal reflective writing, short answer questions, small group discussion/synopsis and peer review.
+**Weekly assignments** may include b. Please see Blackboard for an updated schedule of assignment due dates (generally one per week). **For assignments turned in late, two rubric points per day will be deducted.**
 
-The two exams will assess your understanding of each of the two parts of the course: 1) Bioinformatics Framework, and 2) Applied Bioinformatics. 
 
-You will select a topic for your class project based on your personal interests in bioinformatics research and applications. You will have the opportunity to submit a topic proposal and draft of your presentation prior to sharing your findings with the class at the end of the semester. 
-
-Your performance will be based on rubrics that outline your mastery the course material and allow you to target areas for improvement. 
-
-Final grades will be assessed using the following weighting:  60% weekly assignments, 40% research project. 
-
-100-90%: A; 89-80%: B; 79-70%: C; 69-60%: D; <59: F
+**A class project** will be conducted in the second part of the semester. You will be assigned a unique dataset to analyze using the tools learned each week. You will submit preliminary results for grading prior to a short presentation at the end of the semester. Each submission for the class project will be assessed the same as a regular assignment.
