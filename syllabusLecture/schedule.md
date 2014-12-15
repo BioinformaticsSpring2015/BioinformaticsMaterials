@@ -18,7 +18,7 @@ Week 8: Mar 3-5 Sequence searching
 
 SPRING BREAK
 
-Week 9: Mar 17-19 Sequence alingment
+Week 9: Mar 17-19 Sequence alignment
 
 Week 10: Mar 24-26 Genome assembly (March 23: last day to withdraw)
 
