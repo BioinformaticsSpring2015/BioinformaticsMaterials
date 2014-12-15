@@ -9,6 +9,5 @@
 **Flashdrive**, at least 1 GB
 
 ###Websites:
-You will be able to locate course materials (lecture slides, PDFs of additional readings, lists of resources) on **Blackboard**. 
+You will be able to locate course materials (lecture slides, PDFs of additional readings, lists of resources, etc.) on **Blackboard**. 
 
-**Github Education Student Developer Pack**, available for free with your UT Tyler student email and ID card (https://education.github.com/pack). We will set this up together in your first lab meeting.
