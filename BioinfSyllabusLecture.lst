@@ -1,15 +1,15 @@
 ##Module order for BioinfSyllabusLecture.md
 
-header.md
-instructor.md
-description.md
-prerequisites.md
-objectives.md
-textbook.md
-grading.md
-professionalism.md
-honorCode.md
-schedule.md
-universityPolicies.md
-acknowledgements.md
-license.md
+syllabusLecture/header.md
+syllabusLecture/instructor.md
+syllabusLecture/description.md
+syllabusLecture/prerequisites.md
+syllabusLecture/objectives.md
+syllabusLecture/textbook.md
+syllabusLecture/grading.md
+syllabusLecture/professionalism.md
+syllabusLecture/honorCode.md
+syllabusLecture/schedule.md
+syllabusLecture/universityPolicies.md
+syllabusLecture/acknowledgements.md
+syllabusLecture/license.md
