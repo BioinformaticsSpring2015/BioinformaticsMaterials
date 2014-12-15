@@ -1,4 +1,4 @@
-##Schedule
+###Schedule
 
 Week 1: Jan 13-15 Introduction
 
@@ -10,7 +10,7 @@ Week 4: Feb 3-5 Hypothesis testing I
 
 Week 5: Feb 10-12 Hypothesis testing II
 
-Week 6: Feb 17-19 Data presentation
+Week 6: Feb 17-19 Combining tools and data presentation
 
 Week 7: Feb 24-26 Bioinformatics Framework summary
 
@@ -26,9 +26,9 @@ Week 11: Mar 31-Apr 2 Genome annotation
 
 Week 12: Apr 7-9 Clustering and phylogenetics
 
-Week 13: Apr 14-16 Combining data types
+Week 13: Apr 14-16 Student project presentations
 
-Week 14: Apr 21-22 Student projects
+Week 14: Apr 21-22 Special topics and review
 
-Final: Thursday, May 30, 9:30-11:30 am
+Final: Thursday, May 30, 9:30-11:30 am; Applied Bioinformatics summary
 
