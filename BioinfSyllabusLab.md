@@ -1,5 +1,5 @@
 #BIOL 4106: Bioinformatics lab, Spring 2015
-##Department of Biology, The University of Texas at Tyler
+###Department of Biology, The University of Texas at Tyler
 
 Scheduled class time: Thursday, 5-7:50 pm, BEP 139
 
@@ -17,17 +17,18 @@ The best way to contact me is by email. I try to respond to student emails withi
 
 Analysis of large biological datasets with emphasis on genomes and transcriptomes. This is a practical course in Bioinformatics which will emphasize how to use the computer as a tool for genomic data analysis.
 
-This course is offerred as a part of an undergraduate minor in Bioinformatics and Genomics, although students who have not declared the minor are welcome to take it as well.
+This course is offered as a part of an undergraduate minor in Bioinformatics and Genomics, although students who have not declared the minor are welcome to take it as well.
 
 ###Course pre-requisites
 
-Pre-requisites: BIOL 1307/1106 (General Biology 1 with lab) and BIOL 1307/1107 (General Biology 2 with lab).
+**Pre-requisites:** BIOL 1307/1106 (General Biology 1 with lab) and BIOL 1307/1107 (General Biology 2 with lab).
 
-Co-requisite: BIOL 4306 (Bioinformatics lecture). The material covered in these two classes are complementary and will be integrated throughout the semester. However, the focus for lecture vs. lab  is slightly different, so your performance for each class will be assessed independently.
+**Co-requisite:** BIOL 4306 (Bioinformatics lecture). The material covered in these two classes are complementary and will be integrated throughout the semester. However, the focus for lecture vs. lab  is slightly different, so your performance for each class will be assessed independently.
 
 ###Course objectives
 
 By the end of the course, students should be able to:
+
 * Design and implement bioinformatics pipelines to answer pre-defined questions from a variety of biological disciplines
 * Validate results from bioinformatics algorithms using hypothesis testing, correcting for multiple comparisons, etc.
 * Characterize the limitations of data to answer questions of interests
@@ -36,12 +37,9 @@ By the end of the course, students should be able to:
 
 ###Textbooks, materials, and websites
 
-**Textbooks**
- 
-These are the same as for the lecture.
+**Textbooks** (same as lecture)
  
 * **OpenIntro Statistics**, available to download for free online at http://www.openintro.org/stat/ or purchase hard copy through Amazon (see link).
-
 * **Practical Computing for Biologists**, Haddock and Dunn, ISBN 978-0-87893-391-4
 
 
@@ -64,6 +62,7 @@ Your performance in this class will be based on rubric-based scoring of assignme
 
 
 **A class project** will be conducted in the second part of the semester. You will be assigned a unique dataset to analyze using the tools learned each week. You will submit preliminary results for grading prior to a short presentation at the end of the semester. Each submission for the class project will be assessed the same as a regular assignment.
+
 ###Professionalism
 
 This course was designed to emulate a collaborative research environment you may encounter professionally after graduating. You are expected to attend and participate in class discussions as would suit a working environment.
