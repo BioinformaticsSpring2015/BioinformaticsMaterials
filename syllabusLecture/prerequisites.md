@@ -1,4 +1,4 @@
-##Course pre-requisites
+###Course pre-requisites
 
 **Pre-requisites:** BIOL 1307/1106 (General Biology 1 with lab) and BIOL 1307/1107 (General Biology 2 with lab).
 
