@@ -1,4 +1,4 @@
-##Honor code and academic integrity
+###Honor code and academic integrity
 
 Students should be aware that absolute academic integrity is expected of every student in all undertakings at The University of Texas at Tyler. Failure to comply can result in strong university-imposed penalties. Plagiarism (copying the work of others without proper citation), talking during test time, having mobile electronic devices on (cell pones, PDA’s, laptops) during exams are some examples of behavior to be avoided.
 

@@ -1,6 +1,6 @@
-##Instructor
+###Instructor
 
-Dr. Kate L. Hertweck, Assistant Professor, Department of Biology
+**Dr. Kate L. Hertweck, Assistant Professor, Department of Biology**
 
 **Office:** BEP 103; **Phone:** 903.565.5882; **Email:** khertweck@uttyler.edu
 
