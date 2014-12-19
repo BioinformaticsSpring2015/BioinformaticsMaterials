@@ -18,4 +18,5 @@
 
 * **Flashdrive**, at least 1 GB
 * **Desktop computers in BEP 139:** The computers in our lab have been pre-installed with the software necessary to perform all lab assignments. You should be able to complete homework requiring this software during class. If you require additional time, please contact me to schedule access to the lab.
-* **Using your personal computer (laptop):** Please see the documentation in the GitHub class repository for more information about installing the software used in class on your personal computer.  
+* **Using your personal computer (laptop):** Please see the documentation in the GitHub class repository for more information about installing the software used in class on your personal computer.
+ 
