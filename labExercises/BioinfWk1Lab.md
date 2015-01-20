@@ -11,7 +11,7 @@ Slides for the introduction to today's lab, as well as a PDF of this document, c
 
 ###Activities
 * Create a GitHub account 
-	* Navigate to [GitHub](https://github.com) in a web browser (Firefox preferred) and sign up for GitHub using your university email address. You may eventually use this account as a professional resource, so I recommend using an appropriate username. ["How to pick the right username"](http://www.reputation.com/reputationwatch/articles/how-pick-right-username) provides a few guidelines if you are unsure about what is appropriate. Please note that your full name will be displayed as a part of this repository. If you are concerned about privacy, you are not required to use your legal name (but please note this when filling out the "GitHub survey" Blackboard, described below in "Assessment.").
+	* Navigate to [GitHub](https://github.com) in a web browser (Firefox preferred) and sign up for GitHub using your university email address. You may eventually use this account as a professional resource, so I recommend using an appropriate username. ["How to pick the right username"](http://www.reputation.com/reputationwatch/articles/how-pick-right-username) provides a few guidelines if you are unsure about what is appropriate. Please note that your full name will be displayed as a part of this repository. If you are concerned about privacy, you are not required to use your legal name. :pencil2: Complete the "GitHub survey" in [Blackboard](http://blackboard.uttyler.edu) so your instructor has your GitHub ID.
 	* You may want to apply for a GitHub Student Developer Pack. This collection of developer tools is available to students for free, and includes an upgraded GitHub account that allows private repositories. 
 		* Go to [the application page](https://education.github.com/pack/join) and confirm you are a student. 
 		* For "How do you plan to use GitHub?" please write a few sentences indicating you are a student in bioinformatics and will be using GitHub to develop a collection of example code.
@@ -34,9 +34,8 @@ Slides for the introduction to today's lab, as well as a PDF of this document, c
 
 * Prepare your private repository for homework submission.
 	* You should have received an email notification that you have been added to a repository with the name format `LastnameHomework` where Lastname is your last name.
-	* :pencil2: Modify the `README.md` file in this private homework repository to remind yourself that this is where you submit homework. Please do not remove or modify the rubric table.
-	* :pencil2: Edit and commit changes to `homeworkTemplate.md` to reflect your name and GitHub repo URL (this can just be your GitHub username).
-	* :pencil2: Copy the text formatting from `homeworkTemplate.md` (click on Raw, select all, copy). Create a new file with the name `LastnameWkX.md`, where Lastname is your last name and X is 1 (for week 1). Use this file to answer the questions in the assessment section below and save in your private homework repo. 
+	* :pencil2: Modify the `README.md` file in this private homework repository to remind yourself that this is where you 
+	* :pencil2: Copy the text formatting from `homeworkTemplate.md` in ForkMe (click on Raw, select all, copy). Create a new file with the name `LastnameWkX.md` in your homework repo (`LastnameHomework`), where Lastname is your last name and X is 1 (for week 1). Use this file to answer the questions in the assessment section below and save in your private homework repo. 
 
 ###Assessment
 * Due Wednesday, Jan 21 at 5 pm
@@ -45,7 +44,7 @@ Slides for the introduction to today's lab, as well as a PDF of this document, c
 	* Critical thinking (40 points): answers to questions 1-5 (below) 
 	* Documentation (5 points): README.md in your homework repository, survey on Blackboard (listed below), citations for resources used in questions embedded in answers 
 	* Professional behavior (10 points): class participation, assignment formatting using homework template
-* :pencil2: Complete the "GitHub survey" in [Blackboard](http://blackboard.uttyler.edu)
+* Items marked with :pencil2: in above sections will be checked for this assignment.
 * :pencil2: Written assessment: Title is "GitHub and Markdown." Answer the following questions:
 
 1. In today's lesson, you created a branch for `hello-world`. You also forked `Spoon-Knife`. Why would you want to fork or branch a repository, and what is the difference between these commands in GitHub?
