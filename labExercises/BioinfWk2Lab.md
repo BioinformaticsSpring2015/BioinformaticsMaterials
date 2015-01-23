@@ -97,7 +97,7 @@ mv test.txt new.txt
 mv new.txt ../new.txt
 ```
 
-Practice exercise: Navigate back to your home directory, and copy `new.txt` to `testFolder`.
+Practice exercise: Navigate back to `pcfb`, and copy `new.txt` to `testFolder`.
 
 From your home directory, you can also delete the original `new.txt` from `pcfb/examples`:
 
@@ -193,7 +193,7 @@ Note the difference in syntax. What does the period indicate? There is an altern
 
 What does the asterisk (`*`) indicate?
 
-Open up Notepad++. You are probably already familiar with ways to search within text for a full or partial word. If you open a search window and select "Regular Expression" under search mode, you'll be able to use more advanced searching techniques that are very useful for working with data files. You can 
+Open up Notepad++. You are probably already familiar with ways to search within text for a full or partial word. If you open a search window and select "Regular Expression" under search mode, you'll be able to use more advanced searching techniques that are very useful for working with data files.
 
 `grep` is somewhat analogous to the search command in a text editor, because You can use it to search within a file. For example, if you wanted to find all latitudes in the northern hemisphere:
 
@@ -224,7 +224,7 @@ There are other "flavors" of `grep`, like `egrep`, that include additional optio
 	* Critical thinking 30, explanations for written assessment answers
 	* Documentation: 5, citations for resources used in questions embedded in answers
 	* Professional behavior: 10, class participation, assignment formatting using homework template (including code formatted in `monospace`)
-* :pencil2: Written assessment: create new file in your homework repository, `LastnameHomework`, called `LastnameWk2Homework.md". Title (header) is "Unix commands and text editors." Answer the following questions about the Unix tools you learned for this week's lab. Use appropriate Markdown formatting, including `monospace` when referencing commands you entered. Don't forget to preview your homework before committing!
+* :pencil2: Written assessment: create new file in your homework repository, `LastnameHomework`, called `LastnameWk2Homework.md`. Title (header) is "Unix commands and text editors." Answer the following questions about the Unix tools you learned for this week's lab. Use appropriate Markdown formatting, including `monospace` when referencing commands you entered. Don't forget to preview your homework before committing!
 
 1. What series of commands would you use to copy a file named `CopyMe.txt`, rename it `renamed.txt`, and then delete the original file?
 2. What happens when you enter the command `cd` without a directory name?
