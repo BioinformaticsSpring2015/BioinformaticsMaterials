@@ -23,7 +23,19 @@ Additional materials for reference:
 
 Now that you've learned some common Unix commands, you're ready to start learning ways to link these commands together to perform more complex tasks. 
 
-Just like last week, download the `Examples` file from the [Practical Computing for Biologists website](http://practicalcomputing.org/downloads). Unzip the file and move it to your Desktop. Open up Cygwin and navigate to the file by using `cd` and dragging-and-dropping the file into your shell.
+**Downloading web content**
+
+We're going to use the same `Examples` file from the [Practical Computing for Biologists website](http://practicalcomputing.org/downloads) as last week. This time, though, we're going to download it using the command line. 
+
+Open up Cygwin and navigate to your Desktop. Download the file:
+
+`wget http://practicalcomputing.org/files/pcfb_examples.zip`
+
+The should now appear on your Desktop (and in the shell if you check with `ls`) as a zipped file. Unzip the file:
+
+`unzip pcfb_examples.zip`
+
+You should now see both the zipped (`pcfb_examples.zip`) and unzipped (`pcfb/`) versions. You're ready to apply the skills you learned last week!
 
 **Pipes and nesting**
 
