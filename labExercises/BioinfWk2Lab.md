@@ -254,8 +254,8 @@ yaks.txt    zebras.txt
 14.Given the following data file, what is the header and what is the delimiter?
 ```
 nucleotides genes proteins
-150,456 435 302 150
-175,321 567 342 120
+150,456 435 302
+175,321 567 342
 ```
 15.You have a directory called `Food` containing files with receipts for grocery purchases. Each file contains a different list, similar to this one:
 ```
