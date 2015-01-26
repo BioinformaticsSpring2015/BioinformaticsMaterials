@@ -66,7 +66,7 @@ sort length.txt > length.sorted.txt
 head -1 length.sorted.txt
 ```
 
-The first line starts is a comment. It's a note about what task the following commands perform, so it starts with `#` to tell the computer not to read it.
+The first line is a comment. It's a note about what task the following commands perform, so it starts with `#` to tell the computer not to read it.
 
 If you're using large data files, you may not want to save extra files. There's also a shorter (fewer keystrokes) way to connect these commands together, using a pipe (`|`). The following single line is equivalent to the three lines above:
 
@@ -77,7 +77,7 @@ wc -c *.seq | sort | head -1
 
 Connecting commands using pipes is a very powerful way to filter files and/or their contents.
 
-Another way to combine Unix commands is by nesting one command inside another. From `pcfb/examples`, try the following command:
+Another way to combine Unix commands is by nesting one command inside another. From `pcfb/examples`, try the following command to find the names of authors for all Protein Databank Files in our folder:
 
 `grep "AUTHOR" $(find . -name '*.pdb')`
 
@@ -100,7 +100,7 @@ $ for filename in FEC00001_1.seq FEC00002_1.seq
 > done
 ```
 
-If you run this command, you will see nothing print to the screen. You should have produced two duplicate sequence files with `backup.` as a suffix.
+If you run this command, you will see nothing print to the screen. You should have produced two duplicate sequence files with `backup.` as a prefix.
 
 There are a few important parts of this type of loop structure syntax. The first, second and forth lines represent the main structure of the loop. In the first line, `filename` is a variable, meaning it represents the two files listed later. `$filename` refers to the variable in specified in the first line. You can specify whatever you'd like for the variable, but it should be somewhat descriptive for what the variable specifies. The arrows (`>`) at the beginning of the second, third and fourth lines indicate the shell is still expecting more commands, and `done` closes the loop. The third line represents the commands which will be performed across all selected files. 
 
@@ -152,10 +152,17 @@ $ for filename in *.seq
 > done
 ```
 
-**Saving scripts to a file**
+**Reusing scripts**
 
+This lesson has taught you a few ways to connect several Unix commands together to make a powerful tool for obtaining information. Getting commands to work can be tricky, and you may want a way to save the work you've done for future reference. You can print the commands you've entered using `history`. In many circumstances, you may want to recall just the last few lines and save them to a file:
 
-running scripts from files
+`history | tail -10 > unixhistory.txt`
+
+`history` prints a line number in front of each command. You can use that number to run the same command again. For example, the following command will run the entry from line 13 again:
+
+`!13`
+
+saving to file
 
 permissions
 
