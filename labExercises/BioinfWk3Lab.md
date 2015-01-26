@@ -25,7 +25,9 @@ Now that you've learned some common Unix commands, you're ready to start learnin
 
 **Downloading web content**
 
-We're going to use the same `Examples` file from the [Practical Computing for Biologists website](http://practicalcomputing.org/downloads) as last week. This time, though, we're going to download it using the command line. Note that this exercise uses `wget` while PCB using `curl`, but both of these commands are equivalent.
+We're going to use the same `Examples` file from the [Practical Computing for Biologists website](http://practicalcomputing.org/downloads) as last week. This time, though, we're going to download it using the command line. Note that this exercise uses `wget` while PCB uses `curl`, but both of these commands are equivalent.
+
+First, we need to learn how to install additional packages in Cygwin. Go to the [Cygwin website](https://www.cygwin.com) and select the page on the left to "Update Cygwin." Click on `setup-x86_64.exe` to download the file. When the download is complete, click on it to open the installer. Click through the default settings; when you need to choose a download site, select `http://missors-usa.go-parts.com`. After the mirror is reached, a page will appear directing you to select packages. Search for `wget`; it will appear in a few categories. Expand the Web category and click on Skip; it will change to Install. Then click next, then Finish. Cygwin has now been updated with a new package, `wget`.
 
 Open up Cygwin and navigate to your Desktop. Download the file:
 
