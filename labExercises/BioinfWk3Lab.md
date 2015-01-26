@@ -25,7 +25,7 @@ Now that you've learned some common Unix commands, you're ready to start learnin
 
 **Downloading web content**
 
-We're going to use the same `Examples` file from the [Practical Computing for Biologists website](http://practicalcomputing.org/downloads) as last week. This time, though, we're going to download it using the command line. 
+We're going to use the same `Examples` file from the [Practical Computing for Biologists website](http://practicalcomputing.org/downloads) as last week. This time, though, we're going to download it using the command line. Note that this exercise uses `wget` while PCB using `curl`, but both of these commands are equivalent.
 
 Open up Cygwin and navigate to your Desktop. Download the file:
 
