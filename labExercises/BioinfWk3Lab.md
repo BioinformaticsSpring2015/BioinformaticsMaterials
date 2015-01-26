@@ -25,7 +25,7 @@ Now that you've learned some common Unix commands, you're ready to start learnin
 
 Just like last week, download the `Examples` file from the [Practical Computing for Biologists website](http://practicalcomputing.org/downloads). Unzip the file and move it to your Desktop. Open up Cygwin and navigate to the file by using `cd` and dragging-and-dropping the file into your shell.
 
-**Pipes**
+**Pipes and nesting**
 
 Let's say we wanted to determine the shortest sequence in `pcfb/examples`. Let's assume all sequences are in separate fasta files (that end in .seq), and the headers are all the same length. 
 
@@ -61,9 +61,15 @@ If you're using large data files, you may not want to save extra files. There's 
 wc -c *.seq | sort | head -1
 ```
 
-nesting
+Connecting commands using pipes is a very powerful way to filter files and/or their contents.
 
-Loops
+Another way to combine Unix commands is by nesting one command inside another. From `pcfb/examples`, try the following command:
+
+`grep "AUTHOR" $(find . -name '*.pdb')`
+
+The shell will run commands inside `$()` first, then run the rest of the command on the resulting output. 
+
+**Loops**
 
 appending
 
