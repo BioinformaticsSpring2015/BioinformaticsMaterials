@@ -47,7 +47,7 @@ The first thing we need to do is determine the length of each sequence. Given th
 
 `wc -c *.seq > length.txt`
 
-You'll notice there is no output printed to your shell screen. The arrow `>` means the output is saved to the file (in this case, `legnth.txt`). You can view the results in Notepad++ or nano (`nano length.txt`). Note that the last line of the file is the total number of characters.
+You'll notice there is no output printed to your shell screen. The arrow (`>`) is a redirect, meaning the output is saved to the file (in this case, `length.txt`). You can view the results in Notepad++ or nano (`nano length.txt`). Note that the last line of the file is the total number of characters.
 
 If you sort `length.txt`, the shortest fasta file will be at the top of the list:
 
@@ -85,7 +85,75 @@ The shell will run commands inside `$()` first, then run the rest of the command
 
 **Loops**
 
-appending
+Sometimes you may want to perform repeated tasks on a set of files. It may seem like you could use wildcards to perform the same tasks across many files in a directory. For example, if you want to create copies of two data files (`file1.txt` and `file2.txt`) to backup your work, you might try the following command:
+
+`cp *.txt backup.*.txt`
+
+In the best case scenario (depending on the version of your program), your attempt to back up your files would return an error. In the worst case scenario, the shell would expand the first wildcard and accidentally overwrite one of them!
+
+The solution to this dilemma is to use a programming structure called a loop, which performs the same task for a series of pre-defined files. Here is the syntax, using two files from `pcfb/examples`:
+
+```
+$ for filename in FEC00001_1.seq FEC00002_1.seq
+> do
+>    cp $filename backup.$filename
+> done
+```
+
+If you run this command, you will see nothing print to the screen. You should have produced two duplicate sequence files with `backup.` as a suffix.
+
+There are a few important parts of this type of loop structure syntax. The first, second and forth lines represent the main structure of the loop. In the first line, `filename` is a variable, meaning it represents the two files listed later. `$filename` refers to the variable in specified in the first line. You can specify whatever you'd like for the variable, but it should be somewhat descriptive for what the variable specifies. The arrows (`>`) at the beginning of the second, third and fourth lines indicate the shell is still expecting more commands, and `done` closes the loop. The third line represents the commands which will be performed across all selected files. 
+
+Here is a loop which performs the same action, but is slightly more refined:
+
+```
+$ for filename in *.seq
+> do
+>    echo $filename
+>    cp $filename backup.$filename
+> done
+```
+
+In this example, you should have seen the file names for all ten files ending in .seq in the examples directory printed to your screen. You will also have backups for each of those files. 
+
+If you use the up arrow to recall the last command, you will see it formatted differently than you input it:
+
+`$ for filename in *.seq; do echo $filename; wc $filename; done`
+
+We write loops in multiple lines (with indentation) to help us read the structure better, but you can also enter them with lines divided by semi-colons.
+
+The goal of the previous example was to copy files. For other tasks, you may be more interested in the text output from each loop:
+
+```
+$ for filename in *.seq
+> do
+>    echo $filename
+>    wc $filename
+> done
+```
+
+You can save the output of this loop to a file using a redirect:
+
+```
+$ for filename in *.seq
+> do
+>    echo $filename
+>    wc $filename
+> done > seqlengthsall.txt
+```
+
+However, this saves both the names from `echo` AND the report from `wc` in the same file. If you just want to save the report from `wc`, you'll need to use a redirect that appends to the previous file, instead of overwriting:
+
+```
+$ for filename in *.seq
+> do
+>    echo $filename
+>    wc $filename >> seqlengthsonly.txt
+> done
+```
+
+**Saving scripts to a file**
+
 
 running scripts from files
 
