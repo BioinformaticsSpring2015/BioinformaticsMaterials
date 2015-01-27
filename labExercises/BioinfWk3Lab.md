@@ -29,7 +29,11 @@ We're going to use the same `Examples` file from the [Practical Computing for Bi
 
 First, we need to learn how to install additional packages in Cygwin. Go to the [Cygwin website](https://www.cygwin.com) and select the page on the left to "Update Cygwin." Click on `setup-x86_64.exe` to download the file. When the download is complete, click on it to open the installer. Click through the default settings; when you need to choose a download site, select `http://missors-usa.go-parts.com`. After the mirror is reached, a page will appear directing you to select packages. Search for `wget`; it will appear in a few categories. Expand the Web category and click on Skip; it will change to Install. Then click next, then Finish. Cygwin has now been updated with a new package, `wget`.
 
-Open up Cygwin and navigate to your Desktop. Download the file:
+Now we're going to have a quick refresher on paths (where you are in the computer). It's easiest for us to work on files in class when we can also see them on the Desktop, so we're going to move there from our home directory (which opens in Cygwin by default). Last week week, we used `cd` followed by a drag-and-drop shortcut to get to a directory on your Desktop. It will be useful for you to know the actual path to your Desktop on the lab computers. Save this command, because you'll probably use it at least once a week. `username` is what you used to log in to the computer.
+
+`cd /cygdrive/c/Users/username/Desktop`
+
+Now you're ready to download the file:
 
 `wget http://practicalcomputing.org/files/pcfb_examples.zip`
 
