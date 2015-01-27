@@ -12,6 +12,7 @@ You should be able to:
 ###Readings:
 * PCB: Chapter 5 (Handling text in the shell)
 * PCB: Chapter 6 (Scripting with the shell)
+* While these chapters include much of what we will discuss in class today, the same topics are also referenced at other parts of PCB. Check in the index at the back of the book for other mentions of particular commands!
 
 Additional materials for reference:
 * Software Carpentry, [Pipes and Filters](http://software-carpentry.org/v5/novice/shell/03-pipefilter.html)
@@ -32,6 +33,8 @@ First, we need to learn how to install additional packages in Cygwin. Go to the 
 Now we're going to have a quick refresher on paths (where you are in the computer). It's easiest for us to work on files in class when we can also see them on the Desktop, so we're going to move there from our home directory (which opens in Cygwin by default). Last week week, we used `cd` followed by a drag-and-drop shortcut to get to a directory on your Desktop. It will be useful for you to know the actual path to your Desktop on the lab computers. Save this command, because you'll probably use it at least once a week. `username` is what you used to log in to the computer.
 
 `cd /cygdrive/c/Users/username/Desktop`
+
+It's very important to recognize where you are in the computer in relation to the files you want to manipulate! If you are getting errors while trying to run commands, first check and make sure you are specifying the correct paths. For more information, check out pg. 51 in PCB.
 
 Now you're ready to download the file:
 
@@ -166,9 +169,55 @@ This lesson has taught you a few ways to connect several Unix commands together 
 
 `!13`
 
-saving to file
+You might also be interested in using the same series of commands on other files. To save time and to avoid mistakes in typing, you could save the commands as a script (i.e., in a separate text file). 
 
-permissions
+Let's suppose you wanted a script that would create a dataset for testing by removing the header from a character-delimited dataset and printing the first 5 lines of data. We can test this using `pcfb/examples/shaver_etal.csv`:
+
+`tail -n +2 shaver_etal.csv | head -5`
+
+Once you test this script to ensure that it works the way you'd like, you can open a new text file and enter the code:
+
+```
+#! /bin/bash
+
+tail -n +2 shaver_etal.csv | head -5 > test.shaver_etal.csv
+```
+
+The first line begins with a shebang (`#!`) to tell the computer to use bash (the shell we're using) to interpret the commands. We've also included a redirect to save the output to a file. Save this file as `test.sh` (the file suffix indicates it's a shell script).
+
+If you go back to the command line, you can run this script again:
+
+`bash test.sh`
+
+You should see the resulting file created. If you open it up in a text editor, you will see the five lines of data as expected. 
+
+This command doesn't completely solve our problem, though, because we wanted to use the script for other data files. A few modifications to the saved script allow this to happen:
+
+```
+#! /bin/bash
+
+tail -n +2 $1 | head -5 > test.$1
+```
+
+Here, `$1` is a variable indicating the first thing entered on the command line. Test this new script on another file from `pcfb/examples`:
+
+`bash test.sh ThalassocalyceData.txt`
+
+You should see `test.ThalassocalyceData.txt` created, which you can compare with the original file and confirm the script worked. 
+
+Now we are going to make this script an executable. Use `ls -l` to list the details of each file in your directory. There shouldn't be any x's next to test.sh. You can confirm this by the error that appears when you try:
+
+`./test.sh japetella_respiration.txt`
+
+Permission to read, write, and execute files is controlled by a command called `chmod`. You can add permissions for all users to use the file:
+
+`chmod u+x test.sh`
+
+Now you will see x's, indicating permission to use/execute the file, when you view file details. The file should run now:
+
+`./test.sh japetella_respiration.txt`
+
+Ideally, we would set up a permanent folder on this computer for you to save your scripts, and also configure the shell for you to be able to run scripts in this folder more easily. Unfortunately, the configuration of these computerYou can read more about setting up your personal computer, adding scripts to your path, and file permissions in PCB Chapter 6.
 
 ###Assessment
 * Due Tuesday, Jan X at 5 pm
