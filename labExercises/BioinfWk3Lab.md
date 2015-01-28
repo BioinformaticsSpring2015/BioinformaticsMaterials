@@ -239,9 +239,9 @@ Use Unix commands to complete the following tasks. Your answers for these will n
 ###Assignment
 * Due Tuesday, Feb 3 at 5 pm
 * Assessment criteria
-	* Technical content X, appropriate syntax for written assessment answers
-	* Critical thinking X, explanations for written assessment answers
-	* Documentation: 5, citations for resources used in questions embedded in answers
+	* Technical content 45, appropriate syntax for written assessment answers
+	* Critical thinking 30, explanations for written assessment answers
+	* Documentation: 15, citations for resources used in questions embedded in answers, code comments included
 	* Professional behavior: 10, class participation, assignment formatting using homework template (including code formatted in `monospace`)
 * Written assessment: 
 	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk3Homework.md". Title (header) is "Unix scripting and pipelines." 
