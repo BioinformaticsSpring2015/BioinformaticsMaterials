@@ -225,6 +225,15 @@ Now you will see x's, indicating permission to use/execute the file, when you vi
 
 Ideally, we would set up a permanent folder on this computer for you to save your scripts, and also configure the shell for you to be able to run scripts in this folder more easily. Unfortunately, the configuration of these computerYou can read more about setting up your personal computer, adding scripts to your path, and file permissions in PCB Chapter 6.
 
+###Practice exercises (not part of your assignment, just for practice)
+
+Use Unix commands to complete the following tasks. Your answers for these will not be graded for credit.
+
+1. How many Carex species are in this data table: http://datadryad.org/bitstream/handle/10255/dryad.38186/cyp_states.csv
+2. Assume you have a directory containing hundreds of different kinds of files. Write a command that would find all `.txt` files containing the word `arugula`.
+3. Download `whenWhoWhere.sh` from [BioinformaticsMaterials/scripts](https://github.com/BioinformaticsSpring2015/BioinformaticsMaterials/tree/wk3/scripts/whenWhoWhere.sh). Run this script (no additional files are required) and describe the output.
+4. What is the difference between `wc -l input.txt` and `wc -l < input.txt`? Try out these commands on a file from the `pcfb/examples`.
+
 ###Assignment
 * Due Tuesday, Feb 3 at 5 pm
 * Assessment criteria
