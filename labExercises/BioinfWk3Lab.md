@@ -68,8 +68,12 @@ As described above, the entire task requires three lines and outputs two extra f
 
 ```
 #determining shortest sequence
+
+#counting number of characters in each file
 wc -c *.seq > length.txt
+#sorting files by length
 sort length.txt > length.sorted.txt
+#extracting the shortest sequence
 head -1 length.sorted.txt
 ```
 
@@ -109,7 +113,7 @@ $ for filename in FEC00001_1.seq FEC00002_1.seq
 
 If you run this command, you will see nothing print to the screen. You should have produced two duplicate sequence files with `backup.` as a prefix.
 
-There are a few important parts of this type of loop structure syntax. The first, second and forth lines represent the main structure of the loop. In the first line, `filename` is a variable, meaning it represents the two files listed later. `$filename` refers to the variable in specified in the first line. You can specify whatever you'd like for the variable, but it should be somewhat descriptive for what the variable specifies. The arrows (`>`) at the beginning of the second, third and fourth lines indicate the shell is still expecting more commands, and `done` closes the loop. The third line represents the commands which will be performed across all selected files. 
+There are a few important parts of this type of loop structure syntax. The first, second and forth lines represent the main structure of the loop. In the first line, `filename` is a variable, meaning it represents the two files listed later. `$filename` refers to the variable in specified in the first line. You can specify whatever name you'd like for the variable, but it should be somewhat descriptive for what the variable specifies. The arrows (`>`) at the beginning of the second, third and fourth lines indicate the shell is still expecting more commands, and `done` closes the loop. The third line represents the commands which will be performed across all selected files. 
 
 Here is a loop which performs the same action, but is slightly more refined:
 
@@ -139,7 +143,7 @@ $ for filename in *.seq
 > done
 ```
 
-You can save the output of this loop to a file using a redirect:
+In this case, `echo` just lists the name of the file so you can view it in the output. You can save the output of this loop to a file using a redirect:
 
 ```
 $ for filename in *.seq
@@ -159,6 +163,8 @@ $ for filename in *.seq
 > done
 ```
 
+This way, you can see the progress of the script as it runs (as names are printed to the screen), but the main results are printed to a file.
+
 **Reusing scripts**
 
 This lesson has taught you a few ways to connect several Unix commands together to make a powerful tool for obtaining information. Getting commands to work can be tricky, and you may want a way to save the work you've done for future reference. You can print the commands you've entered using `history`. In many circumstances, you may want to recall just the last few lines and save them to a file:
@@ -171,7 +177,7 @@ This lesson has taught you a few ways to connect several Unix commands together 
 
 You might also be interested in using the same series of commands on other files. To save time and to avoid mistakes in typing, you could save the commands as a script (i.e., in a separate text file). 
 
-Let's suppose you wanted a script that would create a dataset for testing by removing the header from a character-delimited dataset and printing the first 5 lines of data. We can test this using `pcfb/examples/shaver_etal.csv`:
+Let's suppose you wanted a script that would create a dataset for testing new scripts by removing the header from a character-delimited dataset and printing the first 5 lines of data. We can test this using `pcfb/examples/shaver_etal.csv`:
 
 `tail -n +2 shaver_etal.csv | head -5`
 
@@ -209,7 +215,7 @@ Now we are going to make this script an executable. Use `ls -l` to list the deta
 
 `./test.sh japetella_respiration.txt`
 
-Permission to read, write, and execute files is controlled by a command called `chmod`. You can add permissions for all users to use the file:
+Because this is a shell script, we have to specify for the computer where the script is located (`./`). Permission to read, write, and execute files is controlled by a command called `chmod`. You can add permissions for all users to use the file:
 
 `chmod u+x test.sh`
 
@@ -220,7 +226,7 @@ Now you will see x's, indicating permission to use/execute the file, when you vi
 Ideally, we would set up a permanent folder on this computer for you to save your scripts, and also configure the shell for you to be able to run scripts in this folder more easily. Unfortunately, the configuration of these computerYou can read more about setting up your personal computer, adding scripts to your path, and file permissions in PCB Chapter 6.
 
 ###Assignment
-* Due Tuesday, Jan X at 5 pm
+* Due Tuesday, Feb 3 at 5 pm
 * Assessment criteria
 	* Technical content X, appropriate syntax for written assessment answers
 	* Critical thinking X, explanations for written assessment answers
