@@ -88,7 +88,7 @@ Another way to combine Unix commands is by nesting one command inside another. F
 
 `grep "AUTHOR" $(find . -name '*.pdb')`
 
-The shell will run commands inside `$()` first, then run the rest of the command on the resulting output. 
+`$()` is a subshell; the shell runs commands contained within it first, then runs the rest of the command on the resulting output. 
 
 **Loops**
 
@@ -219,7 +219,7 @@ Now you will see x's, indicating permission to use/execute the file, when you vi
 
 Ideally, we would set up a permanent folder on this computer for you to save your scripts, and also configure the shell for you to be able to run scripts in this folder more easily. Unfortunately, the configuration of these computerYou can read more about setting up your personal computer, adding scripts to your path, and file permissions in PCB Chapter 6.
 
-###Assessment
+###Assignment
 * Due Tuesday, Jan X at 5 pm
 * Assessment criteria
 	* Technical content X, appropriate syntax for written assessment answers
@@ -234,6 +234,15 @@ Ideally, we would set up a permanent folder on this computer for you to save you
 	* Don't forget to preview your homework before committing! 
 	* If you get stuck on a question, please consult the textbook (see readings above).
 
-1. pseudocode
-2. code with comments
+1.  Why would it be a very bad idea to use the command `chmod o-r test.sh`?
+2.  
 3. 
+4. 
+5. 
+6.  Write a loop that concatenates the `FEC*.seq` files from `pcfb/examples` into one file named `concatenated.seq`.
+7.  Make a list of unique SITES from shaver_etal.csv in `pcfb/examples` using Unix commands. Include your code.
+8.  
+9.  How many woody species are in this data file: http://datadryad.org/bitstream/handle/10255/dryad.59002/GlobalWoodinessDatabase.csv? You can find the README for this file here: http://datadryad.org/bitstream/handle/10255/dryad.59002/README.txt. Include the code you used to determine your answer, including downloading from online.
+10. Create a script that will... Don't forget to include comments that describe the actions your script performs. Add this script to your GitHub homework repository as a new file named `Week3.sh`
+11. How long did it take you to complete these questions?
+12. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
