@@ -241,14 +241,15 @@ Ideally, we would set up a permanent folder on this computer for you to save you
 	* If you get stuck on a question, please consult the textbook (see readings above).
 
 1.  Why would it be a very bad idea to use the command `chmod o-r test.sh`?
-2.  
-3. 
-4. 
-5. 
-6.  Write a loop that concatenates the `FEC*.seq` files from `pcfb/examples` into one file named `concatenated.seq`.
+2.  Take a look at `whenWhoWhere.sh` in [BioinformaticsMaterials/scripts](https://github.com/BioinformaticsSpring2015/BioinformaticsMaterials/tree/wk3/scripts). Copy and paste the contents of this script into your answers and add comments that indicate what each step does. 
+3. Write a sentence to describe what happens at each step in the following pipeline. Assume each file contains columns of only numerical data. 
+`cat data1.txt data2.txt | sort -n | cut -d "," -f 1 > processedData.txt`
+4. Write a sentence to describe why variables are so useful in shell scripts.
+5.  Concatenate the `FEC*.seq` files from `pcfb/examples` into one file named `concatenated.seq`. Include your commands.
+6.  List all latitudes in `pcfb/examples/LatLon.txt` and save to a file called `Lat.txt`. Include you commands.
 7.  Make a list of unique SITES from shaver_etal.csv in `pcfb/examples` using Unix commands. Include your code.
-8.  
-9.  How many woody species are in this data file: http://datadryad.org/bitstream/handle/10255/dryad.59002/GlobalWoodinessDatabase.csv? You can find the README for this file here: http://datadryad.org/bitstream/handle/10255/dryad.59002/README.txt. Include the code you used to determine your answer, including downloading from online.
-10. Create a script that will... Don't forget to include comments that describe the actions your script performs. Add this script to your GitHub homework repository as a new file named `Week3.sh`
+8.  Write a script to print the last five commands you entered in the shell.
+9.  How many woody species are in this data file: http://datadryad.org/bitstream/handle/10255/dryad.59002/GlobalWoodinessDatabase.csv? You can find the README for this file here: http://datadryad.org/bitstream/handle/10255/dryad.59002/README.txt. Include the code you used to determine your answer, including downloading the file.
+10. Write a loop that will make a copy of every file in a directory, adding the work "backup" to the beginning of the copy's filename. Don't forget to include comments that describe the actions your script performs. Save this command as a shell script and upload to your GitHub homework repository as a new file named `Week3.sh`
 11. How long did it take you to complete these questions?
 12. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
