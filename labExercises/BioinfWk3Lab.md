@@ -186,6 +186,7 @@ Once you test this script to ensure that it works the way you'd like, you can op
 ```
 #! /bin/bash
 
+#making test dataset from shaver_etal.csv
 tail -n +2 shaver_etal.csv | head -5 > test.shaver_etal.csv
 ```
 
@@ -202,6 +203,7 @@ This command doesn't completely solve our problem, though, because we wanted to 
 ```
 #! /bin/bash
 
+#making test dataset from file entered on command line
 tail -n +2 $1 | head -5 > test.$1
 ```
 
