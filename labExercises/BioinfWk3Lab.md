@@ -226,7 +226,13 @@ Ideally, we would set up a permanent folder on this computer for you to save you
 	* Critical thinking X, explanations for written assessment answers
 	* Documentation: 5, citations for resources used in questions embedded in answers
 	* Professional behavior: 10, class participation, assignment formatting using homework template (including code formatted in `monospace`)
-* :pencil2: Written assessment: create new file in your homework repository, `LastnameHomework`, called `LastnameWk3Homework.md`. Title (header) is "Unix scripting and pipelines." Answer the following questions about the Unix tools you learned for this week's lab. Use appropriate Markdown formatting, including `monospace` when referencing commands you entered. Don't forget to preview your homework before committing!
+* :pencil2: Written assessment: 
+	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk3Homework.md". Title (header) is "Unix scripting and pipelines." 
+	* Answer the following questions about the Unix tools you learned for this week's lab, including code comments where appropriate 				
+	* Use appropriate Markdown formatting, including `monospace` when referencing commands you entered. 
+	* If you choose to copy and paste the questions before answering, it might help to copy from the Raw view. 
+	* Don't forget to preview your homework before committing! 
+	* If you get stuck on a question, please consult the textbook (see readings above).
 
 1. pseudocode
 2. code with comments
