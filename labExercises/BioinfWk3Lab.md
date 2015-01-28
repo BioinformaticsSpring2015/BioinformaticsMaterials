@@ -6,13 +6,13 @@ Slides for the introduction to today's lab, as well as a PDF of this document, c
 ###Learning Objectives
 You should be able to:
 
-1. Combine common Unix commands using multiple methods
+1. Combine common Unix commands using multiple methods (pipes, nesting, loops, shell scripts)
 2. Include comments to explain your code
 
 ###Readings:
 * PCB: Chapter 5 (Handling text in the shell)
 * PCB: Chapter 6 (Scripting with the shell)
-* While these chapters include much of what we will discuss in class today, the same topics are also referenced at other parts of PCB. Check in the index at the back of the book for other mentions of particular commands!
+* While these chapters include much of what we will discuss in class today, the same topics are also referenced at other parts of PCB (for example, Chapter 16, Advanced shell and pipelines). Check in the index at the back of the book for other mentions of particular commands! 
 
 Additional materials for reference:
 * Software Carpentry, [Pipes and Filters](http://software-carpentry.org/v5/novice/shell/03-pipefilter.html)
