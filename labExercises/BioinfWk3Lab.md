@@ -243,7 +243,7 @@ Use Unix commands to complete the following tasks. Your answers for these will n
 	* Critical thinking X, explanations for written assessment answers
 	* Documentation: 5, citations for resources used in questions embedded in answers
 	* Professional behavior: 10, class participation, assignment formatting using homework template (including code formatted in `monospace`)
-* :pencil2: Written assessment: 
+* Written assessment: 
 	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk3Homework.md". Title (header) is "Unix scripting and pipelines." 
 	* Answer the following questions about the Unix tools you learned for this week's lab, including code comments where appropriate 				
 	* Use appropriate Markdown formatting, including `monospace` when referencing commands you entered. 
