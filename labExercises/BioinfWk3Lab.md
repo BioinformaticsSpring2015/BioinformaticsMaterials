@@ -28,7 +28,7 @@ Now that you've learned some common Unix commands, you're ready to start learnin
 
 We're going to use the same `Examples` file from the [Practical Computing for Biologists website](http://practicalcomputing.org/downloads) as last week. This time, though, we're going to download it using the command line. Note that this exercise uses `wget` while PCB uses `curl`, but both of these commands are equivalent.
 
-First, we need to learn how to install additional packages in Cygwin. Go to the [Cygwin website](https://www.cygwin.com) and select the page on the left to "Update Cygwin." Click on `setup-x86_64.exe` to download the file. When the download is complete, click on it to open the installer. Click through the default settings; when you need to choose a download site, select `http://missors-usa.go-parts.com`. After the mirror is reached, a page will appear directing you to select packages. Search for `wget`; it will appear in a few categories. Expand the Web category and click on Skip; it will change to Install. Do the same for `zip` and `unzip`. Then click next, then Finish. Cygwin has now been updated with three new packages, `wget`, `zip`, and `unzip`.
+First, we need to learn how to install additional packages in Cygwin. Go to the [Cygwin website](https://www.cygwin.com) and select the page on the left to "Update Cygwin." Click on `setup-x86_64.exe` to download the file. When the download is complete, click on it to open the installer. Click through the default settings; when you need to choose a download site, select `http://missors-usa.go-parts.com`. After the mirror is reached, a page will appear directing you to select packages. Search for `wget`; it will appear in a few categories. Expand the Web category and click on Skip; it will change to Install. Do the same for `unix2dos` and `unzip`. Then click next, then Finish. Cygwin has now been updated with three new packages, `wget`, `unix2dos`, and `unzip`.
 
 Now we're going to have a quick refresher on paths (where you are in the computer). It's easiest for us to work on files in class when we can also see them on the Desktop, so we're going to move there from our home directory (which opens in Cygwin by default). Last week week, we used `cd` followed by a drag-and-drop shortcut to get to a directory on your Desktop. It will be useful for you to know the actual path to your Desktop on the lab computers. Save this command, because you'll probably use it at least once a week. `username` is what you used to log in to the computer.
 
@@ -229,12 +229,12 @@ Ideally, we would set up a permanent folder on this computer for you to save you
 
 ###Practice exercises (not part of your assignment, just for practice)
 
-Use Unix commands to complete the following tasks. Your answers for these will not be graded for credit.
+Use Unix commands to complete the following tasks. Your answers for these will not be graded for credit. These exercises will help you become more comfortable working with files after downloading from the internet.
 
-1. How many Carex species are in this data table: http://datadryad.org/bitstream/handle/10255/dryad.38186/cyp_states.csv
+1. How many Carex species are in this data table: http://datadryad.org/bitstream/handle/10255/dryad.38186/cyp_states.csv. Hint: If you are on a lab computer or other Windows machine, after downloading the file, you will need to open it up in Notepad++, got to Edit->EOL Conversion->Windows format. Save your file and you should be ready to open it on the command line. Alternatively, you can use the `unix2dos` command we installed at the start of class: `unix2dos -k cyp_states.csv`
 2. Assume you have a directory containing hundreds of different kinds of files. Write a command that would find all `.txt` files containing the word `arugula`.
-3. Download `whenWhoWhere.sh` from [BioinformaticsMaterials/scripts](https://github.com/BioinformaticsSpring2015/BioinformaticsMaterials/tree/wk3/scripts/whenWhoWhere.sh). Run this script (no additional files are required) and describe the output.
-4. What is the difference between `wc -l input.txt` and `wc -l < input.txt`? Try out these commands on a file from the `pcfb/examples`.
+3. Download this repo to your computer by going to the [main page](https://github.com/BioinformaticsSpring2015/BioinformaticsMaterials) and clicking "Download ZIP." Navigate to your Downloads folder in Cygwin and unzip the file. Navigate to the scripts folder. Run the `whenWhoWhere.sh` script (no additional files are required) and describe the output.
+4. What is the difference between `wc -l input.txt` and `wc -l < input.txt`? Try out these commands on a file from the `pcfb/examples`.using 
 
 ###Assignment
 * Due Tuesday, Feb 3 at 5 pm
@@ -253,7 +253,7 @@ Use Unix commands to complete the following tasks. Your answers for these will n
 
 1.  Why would it be a very bad idea to use the command `chmod o-r test.sh`?
 2.  Take a look at `whenWhoWhere.sh` in [BioinformaticsMaterials/scripts](https://github.com/BioinformaticsSpring2015/BioinformaticsMaterials/tree/wk3/scripts). Copy and paste the contents of this script into your answers and add comments that indicate what each step does. 
-3. Write a sentence to describe what happens at each step in the following pipeline. Assume each file contains columns of only numerical data. 
+3. Write a sentence to describe what happens at each step (i.e., what occurs between pipes) in the following pipeline. Assume each file contains columns of only numerical data. 
 `cat data1.txt data2.txt | sort -n | cut -d "," -f 1 > processedData.txt`
 4. Write a sentence to describe why variables are so useful in shell scripts.
 5.  Concatenate the `FEC*.seq` files from `pcfb/examples` into one file named `concatenated.seq`. Include your commands.
