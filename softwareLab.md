@@ -9,7 +9,7 @@
 **Windows**
 
 * **Text editor:** [Notepad++](http://notepad-plus-plus.org) or [jEdit](http://www.jedit.org)
-* **Unix shell:** [Cygwin](https://www.cygwin.com), which has the option to install perl, python and other languages as well. If you install this, you should include (at the very least) the following packages: perl, python, nano
+* **Unix shell:** [Cygwin](https://www.cygwin.com), which has the option to install perl, python and other languages as well. If you install this, you should include (at the very least) the following packages: perl, python, nano, wget, zip, unzip, make.
 
 
 **Mac**
