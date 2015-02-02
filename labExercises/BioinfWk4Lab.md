@@ -10,14 +10,126 @@ You should be able to:
 2. Produce general summary statistics in R
 
 ###Readings:
-* XXX
+* IOS Chapter 1: Introduction to data
+* IOS Chapter 2: Probability
+* IOS Chapter 3: Distributions of random variables
+* [R for data science](http://www.sharpsightlabs.com/learn-r-data-science/)
+* [R for bioinformatics](http://www.nature.com/news/programming-tools-adventures-with-r-1.16609)
 
 Additional materials for reference:
-* XXX
+* Software Carpentry, [Analyzing patient data](http://software-carpentry.org/v5/novice/r/01-starting-with-data.html)
+* Data Carpentry also has [several lessons in R](https://github.com/datacarpentry/datacarpentry/tree/master/lessons/R)
 
 ###Activities
 
-**subheading**
+**Orientation to RStudio and setting up files**
+
+RStudio has different windows to allow quick movement between different tasks
+
+R scripts end in `.R`, just like Unix scripts end in `.sh`.
+
+Comments in R are indicated using `#`, just like with Unix commands.
+
+Command prompt
+
+File->New project->New directory->Empty project (name project, store on Desktop)
+
+Create project
+
+Files->New folder, name data
+
+File->New file->R script
+
+**Loading data**
+
+`setwd("XXX")`
+
+basic arithmetic
+
+creating new variables using `<-`
+
+arithmetic with variables
+
+assigning new value to variable
+
+Read data from file and save to variable:
+
+`dat<-read.csv(file = "XXX", header = FALSE)`
+
+Viewing `dat`: (also, viewing in different windows in RStudio)
+
+head(dat)
+
+What is dat:
+
+class(dat)
+
+Shape of dat in (rows, columns):
+
+dim(dat)
+
+Obtaining single value from dat:
+
+dat[1,1]
+
+Obtaining range of values from dat (with slices). Do not need to start with 1:
+
+dat[1:X, 1:X]
+
+combining values that are non-contiguous:
+
+dat[c(X, X, X, X), c(X, X, X)]
+
+Can leave row or column blank to indicate all:
+
+dat[5, ]
+
+Extract one row:
+
+first<-dat[1, ]
+
+**Summary statistics**
+
+Max for that row:
+
+max(first)
+
+You can also just call piece of dat:
+
+max(dat[X, ])
+
+Min for one column:
+
+min(dat[, X])
+
+Mean for one column:
+
+mean(dat[, X])
+
+Median:
+
+median(dat[, X])
+
+Standard deviation:
+
+sd(dat{, X])
+
+Use `apply` as a way to summarize across entire rows or columns.
+
+averageRows <- apply(dat, 1, mean)
+rowMeans
+
+averageColumns <- apply(dat, 2, mean)
+colMeans
+
+**Making figures**
+
+plot(averageColumns)
+
+What other options are there for adding more information to this plot?
+
+Use `?plot` to find the documentation for this command. You can also use the command `args(plot)` to find out what else you can 
+
 
 ###Practice exercises (not part of your assignment, just for practice)
 
