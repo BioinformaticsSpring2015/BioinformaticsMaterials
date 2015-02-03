@@ -24,27 +24,29 @@ Additional materials for reference:
 
 **Orientation to RStudio and setting up files**
 
-RStudio has different windows to allow quick movement between different tasks
+This lab uses RStudio to write scripts, manage files, and run commands. There is an additional R application on the lab computers, but it is a bare-bones version and a bit more difficult to manage, so make sure you're in the correct program!
 
-R scripts end in `.R`, just like Unix scripts end in `.sh`.
+Open up RStudio. Go to File->New Project, choose New directory, then Empty Project. Name your new directory `BoinformaticsR` and select the Desktop for its placement. This is your working directory today with path `~/BioinformaticsR`). Click Create Project and you'll see `BioinformaticsR.Rproj` listed in the lower right window.
 
-Comments in R are indicated using `#`, just like with Unix commands.
+In the same lower right window, click Files->New Folder and name it `data`. Then go to the upper left of the screen and select File->New File->R script; you'll see it appear in a new window in the upper left side of the program. Save it and name it `myscript.R`. R scripts end in `.R`, just like Unix scripts end in `.sh`.
 
-Command prompt
+RStudio has different windows to allow quick movement between different tasks. This integrated interface is set up to help streamline the process of creating managing, and documenting scripts. The top left window is the script file you just created; it is a text editor for you to save commands and comments. The window in the lower left is the console, which is where commands are actually run. The upper right screen includes Environments, which represents both commands and data objects you've entered in the console. The lower right hand window includes several functions, including file management, visualizing plots, installing packages, and help documentation.
 
-File->New project->New directory->Empty project (name project, store on Desktop)
+**General R usage**
 
-Create project
+Comments in R are indicated using `#`, just like with Unix commands. Nothing on the same line to the right of `#` is ignored by R.
 
-Files->New folder, name data
+The command prompt in R is `>`, which should appear at the beginning of every line that is ready to accept a new command. If you see a plus sign `+`, R is expecting you to complete a command. It's probably because you forgot to close your parentheses. If entering `)` doesn't work, you can try hitting Escape on your keyboard (although sometimes RStudio crashes).
 
-File->New file->R script
+`<-` is called an assignment operator. It assigns values on the right to objects on the left. Think of it as an arrow pointing from the value to the object.
+
+basic arithmetic
 
 **Loading data**
 
-`setwd("XXX")`
+Because you've created a new project in R, your working directory has already been assigned.
 
-basic arithmetic
+`setwd("XXX")`
 
 creating new variables using `<-`
 
@@ -130,6 +132,9 @@ What other options are there for adding more information to this plot?
 
 Use `?plot` to find the documentation for this command. You can also use the command `args(plot)` to find out what else you can 
 
+**Saving your work**
+
+When you are done working for the day, do not forget to back up your entire `BioinformaticsR` directory on your flash drive before logging off the computer! If you would like to come back later and start working, you should open RStudio, go to Open Project, and select `BioinformaticsR.Rproj`. This will reset everything in RStudio, including your working directory, to where you were last time you saved it.
 
 ###Practice exercises (not part of your assignment, just for practice)
 
@@ -143,11 +148,11 @@ Use `?plot` to find the documentation for this command. You can also use the com
 	* Documentation: 5, citations for resources used in questions embedded in answers
 	* Professional behavior: 10, class participation, assignment formatting using homework template (including code formatted in `monospace`)
 * Written assessment: 
-	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk3Homework.md". Title (header) is "Unix scripting and pipelines." 
-	* Answer the following questions about the Unix tools you learned for this week's lab, including code comments where appropriate 				
+	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk4Homework.md`. Title (header) is "Unix scripting and pipelines." 
+	* Answer the following questions about the Unix tools you learned for the lab this week, including code comments where appropriate 				
 	* Use appropriate Markdown formatting, including `monospace` when referencing commands you entered. 
 	* If you choose to copy and paste the questions before answering, it might help to copy from the Raw view. 
-	* Don't forget to preview your homework before committing! 
+	* Do not forget to preview your homework before committing! 
 	* If you get stuck on a question, please consult the textbook (see readings above).
 
 1. 
