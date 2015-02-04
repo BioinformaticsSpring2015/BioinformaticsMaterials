@@ -1,5 +1,22 @@
 #R commands: key points
 
+* `# this is a comment in R`
+* `setwd("../path/..")` change and set the working directory
+
+**Working with objects**
+* `x <- 3` assignment operator, assigns values on right (3) to objects on left (x)
+* `head(data)`
+* `class(data)`
+* `dim(data)`
+* `ls()` list objects in current environment
+* `rm(x)` remove objects in current environment
+* `rm(list = ls())` remove all objects in current environment
+* `c(value1, value2, value3)` creates a vector
+
+**Loading data**
+
+**Summary statistics**
+
 **Finding help**
 * `?command` show documentation for specific command
 * `args(command)`	show arguments available for specific command
