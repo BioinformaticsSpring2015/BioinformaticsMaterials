@@ -52,103 +52,141 @@ RStudio has different windows to allow quick movement between different tasks. T
 
 **Working with data**
 
-The simplest way to add data to R is by assigning a value to an object:
+So far, we've been working in the Console to execute commands directly. The really cool part of RStudio is that you can easily save all of the commands you enter in scripts (top left window). We're going to practice entering commands in the source file with comments that explain what the command does.
 
-`mass <- 50.5`
+The simplest way to add data to R is by assigning a value to an object. Enter the following command in the source window (upper left):
+
+```
+#assign value to object
+mass <- 50.5
+```
+
+After entering the command, hit `Ctrl+Enter` and you'll see the command execute in the Console below. If you try to execute the commented line (starting with `#`), the line will appear in the Console but nothing will happen. Remember to regularly save the source file as you're working.
 
 In this case, `mass` is a variable for which you've specified a particular number. `<-` is called an assignment operator. It assigns values on the right to objects on the left. Think of it as an arrow pointing from the value to the object. You can confirm the value has been assigned by typing `mass`.
 
 You can perform arithmetic with these variables. For example, if the original value was in grams, you can convert to kilograms:
 
-`kg <- mass * 1000`
+```
+#arithmetic with variables
+kg <- mass * 1000
+```
 
 This retains the value associated with `mass` while specifying a new variable, `kg`. Type `kg` to ensure the value has been saved.
 
 You can change the initial assignment of a variable:
 
-`mass <- 25.5`
+```
+#replacing value for variable
+mass <- 25.5
+```
 
 But if you recheck `kg`, you'll see it's not been automatically updated. You can recall old commands in R by using the up arrow and re-run the conversion from grams to kilograms.
 
 You may have noticed that `mass` and `kg` have also appeared in the Environment window. This is because R is now storing them as variables for you to recall.
 
-While it is possibly to enter data manually, there are several datasets pre-loaded in R. We're going to use one of them to learn about working with larger data structures. You can view the data in the console:
+While it is possibly to enter data manually, there are several datasets pre-loaded in R. We're going to use one of them to learn about working with larger data structures. You can view the data in the console by entering and executing the following command in the source file:
 
-`trees`
+```
+#view data for preloaded dataset
+trees
+```
 
 You can see this dataset includes three columns. If you want to know more about these pre-loaded data, or about any other command in R:
 
-`?trees`
+```
+#display documentation for "trees"
+?trees
+```
 
 In RStudio, the documentation will appear in the lower right screen. You can also search in this window instead of in the console.
 
 View the first few lines of the data file:
 
-`head(trees)`
+```
+#display a few lines of "trees"
+head(trees)
+```
 
 View the data structure:
 
-`class(trees)`
+```
+#show class for "trees"
+class(trees)
+```
 
 The result, `data.frame`, is a fundamental data structure used by R. It defines relationships between variables. In this case, rows are individual trees sampled and each column is a piece of data about that tree. 
 
 View the shape of these data (dimension). The output is given in rows and columns:
 
-`dim(trees)`
+```
+#show number of rows and columns in "trees"
+dim(trees)
+```
 
-Extract a single variable from this dataset, corresponding the cell in the first row and first column:
+Extract a single variable from this dataset, corresponding to the cell in the first row and first column:
 
-`trees[1,1]`
+```
+#show value from first row and first column
+trees[1, 1]
+```
 
 Extract a range of values (referred to as a "slice"):
 
-`trees[2:6, 1:2]`
+```
+#extract slice of "trees"; rows 2-6 and columns 1-2
+trees[2:6, 1:2]
+```
 
 Combine values that are non-contiguous:
 
-dat[c(X, X, X, X), c(1, X, 3)]
+```
+#extract rows 2, 7, 10, 21 for columns 1 and 3
+trees[c(2, 7, 10, 21), c(1, 3)]
+```
 
-Can leave row or column blank to indicate all:
+Leave row or column value blank to indicate the entire row or column:
 
-dat[5, ]
+```
+#extract row 5
+trees[5, ]
+```
 
-Extract one row:
+Extract one column and assign to new object:
 
-first<-dat[1, ]
+```
+#assign column one to "girth"
+girth<-trees[ ,1]
+```
+
+Go ahead and save your source file. You now have your own file that includes all commands and comments that indicate what they do. This method of saving your commands in the source file and executing them using `Ctrl+Enter` is a great way to keep track of your work. The alternative is testing commands in the Console and then copying and pasting them to the source file, which can introduce error (and is even more tedious).
 
 **Summary statistics**
 
-Max for that row:
+Now that you know how to extract parts of a dataset, we're ready to start summarizing these data.
 
-max(first)
+The commands to find general summary statistics for data are fairly intuitive:
 
-You can also just call piece of dat:
+```
+#show maximum value for object
+max(girth)
+#show minimum value for object
+min(girth)
+#show mean value for object
+mean(girth)
+#show median value for object
+median(girth)
+#show standard devation of object
+sd(girth)
+```
 
-max(dat[X, ])
-
-Min for one column:
-
-min(dat[, X])
-
-Mean for one column:
-
-mean(dat[, X])
-
-Median:
-
-median(dat[, X])
-
-Standard deviation:
-
-sd(dat{, X])
+If you wanted to apply these same statistics to another row, like 
 
 Use `apply` as a way to summarize across entire rows or columns.
 
 averageRows <- apply(dat, 1, mean)
-rowMeans
 
 averageColumns <- apply(dat, 2, mean)
-colMeans
 
 Comments in R are indicated using `#`, just like with Unix commands. Nothing on the same line to the right of `#` is ignored by R.
 
@@ -159,6 +197,9 @@ Read data from file and save to variable:
 `dat<-read.csv(file = "XXX", header = FALSE)`
 
 Use `=` to specify arguments.
+
+[Keyboard shortcuts for working in RStudio](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts)
+
 
 **Visualizing data**
 
