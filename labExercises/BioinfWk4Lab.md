@@ -22,65 +22,91 @@ Additional materials for reference:
 
 ###Activities
 
-**Orientation to RStudio and setting up files**
+**Orientation to RStudio and setting up a project**
 
 This lab uses RStudio to write scripts, manage files, and run commands. There is an additional R application on the lab computers, but it is a bare-bones version and a bit more difficult to manage, so make sure you're in the correct program!
 
-Open up RStudio. Go to File->New Project, choose New directory, then Empty Project. Name your new directory `BoinformaticsR` and select the Desktop for its placement. This is your working directory today with path `~/BioinformaticsR`). Click Create Project and you'll see `BioinformaticsR.Rproj` listed in the lower right window.
+Open up RStudio. The window you see to the left is your console, where you enter commands to run. You can perform basic arithmetic in R. The spaces before and after the plus sign represent appropriate formatting for scripts, as it makes commands more readable:
+
+`5 + 5`
+
+The answer should be printed to your screen:
+
+`[1] 10`
+
+The 1 in brackets indicates the answer is a single output. Try a few more simple problems on your own.
+
+You can move to different directories similarly to the Unix `cd` command:
+
+`setwd("../")`
+
+You should have moved up one level in the computer's file hierarchy. You might've noticed that RStudio automatically adds the closing quotation mark required to specify the path, as well as the closing parentheses.
+
+The command prompt in R is `>`, which should appear at the beginning of every line that is ready to accept a new command. If you see a plus sign `+`, R is expecting you to complete a command. It's probably because you forgot to close your parentheses. If entering `)` doesn't work, you can try hitting `esc` on your keyboard (although sometimes RStudio crashes).
+
+One of the benefits of working in RStudio is that you can create projects that will help keep your files and preferences consistent between work sessions. To create a project got to File->New Project, choose New directory, then Empty Project. Name your new directory `BoinformaticsR` and select the Desktop for its placement. This is your working directory today with path `~/BioinformaticsR`). Click Create Project and you'll see `BioinformaticsR.Rproj` listed in the lower right window.
 
 In the same lower right window, click Files->New Folder and name it `data`. Then go to the upper left of the screen and select File->New File->R script; you'll see it appear in a new window in the upper left side of the program. Save it and name it `myscript.R`. R scripts end in `.R`, just like Unix scripts end in `.sh`.
 
 RStudio has different windows to allow quick movement between different tasks. This integrated interface is set up to help streamline the process of creating managing, and documenting scripts. The top left window is the script file you just created; it is a text editor for you to save commands and comments. The window in the lower left is the console, which is where commands are actually run. The upper right screen includes Environments, which represents both commands and data objects you've entered in the console. The lower right hand window includes several functions, including file management, visualizing plots, installing packages, and help documentation.
 
-**General R usage**
+**Working with data**
 
-Comments in R are indicated using `#`, just like with Unix commands. Nothing on the same line to the right of `#` is ignored by R.
+The simplest way to add data to R is by assigning a value to an object:
 
-The command prompt in R is `>`, which should appear at the beginning of every line that is ready to accept a new command. If you see a plus sign `+`, R is expecting you to complete a command. It's probably because you forgot to close your parentheses. If entering `)` doesn't work, you can try hitting Escape on your keyboard (although sometimes RStudio crashes).
+`mass <- 50.5`
 
-`<-` is called an assignment operator. It assigns values on the right to objects on the left. Think of it as an arrow pointing from the value to the object.
+In this case, `mass` is a variable for which you've specified a particular number. `<-` is called an assignment operator. It assigns values on the right to objects on the left. Think of it as an arrow pointing from the value to the object. You can confirm the value has been assigned by typing `mass`.
 
-basic arithmetic
+You can perform arithmetic with these variables. For example, if the original value was in grams, you can convert to kilograms:
 
-**Loading data**
+`kg <- mass * 1000`
 
-Because you've created a new project in R, your working directory has already been assigned.
+This retains the value associated with `mass` while specifying a new variable, `kg`. Type `kg` to ensure the value has been saved.
 
-`setwd("XXX")`
+You can change the initial assignment of a variable:
 
-creating new variables using `<-`
+`mass <- 25.5`
 
-arithmetic with variables
+But if you recheck `kg`, you'll see it's not been automatically updated. You can recall old commands in R by using the up arrow and re-run the conversion from grams to kilograms.
 
-assigning new value to variable
+You may have noticed that `mass` and `kg` have also appeared in the Environment window. This is because R is now storing them as variables for you to recall.
 
-Read data from file and save to variable:
+While it is possibly to enter data manually, there are several datasets pre-loaded in R. We're going to use one of them to learn about working with larger data structures. You can view the data in the console:
 
-`dat<-read.csv(file = "XXX", header = FALSE)`
+`trees`
 
-Viewing `dat`: (also, viewing in different windows in RStudio)
+You can see this dataset includes three columns. If you want to know more about these pre-loaded data, or about any other command in R:
 
-head(dat)
+`?trees`
 
-What is dat:
+In RStudio, the documentation will appear in the lower right screen. You can also search in this window instead of in the console.
 
-class(dat)
+View the first few lines of the data file:
 
-Shape of dat in (rows, columns):
+`head(trees)`
 
-dim(dat)
+View the data structure:
 
-Obtaining single value from dat:
+`class(trees)`
 
-dat[1,1]
+The result, `data.frame`, is a fundamental data structure used by R. It defines relationships between variables. In this case, rows are individual trees sampled and each column is a piece of data about that tree. 
 
-Obtaining range of values from dat (with slices). Do not need to start with 1:
+View the shape of these data (dimension). The output is given in rows and columns:
 
-dat[1:X, 1:X]
+`dim(trees)`
 
-combining values that are non-contiguous:
+Extract a single variable from this dataset, corresponding the cell in the first row and first column:
 
-dat[c(X, X, X, X), c(X, X, X)]
+`trees[1,1]`
+
+Extract a range of values (referred to as a "slice"):
+
+`trees[2:6, 1:2]`
+
+Combine values that are non-contiguous:
+
+dat[c(X, X, X, X), c(1, X, 3)]
 
 Can leave row or column blank to indicate all:
 
@@ -124,7 +150,17 @@ rowMeans
 averageColumns <- apply(dat, 2, mean)
 colMeans
 
-**Making figures**
+Comments in R are indicated using `#`, just like with Unix commands. Nothing on the same line to the right of `#` is ignored by R.
+
+Remember that R is case sensitive!
+
+Read data from file and save to variable:
+
+`dat<-read.csv(file = "XXX", header = FALSE)`
+
+Use `=` to specify arguments.
+
+**Visualizing data**
 
 plot(averageColumns)
 
