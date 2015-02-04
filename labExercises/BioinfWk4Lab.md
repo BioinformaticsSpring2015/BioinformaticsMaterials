@@ -363,14 +363,14 @@ When you are done working for the day, do not forget to save `myscript.R` and ba
 **Most data referenced below are available pre-loaded in the `openintro` package. Make sure you have this package installed and loaded.**
 
 1. List three commands that perform similar functions in R and Unix. Describe the syntax and functionality in both R and Unix.
-2. summary stats
-3. Make a bar plot displaying the number of chickens for each feed type in `chickwts`. The x-axis doesn't display properly with default options (we'll learn how to fix this in a few weeks). How can you find out what the feed types are supposed to be? Include your code with comments.
-4. Make a histogram showing weights in `chickwts`. How would you describe this distribution? Include the code (with comments) you used to determine your answer.
-5. Examine the histograms for each of the three variables in `trees`. Which appears the most normally distributed? Include the code (with comments) you used to determine your answer.
-6. scatterplot
-7. scatterplot
-8. 
-9. 
-10. 
+2. How many columns and rows are in `mammals`? Include the code (with comments) you used to determine your answer.
+3. Assuming the weights in `chickwts` are in grams, how would you convert them to kilograms? Include the code (with comments) you used to determine your answer.
+4. class
+5. summary stats
+6. Make a bar plot displaying the number of chickens for each feed type in `chickwts`. The x-axis doesn't display properly with default options (we'll learn how to fix this in a few weeks). How can you find out what the feed types are supposed to be? Include your code with comments.
+7. Make a histogram showing weights in `chickwts`. How would you describe this distribution? Include the code (with comments) you used to determine your answer.
+8. Examine the histograms for each of the three variables in `trees`. Which appears the most normally distributed? Include the code (with comments) you used to determine your answer.
+9. scatterplot
+10. scatterplot
 11. How long did it take you to complete these questions?
 12. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
