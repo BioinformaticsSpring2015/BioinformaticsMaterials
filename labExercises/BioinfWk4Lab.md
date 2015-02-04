@@ -83,7 +83,14 @@ mass <- 25.5
 
 But if you recheck `kg`, you'll see it's not been automatically updated. You can recall old commands in R by using the up arrow and re-run the conversion from grams to kilograms.
 
-You may have noticed that `mass` and `kg` have also appeared in the Environment window. This is because R is now storing them as variables for you to recall.
+You may have noticed that `mass` and `kg` have also appeared in the Environment window. This is because R is now storing them as variables for you to recall. You can also view these variables in the Console window:
+
+```
+#show objects in environment
+ls()
+```
+
+Because this is a command that acts on the entire environment, there is nothing in the parentheses (but they still have to be there!).
 
 While it is possibly to enter data manually, there are several datasets pre-loaded in R. We're going to use one of them to learn about working with larger data structures. You can view the data in the console by entering and executing the following command in the source file:
 
@@ -180,23 +187,49 @@ median(girth)
 sd(girth)
 ```
 
-If you wanted to apply these same statistics to another row, like 
+If you wanted to apply these same statistics to another column of your data, like Height, you don't actually need to assign it to an object first. There are a few ways to accomplish this task:
 
-Use `apply` as a way to summarize across entire rows or columns.
+```
+#find mean for subset of "trees"
+mean(trees[ ,2])
+```
 
-averageRows <- apply(dat, 1, mean)
+In this case, we're doing two things at once: extracting a portion of the dataset and then calculating the mean. However, we have headers for these data, so we can use those:
 
-averageColumns <- apply(dat, 2, mean)
+```
+#find mean for subset of "trees"
+mean(trees$Height)
+```
 
-Comments in R are indicated using `#`, just like with Unix commands. Nothing on the same line to the right of `#` is ignored by R.
+Here, we've used a special type of notation in R that refers to particular columns in a data frame (`$`). Remember that R is case sensitive! 
 
-Remember that R is case sensitive!
+If we were interested in obtaining the means for each column in the dataset, we can execute the same command across multiple parts of the data:
 
-Read data from file and save to variable:
+```
+#find mean for each column
+averageColumns <- apply(trees, 2, mean)
+#dislay averageColumns
+averageColumns
+```
 
-`dat<-read.csv(file = "XXX", header = FALSE)`
+The command here, `apply`, is a bit more complicated that previous commands. There are three things specified in parentheses. The first is the dataset we're targeting. The second references which margin of the dataset we're targeting (1 means row, 2 means column). Finally, `mean` is the function, or what action we want applied to the specified data. Finally, the answer is being assigned to the variable `averageColumns`. 
 
-Use `=` to specify arguments.
+Note that we could also apply the same function to rows using `apply(trees, 2, mean)`, but it doesn't make much sense given the data in this frame.
+
+**Entering and analyzing data from a file**
+
+So far, we've manually entered data in R and used some pre-loaded datasets. These options are quite limited, though, so now we're going to load some of our own data from a file. Go to the [OpenIntroStats website](https://www.openintro.org/stat/textbook.php), click on "Data sets + R packages" and download the zip file (first in the list). Unzip the file and move it to your `BioinformaticsR` folder.
+
+Let's practice loading one of these files into R. First, we need to find out the character delimiter and whether there is a header. You can use the "Files" tab in the lower left window to navigate to the openintroData folder. Double click on `maleHeights.txt` and it will open in the upper left window. Indeed, there is a header, and only one column of data (no delimiters).
+
+```
+#read data from file and save to variable
+heights <- read.csv(file = "maleHeights.txt", header = TRUE)
+#print the first few lines of heights
+head(heights)
+```
+
+This command, `read.csv`, is used to load comma-delimited files. There are two arguments inside the parentheses, and `=` is used to to specify options. Note that the name of the file is in quotation marks. 
 
 [Keyboard shortcuts for working in RStudio](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts)
 
