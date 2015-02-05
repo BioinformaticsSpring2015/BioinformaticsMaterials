@@ -65,11 +65,11 @@ After entering the command, hit `Ctrl+Enter` and you'll see the command execute 
 
 In this case, `mass` is a variable for which you've specified a particular number. `<-` is called an assignment operator. It assigns values on the right to objects on the left. Think of it as an arrow pointing from the value to the object. You can confirm the value has been assigned by typing `mass`.
 
-You can perform arithmetic with these variables. For example, if the original value was in grams, you can convert to kilograms:
+You can perform arithmetic with these variables. For example, if the original value was in kilograms, you can convert to grams:
 
 ```
 #arithmetic with variables
-kg <- mass * 1000
+grams <- mass * 1000
 ```
 
 This retains the value associated with `mass` while specifying a new variable, `kg`. Type `kg` to ensure the value has been saved.
@@ -214,7 +214,7 @@ averageColumns
 
 The command here, `apply`, is a bit more complicated that previous commands. There are three things specified in parentheses. The first is the dataset we're targeting. The second references which margin of the dataset we're targeting (1 means row, 2 means column). Finally, `mean` is the function, or what action we want applied to the specified data. Finally, the answer is being assigned to the variable `averageColumns`. Please note that this will not work if you have categorical values or missing data in your data frame.
 
-Note that we could also apply the same function to rows using `apply(trees, 2, mean)`, but it doesn't make much sense given the data in this frame.
+Note that we could also apply the same function to rows using `apply(trees, 1, mean)`, but it doesn't make much sense given the data in this frame.
 
 So far, we've been working with numerical data. Data frames in R can include multiple types of data, however:
 
