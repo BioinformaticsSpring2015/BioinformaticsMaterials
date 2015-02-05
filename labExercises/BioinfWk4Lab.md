@@ -367,9 +367,9 @@ When you are done working for the day, do not forget to save `myscript.R` and ba
 ###Assignment
 * Due Wednesday, Feb 11 at 5 pm
 * Assessment criteria
-	* Technical content X, appropriate syntax for written assessment answers
-	* Critical thinking X, explanations for written assessment answers
-	* Documentation: 5, citations for resources used in questions embedded in answers, code comments included
+	* Technical content 40, appropriate syntax for written assessment answers
+	* Critical thinking 30, explanations for written assessment answers
+	* Documentation: 20, citations for resources used in questions embedded in answers, code comments included
 	* Professional behavior: 10, class participation, assignment formatting using homework template (including code formatted in `monospace`)
 * Written assessment: 
 	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk4Homework.md`. Title (header) is "Variation in data using R." 
