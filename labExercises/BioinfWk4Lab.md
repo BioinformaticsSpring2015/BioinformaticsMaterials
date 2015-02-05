@@ -10,9 +10,9 @@ You should be able to:
 2. Produce general summary statistics in R
 
 ###Readings:
-* IOS Chapter 1: Introduction to data
-* IOS Chapter 2: Probability
-* IOS Chapter 3: Distributions of random variables
+* OIS Chapter 1: Introduction to data
+* OIS Chapter 2: Probability
+* OIS Chapter 3: Distributions of random variables
 * [R for data science](http://www.sharpsightlabs.com/learn-r-data-science/)
 * [R for bioinformatics](http://www.nature.com/news/programming-tools-adventures-with-r-1.16609)
 
@@ -34,7 +34,7 @@ The answer should be printed to your screen:
 
 `[1] 10`
 
-The 1 in brackets indicates the answer is a single output. Try a few more simple problems on your own.
+R adds numbers in brackets to indicate the position of values in a vector or matrix (we can ignore them for now). Try a few more simple math problems on your own.
 
 You can move to different directories similarly to the Unix `cd` command:
 
@@ -44,7 +44,7 @@ You should have moved up one level in the computer's file hierarchy. You might'v
 
 The command prompt in R is `>`, which should appear at the beginning of every line that is ready to accept a new command. If you see a plus sign `+`, R is expecting you to complete a command. It's probably because you forgot to close your parentheses. If entering `)` doesn't work, you can try hitting `esc` on your keyboard (although sometimes RStudio crashes).
 
-One of the benefits of working in RStudio is that you can create projects that will help keep your files and preferences consistent between work sessions. To create a project got to File->New Project, choose New directory, then Empty Project. Name your new directory `BoinformaticsR` and select the Desktop for its placement. This is your working directory today with path `~/BioinformaticsR`). Click Create Project and you'll see `BioinformaticsR.Rproj` listed in the lower right window.
+One of the benefits of working in RStudio is that you can create projects that will help keep your files and preferences organized and consistent between work sessions. To create a project got to File->New Project, choose New directory, then Empty Project. Name your new directory `BoinformaticsR` and select the Desktop for its placement. This is your working directory today with path `~/BioinformaticsR`). Click Create Project and you'll see `BioinformaticsR.Rproj` listed in the lower right window. By default, RStudio will automatically create a file named `.Rhistory` to save all commands you enter (think of this as a backup).
 
 Go to the upper left of the screen and select File->New File->R script; you'll see it appear in a new window in the upper left side of the program. Save it and name it `myscript.R`. R scripts end in `.R`, just like Unix scripts end in `.sh`.
 
