@@ -118,7 +118,7 @@ head(trees)
 View the data structure:
 
 ```
-#show class for "trees"
+#show data structure for "trees"
 class(trees)
 ```
 
@@ -329,9 +329,28 @@ We can also compare variables to each other using scatterplots:
 ```
 #compare sepal length and petal length
 plot(iris$Sepal.Length, iris$Petal.Length, main = "Sepal vs Petal Lengths")
+#add linear best fit line
+abline(lm(iris$Petal.Length~iris$Sepal.Length))
 ```
 
-For `plot`, you the first two options after the command are required: the x-axis variable (`iris$Sepal.Length`) and the y-axis variable (`iris$Petal.Length`). Other options (like `main`, which describes the title of the plot) are optional. What other options are there for adding more information to this plot? Use `?plot` to find the documentation for this command. 
+For `plot`, the first two options after the command are required: the x-axis (independent) variable (`iris$Sepal.Length`) and the y-axis (dependent) variable (`iris$Petal.Length`). For such plots, you can say y is a function of x; remember that switching these variables changes how you interpret the relationship! Other options for the command (like `main`, which describes the title of the plot) are optional. 
+
+The second command is also fairly complicated. The first part of it, `abline`, simply adds a straight line to the plot. The second part, `lm`, is a command to fit a linear model in the form of `y~x`. By adding our variables in place of x and y, and locating the model as an argument to `abline`, R knows to fit the line to the data we already have displayed.
+
+You can modify the plot in other ways, such as by changing display colors:
+
+```
+#add dataset to R search path
+attach(iris)
+#compare sepal length and petal length
+plot(Sepal.Length, Petal.Length, main = "Sepal vs Petal Lengths")
+#add red linear best fit line
+abline(lm(Petal.Length~Sepal.Length), col = "red")
+```
+
+You should see the best fit line change to red. Use `?plot` to find the documentation for this command. The other difference between this visualization and the previous is that we've used `attach` as a shortcut. If you'll be working with the same dataset for awhile, this command can save you time by not making you specify the dataset each time you reference a variable.
+
+If you make a mistake want to clear the display, you can use the "Clear all" button in the plot window, or simply run another `plot` command.
 
 **Saving your work**
 
@@ -343,7 +362,7 @@ When you are done working for the day, do not forget to save `myscript.R` and ba
 2. Make a bar plot showing the number of samples of each sex (male and female) for `possum`.
 3. Compare the histograms for each numerical variable in `possum`. Which appears the most skewed?
 4. What output do you obtain from `plot(possum)`? Why does the output look like this?
-5. Plot the tail length of `possum` to the total length. How would you describe the relationship between these variables?
+5. Plot the tail length (independent variable) of `possum` to the total length with plot points shown in red. How would you describe the relationship between these variables? Where does the best fit line intersect the y axis?
 
 ###Assignment
 * Due Wednesday, Feb 11 at 5 pm
@@ -363,14 +382,14 @@ When you are done working for the day, do not forget to save `myscript.R` and ba
 **Most data referenced below are available pre-loaded in the `openintro` package. Make sure you have this package installed and loaded.**
 
 1. List three commands that perform similar functions in R and Unix. Describe the syntax and functionality in both R and Unix.
-2. How many columns and rows are in `mammals`? Include the code (with comments) you used to determine your answer.
-3. Assuming the weights in `chickwts` are in grams, how would you convert them to kilograms? Include the code (with comments) you used to determine your answer.
-4. class
-5. summary stats
-6. Make a bar plot displaying the number of chickens for each feed type in `chickwts`. The x-axis doesn't display properly with default options (we'll learn how to fix this in a few weeks). How can you find out what the feed types are supposed to be? Include your code with comments.
-7. Make a histogram showing weights in `chickwts`. How would you describe this distribution? Include the code (with comments) you used to determine your answer.
-8. Examine the histograms for each of the three variables in `trees`. Which appears the most normally distributed? Include the code (with comments) you used to determine your answer.
-9. scatterplot
-10. scatterplot
+2. How many columns and rows are in `mammals`? Include the code and comments you used to determine your answer.
+3. Assuming the weights in `chickwts` are in grams, how would you convert them to kilograms? Include your code with comments.
+4. Compare the data structures for `rivers` and `trees`. What is the difference, and why? Include the code and comments you used to determine your answer.
+5. Which species in `iris` has the widest petals on average? Include the code and comments you used to determine your answer.
+6. Make a bar plot displaying the number of chickens for each feed type in `chickwts`. The x-axis doesn't display properly with default options (we'll learn how to fix this in a few weeks). How can you find out what the feed types are supposed to be? Include the code and comments you used to determine your answer.
+7. Make a histogram showing weights in `chickwts`. How would you describe this distribution? Include the code and comments you used to determine your answer.
+8. Examine the histograms for each of the three variables in `trees`. Which appears the most normally distributed? Include the code and comments you used to determine your answer.
+9. Plot `Volume` as a function of `Girth` for the dataset `trees`. Fit a linear best fit model and display the line in blue. Where does the best fit line cross the x-axis? Include the code and comments you used to determine your answer.
+10. Plot `LifeSpan` as a function of `BodyWt` for the dataset `mammals`. Fit a linear best fit line. Explain why this model may not be the optimal way of characterizing these data. Include the code and comments you used to determine your answer.
 11. How long did it take you to complete these questions?
 12. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
