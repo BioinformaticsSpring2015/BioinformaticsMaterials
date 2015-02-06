@@ -72,7 +72,7 @@ You can perform arithmetic with these variables. For example, if the original va
 grams <- mass * 1000
 ```
 
-This retains the value associated with `mass` while specifying a new variable, `kg`. Type `kg` to ensure the value has been saved.
+This retains the value associated with `mass` while specifying a new variable, `gram`. Type `gram` to ensure the value has been saved.
 
 You can change the initial assignment of a variable:
 
