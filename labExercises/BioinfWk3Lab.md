@@ -255,7 +255,7 @@ Use Unix commands to complete the following tasks. Your answers for these will n
 `cat data1.txt data2.txt | sort -n | cut -d "," -f 1 > processedData.txt`
 4. Write a sentence to describe why variables are so useful in shell scripts.
 5.  Concatenate the `FEC*.seq` files from `pcfb/examples` into one file named `concatenated.seq`. Include your commands.
-6.  List all latitudes in `pcfb/examples/LatLon.txt` and save to a file called `Lat.txt`. Include you commands.
+6.  List all latitudes in `pcfb/examples/LatLon.txt` and save to a file called `Lat.txt`. Include your commands.
 7.  Make a list of unique SITES from shaver_etal.csv in `pcfb/examples` using Unix commands. Include your code.
 8.  Write a script to print the last five commands you entered in the shell.
 9.  How many woody species are in this data file: http://datadryad.org/bitstream/handle/10255/dryad.59002/GlobalWoodinessDatabase.csv? You can find the README for this file here: http://datadryad.org/bitstream/handle/10255/dryad.59002/README.txt. Include the code you used to determine your answer, including downloading the file.
