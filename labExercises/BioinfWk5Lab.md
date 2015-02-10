@@ -9,14 +9,44 @@ You should be able to:
 1. XXX
 
 ###Readings:
-* XXX
+* OIS Section 4 (Foundations for inference)
+* OIS Section 5 (Inference for Numerical Data)
+* OIS Section 6 (Inference for Categorical Data)
+* OIS Chapter 7 (Intro to linear regression)
+* OIS Chapter 8 (Multiple, logistic regression)
 
 Additional materials for reference:
 * XXX
 
 ###Activities
 
-**subheading**
+Since today's lab will run a bit short, we're going to use the foundation we started last week to learn a few more skills in R. 
+
+**Building functions**
+
+One of the strengths in R is our ability, as users, to build our own functions to perform tasks. For example, we learned to calculate standard deviation in R last week. However, we R doesn't include a built-in function to calculate standard error. Here's how we'll build our own:
+
+```
+#build function to calculate standard error from data x
+se <- function(x) sd(x)/sqrt(length(x))
+#another method for calculating standard error from data x
+se2 <- function (x) sqrt(var(x)/length(x))
+```
+
+**For loops**
+
+R can build loops that function the same as those in Unix. However, the syntax is slightly different and the ease of referencing particular parts of a data file make them useful for different purposes:
+
+Let's say we wanted to build a loop to convert 
+
+```
+#convert miles to kilometers
+for (i in rivers) {print (i * XXX)}
+```
+
+**Missing data**
+
+One of the peculiarities of working with R is how it deals with missing data. 
 
 ###Practice exercises (not part of your assignment, just for practice)
 
@@ -38,15 +68,3 @@ Additional materials for reference:
 	* If you get stuck on a question, please consult the textbook (see readings above).
 
 1.  
-
-**Grading:**
-
-Total points for each criteria are listed in the first column. Points received for that category are listed in subsequent columns. Comments for particular questions are added in **bold** throughout the assignment.
-
-Criteria (total)  | Expert  | Proficient  | Competent | Needs work | Unsatisfactory
-------------- | ------------- | ------------- | ------------- | ------------- | -------------
-Technical content (X) |  |  |  |  |  |
-Critical thinking (X) |  |  |  |  |  |
-Documentation (X) |  |  |  |  |  |
-Professional behavior (X) |  |  |  |  |  |
-Total: /100
