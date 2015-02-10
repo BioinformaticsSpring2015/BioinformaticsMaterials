@@ -1,12 +1,12 @@
 #Bioinformatics Week 5 Lab
-##Title
+##More R
 
 Slides for the introduction to today's lab, as well as a PDF of this document, can be found on [Blackboard](http://blackboard.uttyler.edu).
 
 ###Learning Objectives
 You should be able to:
-
-1. XXX
+1. manage more complicated data in R
+2. create functions and loops in R
 
 ###Readings:
 * OIS Section 4 (Foundations for inference)
@@ -16,11 +16,40 @@ You should be able to:
 * OIS Chapter 8 (Multiple, logistic regression)
 
 Additional materials for reference:
-* XXX
+* [Tutorials](http://ww2.coastal.edu/kingw/statistics/R-tutorials/index.html) for many common statistical tests in R
 
 ###Activities
 
-Since today's lab will run a bit short, we're going to use the foundation we started last week to learn a few more skills in R. 
+Since today's lab will run a bit short, we're going to focus on adding a few more skills to the basic R foundation we started to build last week.
+
+**Dealing with more complicated data**
+
+Let's load the same set of datasets that we learned about last week:
+
+```
+#install openintro (may be required if you're on a lab machine that deleted it after you logged out)
+install.packages("openintro")
+#load package
+library(openintro)
+```
+
+Some data frames include several types of data. What commands did we learn last week to tell us about the content of files?. We can also view more in-depth details about data structure:
+
+```
+#view internal structure of object
+str(mammals)
+```
+
+The result printed to the console describes the dataset, including each of the variables and whether they are numerical, integer, or factor. This can be useful when trying to select particular statistical tests.
+
+You may have noticed that the `mammals` dataset includes several variables for which `NA` is listed as a value, which indicates the data are missing for that observation. If you try to find the mean for a variable with `NA` values, you will get a mean of `NA`. One of the peculiarities of working with R is how it deals with missing data. Look at the documentation for your command to find out how R treats missing data. 
+
+Most commands have an argument to allow you to ignore missing data:
+
+```
+#find mean of value with missing data
+mean(mammals$LifeSpan, na.rm = TRUE)
+```
 
 **Building functions**
 
@@ -33,34 +62,28 @@ se <- function(x) sd(x)/sqrt(length(x))
 se2 <- function (x) sqrt(var(x)/length(x))
 ```
 
+You can test these commands by applying them to one of our test datasets.
+
 **For loops**
 
-R can build loops that function the same as those in Unix. However, the syntax is slightly different and the ease of referencing particular parts of a data file make them useful for different purposes:
+`apply` and others
 
-Let's say we wanted to build a loop to convert 
+R can build loops that function the same as those in Unix. However, the syntax is slightly different and the ease of referencing particular parts of a data file make them useful for different purposes:
 
 ```
 #convert miles to kilometers
 for (i in rivers) {print (i * XXX)}
 ```
 
-**Missing data**
-
-One of the peculiarities of working with R is how it deals with missing data. 
-
-###Practice exercises (not part of your assignment, just for practice)
-
-1. 
-
 ###Assignment
-* Due XX, XX X at XX
+* Due Wednesday, Feb 18 at 5 pm
 * Assessment criteria
-	* Technical content X, appropriate syntax for written assessment answers
-	* Critical thinking X, explanations for written assessment answers
+	* Technical content 20, appropriate syntax for written assessment answers
+	* Critical thinking 20, explanations for written assessment answers
 	* Documentation: 5, citations for resources used in questions embedded in answers
-	* Professional behavior: 10, class participation, assignment formatting using homework template (including code formatted in `monospace`)
+	* Professional behavior: 5, class participation, assignment formatting using homework template (including code formatted in `monospace`)
 * Written assessment: 
-	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk3Homework.md". Title (header) is "Unix scripting and pipelines." 
+	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk5Homework.md". Title (header) is "Unix scripting and pipelines." 
 	* Answer the following questions about the Unix tools you learned for this week's lab, including code comments where appropriate 				
 	* Use appropriate Markdown formatting, including `monospace` when referencing commands you entered. 
 	* If you choose to copy and paste the questions before answering, it might help to copy from the Raw view. 
@@ -68,3 +91,6 @@ One of the peculiarities of working with R is how it deals with missing data.
 	* If you get stuck on a question, please consult the textbook (see readings above).
 
 1.  
+
+How long did it take you to complete these questions?
+Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
