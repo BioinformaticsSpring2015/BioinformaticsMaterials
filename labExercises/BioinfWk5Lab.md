@@ -124,6 +124,6 @@ chi-square
 3. t-test
 4. ANOVA
 5. chi-square
-
-How long did it take you to complete these questions?
-Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
+6. How long did it take you to complete these questions?
+7. Extra credit (10 points): 
+8. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
