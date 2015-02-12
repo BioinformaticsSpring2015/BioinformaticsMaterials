@@ -5,12 +5,14 @@
 * `dir()` shows files in directory (which may or not be loaded in R)
 * R scripts end in `.R`
 * You can perform basic arithmetic in R, including with objects
+* `name <- function (x) commands(x)` build a function named `x` that performs commands
 
 **Working with objects**
 * `x <- 3` assignment operator, assigns values on right (3) to objects on left (x)
-* `head(data)`
-* `class(data)`
-* `dim(data)`
+* `head(data)` print first few lines of data
+* `class(data)` describe data structure
+* `dim(data)` count number of rows and columns
+* `str(data)` show details of data structure 
 * `ls()` list objects in current environment
 * `rm(x)` remove objects in current environment
 * `rm(list = ls())` remove all objects in current environment
@@ -31,7 +33,13 @@
 * `mean(data)` mean 
 * `median(data)` median 
 * `sd(data)` standard deviation
-* table(data$variable)` frequency table for categorical variable
+* `table(data$variable)` frequency table for categorical variable
+
+**Statistical tests**
+* `t.test(numerical ~ categorical, data = dataset)` unpaired (Student's) t-test
+* `chisq.test(tbl)` chi square test where `tbl` is contingency table
+* `summary(aov(numerical ~ categorical, data = iris))` anova
+
 
 **Plotting**
 * `barplot(table(data$variable)` count frequencies and show bar plot for categorical variable
