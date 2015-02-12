@@ -64,7 +64,7 @@ se <- function(x) sd(x)/sqrt(length(x))
 se2 <- function (x) sqrt(var(x)/length(x))
 ```
 
-You can test these commands by applying them to one of our test datasets. Note that 
+You can test these commands by applying them to one of our test datasets.
 
 **Statistical inference**
 
