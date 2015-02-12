@@ -7,7 +7,8 @@ Slides for the introduction to today's lab, as well as a PDF of this document, c
 You should be able to:
 
 1. manage more complicated data in R
-2. create functions and loops in R
+2. create new functions in R
+3. apply statistical tests in R using relevant documentation
 
 ###Readings:
 * OIS Section 4 (Foundations for inference)
@@ -43,7 +44,7 @@ str(mammals)
 
 The result printed to the console describes the dataset, including each of the variables and whether they are numerical, integer, or factor. This can be useful when trying to select particular statistical tests.
 
-You may have noticed that the `mammals` dataset includes several variables for which `NA` is listed as a value, which indicates the data are missing for that observation. If you try to find the mean for a variable with `NA` values, you will get a mean of `NA`. One of the peculiarities of working with R is how it deals with missing data. Look at the documentation for your command to find out how R treats missing data. 
+You may have noticed that the `mammals` dataset includes several variables for which `NA` is listed as a value, which indicates the data are missing for that observation. If you try to find the mean for a variable with `NA` values, you will get a mean of `NA`. One of the peculiarities of working with R is how it deals with missing data. Not all commands work with missing data in the same way! Look at the documentation for your command to find out how R treats missing data. 
 
 Most commands have an argument to allow you to ignore missing data:
 
@@ -63,22 +64,41 @@ se <- function(x) sd(x)/sqrt(length(x))
 se2 <- function (x) sqrt(var(x)/length(x))
 ```
 
-You can test these commands by applying them to one of our test datasets.
+You can test these commands by applying them to one of our test datasets. Note that 
 
 **Statistical inference**
 
 The packages loaded in R by default include many common statistical tests. Although we don't have time to cover them all, we're going to explore a few common tests.
 
-t-test
+We use t-tests to determine whether the means of two groups of numerical data are different. Today we'll use the pre-loaded `sleep` dataset to learn how to apply t-tests. First we need to explore how the data in sleep are arranged:
 
 ```
-#unpaired
-t.test(extra ~ group, data = sleep)
-#paired
-with(sleep,
-     t.test(extra[group == 1],
-            extra[group == 2], paired = TRUE))
+#identify data in sleep
+str(sleep)
+?sleep
 ```
+
+The `extra` column indicates how much more sleep (compared to a control) each recipient receieved on nights with each drug. There are also two groups corresponding to two drugs being tested.  These will be the categories we will compare in the t-test:
+
+```
+#unpaired t-test
+t.test(extra ~ group, data = sleep)
+```
+
+Similar to the `lm` function we discussed last week, `t.test` requires you to specify the relationship between variables. The tilde (`~`) lets you know this option is a "formula," which relates the variables to each other. In this case, `numeric ~ categorical` is the formula for unpaired t-tests.
+
+So far, we've been ignoring the last column of this dataset, which lists the patient ID. That means that the values listed for `extra` are actually assigned to specific patients. Because the data for group 1 and 2 are paired, we should implement a paired t-test:
+
+```
+#paired t-test
+with(sleep,
+     t.test(extra[group == 1],   extra[group == 2], paired = TRUE))
+```
+
+This code introduces two new things. First, the `with` command allows you to specify a more complex data structure from pre-existing data. In this case, we are specifying that `extra` values correpsonding to group 1 are paired with `extra` values from group 2. The double equal sign (`==`) indicates that the values from the column referenced (extra) must match exactly to the specified value (1 or 2). The second difference here is that the syntax for `t.test` is different. Because our data are paired, we indicate that with a separate argument. We also don't need to specify a formula because the associations between data are described by the `with` command.
+
+
+
 
 ANOVA
 
@@ -101,7 +121,9 @@ chi-square
 
 1. What is the mean and standard deviation for Gestation in `mammals`? Include your code and comments.
 2. Write your own function called "convertPercent" to convert from a decimal to percentage. Include your code and comments.
-3. 
+3. t-test
+4. ANOVA
+5. chi-square
 
 How long did it take you to complete these questions?
 Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
