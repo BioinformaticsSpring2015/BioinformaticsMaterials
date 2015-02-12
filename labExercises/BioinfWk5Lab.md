@@ -68,7 +68,7 @@ You can test these commands by applying them to one of our test datasets. Note t
 
 **Statistical inference**
 
-1. *t-test*
+*t-test*
 
 The packages loaded in R by default include many common statistical tests. Although we don't have time to cover them all, we're going to explore a few common tests. Please note that several of these tests have multiple implementations in R and may have different syntax, assumptions, and output, so check the documentation of the test if you are unsure!
 
@@ -101,7 +101,7 @@ This code introduces two new things. First, the `with` command allows you to spe
 
 What were the results for each of the two t-tests? How would you interpret them?
 
-2. *chi-square*
+*chi-square*
 
 Chi-square tests require the data formatted in contingency tables showing number of counts for each outcome. The test can then be easily applied to the table:
 
@@ -116,7 +116,7 @@ When we made tables last week, we were only interested in two columns. Here we n
 
 What are the results for this chi-square test? How would you interpret it?
 
-3. *ANOVA* 
+*ANOVA* 
 
 Last week, I asked you to compare the means of the three species in the `iris` dataset. Now we're going to apply ANOVA to test whether these means are actually different. We'll need to apply two steps to obtain the results:
 
