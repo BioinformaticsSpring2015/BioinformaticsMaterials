@@ -5,6 +5,7 @@ Slides for the introduction to today's lab, as well as a PDF of this document, c
 
 ###Learning Objectives
 You should be able to:
+
 1. manage more complicated data in R
 2. create functions and loops in R
 
@@ -64,16 +65,24 @@ se2 <- function (x) sqrt(var(x)/length(x))
 
 You can test these commands by applying them to one of our test datasets.
 
-**For loops**
+**Statistical inference**
 
-`apply` and others
+The packages loaded in R by default include many common statistical tests. Although we don't have time to cover them all, we're going to explore a few common tests.
 
-R can build loops that function the same as those in Unix. However, the syntax is slightly different and the ease of referencing particular parts of a data file make them useful for different purposes:
+t-test
 
 ```
-#convert miles to kilometers
-for (i in rivers) {print (i * XXX)}
+#unpaired
+t.test(extra ~ group, data = sleep)
+#paired
+with(sleep,
+     t.test(extra[group == 1],
+            extra[group == 2], paired = TRUE))
 ```
+
+ANOVA
+
+chi-square
 
 ###Assignment
 * Due Wednesday, Feb 18 at 5 pm
@@ -83,14 +92,16 @@ for (i in rivers) {print (i * XXX)}
 	* Documentation: 5, citations for resources used in questions embedded in answers
 	* Professional behavior: 5, class participation, assignment formatting using homework template (including code formatted in `monospace`)
 * Written assessment: 
-	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk5Homework.md". Title (header) is "Unix scripting and pipelines." 
+	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk5Homework.md". Title (header) is "More R." 
 	* Answer the following questions about the Unix tools you learned for this week's lab, including code comments where appropriate 				
 	* Use appropriate Markdown formatting, including `monospace` when referencing commands you entered. 
 	* If you choose to copy and paste the questions before answering, it might help to copy from the Raw view. 
 	* Don't forget to preview your homework before committing! 
 	* If you get stuck on a question, please consult the textbook (see readings above).
 
-1.  
+1. What is the mean and standard deviation for Gestation in `mammals`? Include your code and comments.
+2. Write your own function called "convertPercent" to convert from a decimal to percentage. Include your code and comments.
+3. 
 
 How long did it take you to complete these questions?
 Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
