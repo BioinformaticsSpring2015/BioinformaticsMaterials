@@ -68,7 +68,9 @@ You can test these commands by applying them to one of our test datasets. Note t
 
 **Statistical inference**
 
-The packages loaded in R by default include many common statistical tests. Although we don't have time to cover them all, we're going to explore a few common tests.
+1. *t-test*
+
+The packages loaded in R by default include many common statistical tests. Although we don't have time to cover them all, we're going to explore a few common tests. Please note that several of these tests have multiple implementations in R and may have different syntax, assumptions, and output, so check the documentation of the test if you are unsure!
 
 We use t-tests to determine whether the means of two groups of numerical data are different. Today we'll use the pre-loaded `sleep` dataset to learn how to apply t-tests. First we need to explore how the data in sleep are arranged:
 
@@ -97,12 +99,35 @@ with(sleep,
 
 This code introduces two new things. First, the `with` command allows you to specify a more complex data structure from pre-existing data. In this case, we are specifying that `extra` values correpsonding to group 1 are paired with `extra` values from group 2. The double equal sign (`==`) indicates that the values from the column referenced (extra) must match exactly to the specified value (1 or 2). The second difference here is that the syntax for `t.test` is different. Because our data are paired, we indicate that with a separate argument. We also don't need to specify a formula because the associations between data are described by the `with` command.
 
+What were the results for each of the two t-tests? How would you interpret them?
 
+2. *chi-square*
 
+Chi-square tests require the data formatted in contingency tables showing number of counts for each outcome. The test can then be easily applied to the table:
 
-ANOVA
+```
+#format contingency table
+tbl <- table(smoking$gender, smoking$smoke)
+#perform chi-square test
+chisq.test(tbl)
+```
 
-chi-square
+When we made tables last week, we were only interested in two columns. Here we need to specify both columns relating to the categorical data we are testing. 
+
+What are the results for this chi-square test? How would you interpret it?
+
+3. *ANOVA* 
+
+Last week, I asked you to compare the means of the three species in the `iris` dataset. Now we're going to apply ANOVA to test whether these means are actually different. We'll need to apply two steps to obtain the results:
+
+```
+#fitting model to one-way ANOVA
+fit <- aov(Sepal.Length ~ Species, data = iris)
+#summarize results
+summary(fit)
+```
+
+The first command calculates the test statistic and a few other population parameters. You can evaluate the output by plotting it (this will be interactive, you'll hit enter to move through the plots) or simply printing it to the screen. The second command is used to produce the result of model-fitting functions, and will print the same test statistic (F value) and p-value. 
 
 ###Assignment
 * Due Wednesday, Feb 18 at 5 pm
@@ -119,11 +144,13 @@ chi-square
 	* Don't forget to preview your homework before committing! 
 	* If you get stuck on a question, please consult the textbook (see readings above).
 
+**Don't forget to load the `openintro` package to access the pre-loaded datasets!**
+
 1. What is the mean and standard deviation for Gestation in `mammals`? Include your code and comments.
 2. Write your own function called "convertPercent" to convert from a decimal to percentage. Include your code and comments.
-3. t-test
-4. ANOVA
-5. chi-square
+3. Use a t-test to determine if male and female possums differ in total length using the dataset `possum`. Include your code, comments, and conclusion for the test.
+4. Use a chi-square test to determine whether mature mothers are more likely to have premie babies using the dataset `ncbirths`. Include your code, comments, and conclusion for the test.
+5. Use ANOVA to determine whether weights of chicks differ by feed type using the dataset `chickwts`. Include your code, comments, and conclusion for the test.
 6. How long did it take you to complete these questions?
-7. Extra credit (10 points): 
+7. Extra credit (10 points): TBA
 8. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
