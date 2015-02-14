@@ -152,5 +152,5 @@ The first command calculates the test statistic and a few other population param
 4. Use a chi-square test to determine whether mature mothers are more likely to have premie babies using the dataset `ncbirths`. Include your code, comments, and conclusion for the test.
 5. Use ANOVA to determine whether weights of chicks differ by feed type using the dataset `chickwts`. Include your code, comments, and conclusion for the test.
 6. How long did it take you to complete these questions?
-7. Extra credit (10 points): TBA
+7. Extra credit (10 points): If you attended Dr. Pigliucci's Darwin Day keynote address on Thursday evening, describe one example each of science and pseudoscience he discussed.
 8. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
