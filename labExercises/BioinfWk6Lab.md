@@ -17,9 +17,10 @@ Additional materials for reference:
 ###Activities
 
 **Raw**
+http://app.raw.densitydesign.org
 
 **ggplot2**
-
+http://docs.ggplot2.org/current/
 
 ###Assignment
 * Due Wednesday, Feb X at 5 pm
