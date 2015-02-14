@@ -16,11 +16,27 @@ Additional materials for reference:
 
 ###Activities
 
-**Raw**
-http://app.raw.densitydesign.org
+**Exporting figures form R**
+
+```
+pdf(file = "figure.pdf")
+plot(XXX)
+dev.off()
+```
+
+Other options, like ps.
 
 **ggplot2**
 http://docs.ggplot2.org/current/
+
+**Raw**
+http://app.raw.densitydesign.org
+
+**Adding images to GitHub**
+
+Make folder in GitHub repo.
+
+Markdown format for linking.
 
 ###Assignment
 * Due Wednesday, Feb X at 5 pm
