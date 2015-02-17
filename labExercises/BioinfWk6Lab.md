@@ -29,7 +29,15 @@ dev.off()
 Other options, like ps.
 
 **ggplot2**
-http://docs.ggplot2.org/current/
+
+The `plot` command has lots of options, but is limited to a few types of graphs. We're going to use another package, `ggplot2`, to try a few additional visualizations. This package has a [great website](http://docs.ggplot2.org/current/) with documentation for all commands. First, though, we need to install and load the package:
+
+```
+#install package
+install.packages("ggplot2")
+#load package
+library(ggplot2)
+```
 
 **Raw**
 http://app.raw.densitydesign.org
