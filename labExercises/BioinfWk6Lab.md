@@ -1,5 +1,5 @@
 #Bioinformatics Week 5 Lab
-##More R
+##Visualization
 
 Slides for the introduction to today's lab, as well as a PDF of this document, can be found on [Blackboard](http://blackboard.uttyler.edu).
 
@@ -15,6 +15,8 @@ You should be able to:
 
 Additional materials for reference:
 * [Introduction to `ggplot2`](http://blog.echen.me/2012/01/17/quick-introduction-to-ggplot2/)
+* [RAW website](http://app.raw.densitydesign.org)
+* [ggplot2 website](http://docs.ggplot2.org/current/)
 
 ###Activities
 
@@ -57,9 +59,17 @@ Can you visualize any of these datasets using other chart types? This is a great
 
 **Refining figures in R**
 
-Last week, we learned how to build
+In week 4, we learned how to build basic figures in R using the commands `plot`, `hist`, and `barplot`. Let's explore the arguments for these commands.
 
-plot arguments
+Recall our old code for creating a scatterplot comparing sepal and petal lengths in R:
+
+```
+#scatterplot of sepal and petal lengths from iris
+plot(iris$Sepal.Length, iris$Petal.Length, main = "Sepal vs Petal Lengths")
+```
+
+There are other options we can add to make this visualization more effective.
+
 
 ```
 pdf(file = "figure.pdf")
@@ -111,7 +121,7 @@ qplot(age, height, data = Loblolly, geom = "line",
 	* Documentation: X, citations for resources used in questions embedded in answers
 	* Professional behavior: X, class participation, assignment formatting using homework template (including code formatted in `monospace`)
 * Written assessment: 
-	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk6Homework.md". Title (header) is "Visualizations".
+	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk6Homework.md". Title (header) is "Visualization".
 	* Answer the following questions about the Unix tools you learned for this week's lab, including code comments where appropriate 				
 	* Use appropriate Markdown formatting, including `monospace` when referencing commands you entered. 
 	* If you choose to copy and paste the questions before answering, it might help to copy from the Raw view. 
