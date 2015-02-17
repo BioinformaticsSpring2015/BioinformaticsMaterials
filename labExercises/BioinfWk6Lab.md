@@ -6,7 +6,9 @@ Slides for the introduction to today's lab, as well as a PDF of this document, c
 ###Learning Objectives
 You should be able to:
 
-1. visualizations
+1. create meaningful data visualizations in R using arguments in `plot` and `ggplot2`
+2. save figures created in R to a file
+3. 
 
 ###Readings:
 * 
@@ -16,7 +18,7 @@ Additional materials for reference:
 
 ###Activities
 
-**Exporting figures form R**
+**Exporting figures from R**
 
 ```
 pdf(file = "figure.pdf")
@@ -31,12 +33,6 @@ http://docs.ggplot2.org/current/
 
 **Raw**
 http://app.raw.densitydesign.org
-
-**Adding images to GitHub**
-
-Make folder in GitHub repo.
-
-Markdown format for linking.
 
 ###Assignment
 * Due Wednesday, Feb X at 5 pm
