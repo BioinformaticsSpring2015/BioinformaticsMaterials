@@ -151,6 +151,8 @@ Plotting histograms is straightforward, with syntax following the commands descr
 qplot(Sepal.Length, data = iris)
 ```
 
+The message that appears in red is not an error, but does tell you how to change the assignment of bins. Add this option and try a few additional values.
+
 We may be interested in comparing distributions between datasets. There are multiple ways to compare distributions:
 
 ```
@@ -204,12 +206,12 @@ Today we've only used a single command from `ggplot2`. There are many other comm
 	* Don't forget to preview your homework before committing! 
 	* If you get stuck on a question, please consult the textbook (see readings above).
 
-1. Raw (what put where?)
-2. scatterplot with points in green, relative sizes
-3. `Orange` dataset to plot a line chart of circumference by age, color coding each line by the tree number
-4. histogram
-5. bar chart
-6. choose appropriate visualization for given dataset
-
-How long did it take you to complete these questions?
-Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
+1. The starbucks.csv data from the Chapter 7 folder in openintroData represents nutritional value of different menu items from Starbucks coffee shops. Using RAW, develop a visualization for this data that relates at least three of the variables in a meaningful way. Report what type of visualization you chose, what variables are placed in which field, and a general observation about the data based on this observation. 
+2. Use ggplot2 to create a scatterplot for Bwt (body weight) and Hwt (heart weight) in cats.csv (located in openintroData/Ch 2 Exercise Data). Color the points by Sex. Include your code and comments.
+3. Use ggplot2 to plot the pre-loaded `Orange` dataset as a line chart to show how circumference changes as age increases. Color code each line with the tree number. Include your code and comments.
+4. Modify your code from question 3 to change the background of the chart to the black and white theme. Include your code and comments.
+4. Use ggplot2 to create a histogram with appropriate bin widths for body weight in cats.csv (from question 2). Include your code and comments.
+5. Use ggplot2 to create a bar chart showing responses for the `globalwarmingpew.csv` dataset in `openintroData/Ch 2 Exercise Data`. Include your code and comments.
+6. Take a look at `cherry.csv` from `openintroData/Ch 2 Exercise Data`. Choose a type of visualization in ggplot2 that will display relationships among these three variables (they should be familiar to you from previous lessons in R). Include your code, comments, and a conclusion you can draw about these data.
+7. How long did it take you to complete these questions?
+8. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
