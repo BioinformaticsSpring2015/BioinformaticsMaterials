@@ -41,7 +41,7 @@ Select "Scatter Plot". Scroll down to "Map your dimensions". You may notice that
 
 Each white box tells you what type of data can be entered there. If you enter the wrong type of data in a box, it will turn yellow to warn you (although sometimes you can still see the resulting visualization!). 
 
-Scroll down a bit further and you'll see your resulting visualization. You can modify this default visualization by changing the dimensions, colors, etc. in the provided fields. You can export your visualization by selecting your desired file type, entering a file name, and clicking "download." If you forget how to use this interface, there's a [short video tutorial](http://raw.densitydesign.org/how-it-works/) for the example listed above to remind you. 
+Scroll down a bit further and you'll see your resulting visualization. You can modify this default visualization by changing the dimensions, colors, etc. in the provided fields. You can export your visualization by selecting your desired file type, entering a file name, and clicking "download." If you forget how to use this interface, there's a [short video tutorial](http://raw.densitydesign.org/how-it-works/) for the example listed above to remind you.
 
 *Cocktails*
 
@@ -57,6 +57,10 @@ There are a few ways this example differs from the "Movies" visualization. First
 In our last example with RAW, we'll be working with "Music (flows)." Select "Streamgraph" as the data type. You should be able to enter the variables in the appropriate fields by process of elimination. What does this visualization show?
 
 Can you visualize any of these datasets using other chart types? This is a great tool for working with data in different ways to easily see how different methods of display will affect the message you are communicating. 
+
+*Importing own data*
+
+To enter your own data in RAW, open the file containing the data in a text editor, like Notepad++. Copy and paste the data into the data window on RAW's website. Once you've checked to make sure the data are imported appropriately, you can continue selecting options for visualization. Try this out on one of the files in your openintroData folder. 
 
 **Refining figures in R**
 
@@ -138,20 +142,6 @@ qplot(age, height, data = Loblolly, geom = "line",
 
 The addition command at the end (`+ theme_bw()`) changes the background from the default gray to white; there are other options to change parts of this display (documentation can be found under ggtheme).
 
-*Barcharts*
-
-We've worked with the dataset `chickwts` already, but `ggplot2` makes it even easier to visualize the variation among categorical variables:
-
-```
-#barchart for number of chickens per feed type in ggplot2
-qplot(feed, data = chickwts, geom = "bar")
-
-#barchart for weight of chickens per feed type in ggplot2
-qplot(feed, data = chickwts, weight = weight, geom = "bar")
-```
-
-The option `geom = "bar"` shows the number of chickens for each feed type, because the default bar chart for this command is to report the frequency of counts for the specified variable. The second command shows a different chart, the total weight of chickens for each feed type (`weight = weight`).
-
 *Histograms and comparing distributions*
 
 Plotting histograms is straightforward, with syntax following the commands described above:
@@ -169,6 +159,33 @@ qplot(Species, Sepal.Length, data = iris, geom = "boxplot", fill = Species)
 #kernel density plot for iris sepal length by species
 qplot(Sepal.Length, data = iris, geom = "density", fill = Species, alpha=I(0.5))
 ```
+
+*Barcharts*
+
+We've worked with the dataset `chickwts` already, but `ggplot2` makes it even easier to visualize the variation among categorical variables:
+
+```
+#barchart for number of chickens per feed type in ggplot2
+qplot(feed, data = chickwts, geom = "bar")
+
+#barchart for weight of chickens per feed type in ggplot2
+qplot(feed, data = chickwts, weight = weight, geom = "bar")
+```
+
+The option `geom = "bar"` shows the number of chickens for each feed type, because the default bar chart for this command is to report the frequency of counts for the specified variable. The second command shows a different chart, the total weight of chickens for each feed type (`weight = weight`).
+
+If we wanted to make a stacked bar chart, we'd need to use an additional argument. The dataset we're going to use is in your openintroData folder, but isn't pre-loaded with the rest of the package, so we'll need to import it as well. Go to the openintroData folder in the Files window of RStudio, select Ch 1 Exercise Data, and click on `migraine.csv` to view it in the source window. What is the delimiter? We'll need to know this detail to use the appropriate command to import it:
+
+```
+#import migraine.csv
+migraine <- read.csv("openintroData/Ch 1 Exercise Data/migraine.csv")
+#bar plot to show groups
+qplot(group, pain_free, geom = "bar")
+#blar plot to show stacked treatment of groups
+qplot(group, pain_free, data = migraine, geom = "bar")
+```
+
+To remind yourself about different types of data import, test yourself on the `smallpox.txt` (located in the top level of openintroData). What command did you need to use?
 
 Today we've only used a single command from `ggplot2`. There are many other commands in this package that allow data parsing and visualization, but require quite a bit more manipulation. The command we've used here, `qplot`, is a shortcut for making nice visualizations when data are appropriately structured.
 
