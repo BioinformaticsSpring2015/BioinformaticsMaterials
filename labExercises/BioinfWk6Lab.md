@@ -6,15 +6,15 @@ Slides for the introduction to today's lab, as well as a PDF of this document, c
 ###Learning Objectives
 You should be able to:
 
-1. create meaningful data visualizations in R using arguments in `plot` and `ggplot2`
-2. save figures created in R to a file
-3. 
+1. test data visualizations using the RAW interactive web interface
+2. create meaningful data visualizations in R using arguments in `plot` and `ggplot2`
 
 ###Readings:
-* 
+* PCB Chapter 17: Graphical Concepts
 
 Additional materials for reference:
 * [Introduction to `ggplot2`](http://blog.echen.me/2012/01/17/quick-introduction-to-ggplot2/)
+* [Graphical parameters in R](http://www.statmethods.net/advgraphs/parameters.html)
 * [RAW website](http://app.raw.densitydesign.org)
 * [ggplot2 website](http://docs.ggplot2.org/current/)
 
@@ -68,19 +68,24 @@ Recall our old code for creating a scatterplot comparing sepal and petal lengths
 plot(iris$Sepal.Length, iris$Petal.Length, main = "Sepal vs Petal Lengths")
 ```
 
-There are other options we can add to make this visualization more effective.
-
+There are other options we can add to make this visualization more effective, including commands that print the specified graphics to file (rather than just visualizing in the RStudio window):
 
 ```
+#begin plotting graphics to file (pdf)
 pdf(file = "figure.pdf")
-plot(XXX)
+#scatterplot of sepal and petal lengths from iris
+plot(iris$Sepal.Length, iris$Petal.Length, pch = 19,
+	main = "Sepal vs Petal Lengths",
+	xlab = "Sepal Length", ylab = "Petal Length")
+#end plotting graphics to file
 dev.off()
 ```
 
-Other options, like ps.
+The first and last lines of this code (`pdf()` and `dev.off()`) are the commands that save your plot to the file. Note that these commands save graphics created by other commands. You can also save graphics in additional file formats, like PostScript (`ps()`). The additional options for `plot` above create solid points on the plot (`pch`) and label the axes (`xlab` and `ylab`). You can read more about graphical parameters in R [here](http://www.statmethods.net/advgraphs/parameters.html).
 
+*Loading ggplot2*
 
-The `plot` command has lots of options, but is limited to a few types of graphs. We're going to use another package, `ggplot2`, to try a few additional visualizations. This package has a [great website](http://docs.ggplot2.org/current/) with documentation for all commands. First, though, we need to install and load the package:
+Although `plot` additional options, it is limited to a few types of graphs and it takes a lot of coding to create some effects (like color coding plot points for particular categorical factors). We're going to use another package, `ggplot2`, to try a few additional visualizations. This package has a [great website](http://docs.ggplot2.org/current/) with documentation for all commands. First, though, we need to install and load the package:
 
 ```
 #install package
@@ -91,35 +96,71 @@ library(ggplot2)
 
 *Scatterplots*
 
+`ggplot2` includes options to create the same types of diagrams we've already created, but with expanded options that make data manipulation much easier. First, we can create the same type of scatterplot, but with improved default formatting:
+
 ```
-#plot iris data in ggplot2
+#scatterplot of iris data in ggplot2
 qplot(Sepal.Length, Petal.Length, data = iris, color = Species, size = Petal.Width, alpha = I(0.5), 
 	xlab = "Sepal Length", ylab = "Petal Length", 
 	main = "Sepal Length vs. Petal Length")
 ```
 
+`qplot` (quick plot) references the scatterplot command from `ggplot2`. The x and y variables are designated (`Sepal.Length` and `Petal.Length`, respectively), followed by the dataset from which they are derived (`iris`). The `color` option specifies that points are color coded by the categorical variable `Species`; `size` is an option that changes the relative size of each point according to `Petal.Width`. Finally, `alpha` is an option that makes points transparent (by half, or 0.5 as specified here) so that overlapping points are more apparent.
+
 *Line charts*
 
-```
-qplot(age, height, data = Loblolly, geom = "line",
-    colour = Seed,
-    main = "Loblolly height and age")
-```
+We're going to use a new dataset to display additional options for line charts in `ggplot2`. The command is the same as a scatterplot, but you need to specify a different option (`geom = "line"`) to plot lines:
 
-*Histograms*
+```
+#view data from Loblolly
+head(Loblolly)
+#line chart of Loblolly data in ggplot2
+qplot(age, height, data = Loblolly, geom = "line",
+    color = Seed,
+    main = "Loblolly height by age")
+```
 
 *Barcharts*
 
+We've worked with the dataset `chickwts` already, but `ggplot2` makes it even easier to visualize the variation among categorical variables:
 
+```
+#barchart for number of chickens per feed type in ggplot2
+qplot(feed, data = chickwts, geom = "bar")
 
+#barchart for weight of chickens per feed type in ggplot2
+qplot(feed, data = chickwts, weight = weight, geom = "bar")
+```
+
+The option `geom = "bar"` shows the number of chickens for each feed type, because the default bar chart for this command is to report the frequency of counts for the specified variable. The second command shows a different chart, the total weight of chickens for each feed type (`weight = weight`).
+
+*Histograms and comparing distributions*
+
+Plotting histograms is straightforward, with syntax following the commands described above:
+
+```
+#plot histogram for sepal lengths in iris
+qplot(Sepal.Length, data = iris)
+```
+
+We may be interested in comparing distributions between datasets. There are multiple ways to compare distributions:
+
+```
+#boxplots to compare sepqal length in different iris species 
+qplot(Species, Sepal.Length, data = iris, geom = "boxplot", fill = Species)
+#kernel density plot for iris sepal length by species
+qplot(Sepal.Length, data = iris, geom = "density", fill = Species, alpha=I(0.5))
+```
+
+Today we've only used a single command from `ggplot2`. There are many other commands in this package that allow data parsing and visualization, but require quite a bit more manipulation. The command we've used here, `qplot`, is a shortcut for making nice visualizations when data are appropriately structured.
 
 ###Assignment
-* Due Wednesday, Feb X at 5 pm
+* Due Wednesday, Feb 25 at 5 pm
 * Assessment criteria
-	* Technical content X, appropriate syntax for written assessment answers
-	* Critical thinking X, explanations for written assessment answers
-	* Documentation: X, citations for resources used in questions embedded in answers
-	* Professional behavior: X, class participation, assignment formatting using homework template (including code formatted in `monospace`)
+	* Technical content: 60, appropriate syntax for written assessment answers
+	* Critical thinking: 20, explanations for written assessment answers
+	* Documentation: 10, code comments, citations for resources used in questions embedded in answers
+	* Professional behavior: 10, class participation, assignment formatting using homework template (including code formatted in `monospace`)
 * Written assessment: 
 	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk6Homework.md". Title (header) is "Visualization".
 	* Answer the following questions about the Unix tools you learned for this week's lab, including code comments where appropriate 				
@@ -129,7 +170,11 @@ qplot(age, height, data = Loblolly, geom = "line",
 	* If you get stuck on a question, please consult the textbook (see readings above).
 
 1. Raw (what put where?)
-2. 
+2. scatterplot with points in green, relative sizes
+3. `Orange` dataset to plot a line chart of circumference by age, color coding each line by the tree number
+4. histogram
+5. bar chart
+6. choose appropriate visualization for given dataset
 
 How long did it take you to complete these questions?
 Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
