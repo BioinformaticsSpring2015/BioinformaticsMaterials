@@ -17,6 +17,7 @@ Additional materials for reference:
 * [Graphical parameters in R](http://www.statmethods.net/advgraphs/parameters.html)
 * [RAW website](http://app.raw.densitydesign.org)
 * [ggplot2 website](http://docs.ggplot2.org/current/)
+* [Gallery of `ggplot2` graphics](http://shinyapps.stat.ubc.ca/r-graph-catalog/#)
 
 ###Activities
 
@@ -66,6 +67,8 @@ Recall our old code for creating a scatterplot comparing sepal and petal lengths
 ```
 #scatterplot of sepal and petal lengths from iris
 plot(iris$Sepal.Length, iris$Petal.Length, main = "Sepal vs Petal Lengths")
+#add best fit line
+abline(lm(iris$Petal.Length ~ iris$Sepal.Length))
 ```
 
 There are other options we can add to make this visualization more effective, including commands that print the specified graphics to file (rather than just visualizing in the RStudio window):
@@ -107,6 +110,19 @@ qplot(Sepal.Length, Petal.Length, data = iris, color = Species, size = Petal.Wid
 
 `qplot` (quick plot) references the scatterplot command from `ggplot2`. The x and y variables are designated (`Sepal.Length` and `Petal.Length`, respectively), followed by the dataset from which they are derived (`iris`). The `color` option specifies that points are color coded by the categorical variable `Species`; `size` is an option that changes the relative size of each point according to `Petal.Width`. Finally, `alpha` is an option that makes points transparent (by half, or 0.5 as specified here) so that overlapping points are more apparent.
 
+You can also add best fit lines with confidence intervals for each of the categorical variables:
+
+```
+#scatterplot of iris data in ggplot2
+qplot(Sepal.Length, Petal.Length, data = iris, color = Species, size = Petal.Width, alpha = I(0.5), 
+	geom = c("point", "smooth"), method = "lm", formula = y~x, 
+	xlab = "Sepal Length", ylab = "Petal Length", 
+	main = "Sepal Length vs. Petal Length")
+```
+
+The default value for the `geom` argument is to show points. Because we want both points and lines, we need to specify both values in a vector (using `c( )`). The options `method` and `formula` both describe how we want the line to be drawn (and should be intuitive give your understanding of the `abline` options for `plot` we've already discussed).
+
+
 *Line charts*
 
 We're going to use a new dataset to display additional options for line charts in `ggplot2`. The command is the same as a scatterplot, but you need to specify a different option (`geom = "line"`) to plot lines:
@@ -117,8 +133,10 @@ head(Loblolly)
 #line chart of Loblolly data in ggplot2
 qplot(age, height, data = Loblolly, geom = "line",
     color = Seed,
-    main = "Loblolly height by age")
+    main = "Loblolly height by age") + theme_bw()
 ```
+
+The addition command at the end (`+ theme_bw()`) changes the background from the default gray to white; there are other options to change parts of this display (documentation can be found under ggtheme).
 
 *Barcharts*
 
