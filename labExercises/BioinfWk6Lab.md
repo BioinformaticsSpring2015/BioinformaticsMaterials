@@ -75,11 +75,11 @@ plot(iris$Sepal.Length, iris$Petal.Length, main = "Sepal vs Petal Lengths")
 abline(lm(iris$Petal.Length ~ iris$Sepal.Length))
 ```
 
-There are other options we can add to make this visualization more effective, including commands that print the specified graphics to file (rather than just visualizing in the RStudio window):
+There are other options we can add to make this visualization more effective, including commands that print the specified graphics to file (rather than just visualizing in the RStudio window). First, go to your file hierarchy window in RStudio and create a new folder, `figures`. This is where you will save figures you create.
 
 ```
 #begin plotting graphics to file (pdf)
-pdf(file = "figure.pdf")
+pdf(file = "figures/figure.pdf")
 #scatterplot of sepal and petal lengths from iris
 plot(iris$Sepal.Length, iris$Petal.Length, pch = 19,
 	main = "Sepal vs Petal Lengths",
@@ -182,9 +182,9 @@ If we wanted to make a stacked bar chart, we'd need to use an additional argumen
 #import migraine.csv
 migraine <- read.csv("openintroData/Ch 1 Exercise Data/migraine.csv")
 #bar plot to show groups
-qplot(group, pain_free, geom = "bar")
+qplot(group, data = migraine, geom = "bar")
 #blar plot to show stacked treatment of groups
-qplot(group, pain_free, data = migraine, geom = "bar")
+qplot(group, data = migraine, geom = "bar", fill = pain_free)
 ```
 
 To remind yourself about different types of data import, test yourself on the `smallpox.txt` (located in the top level of openintroData). What command did you need to use?
