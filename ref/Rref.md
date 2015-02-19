@@ -40,12 +40,18 @@
 * `chisq.test(tbl)` chi square test where `tbl` is contingency table
 * `summary(aov(numerical ~ categorical, data = iris))` anova
 
-
 **Plotting**
 * `barplot(table(data$variable)` count frequencies and show bar plot for categorical variable
 * `hist(data$variable)` histogram for numerical variable
 * `plot(x, y)` scatterplot for two numerical variables
 * `abline(lm(y~x))` linear best fit line
+* `qplot(x, y, data = dataObject, geom = "point")` scatterplot in ggplot2
+* saving plots to files:
+```
+pdf(file = "filename.pdf") 
+<plotting commands entered here>
+dev.off()
+```
 
 **Finding help**
 * `?command` show documentation for specific command
