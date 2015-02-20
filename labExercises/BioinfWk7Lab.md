@@ -6,17 +6,28 @@ Slides for the introduction to today's lab, as well as a PDF of this document, c
 ###Learning Objectives
 You should be able to:
 
-1. 
+1. perform sequence searches (BLAST) using NCBI's online interface
+2. 
 
 ###Readings:
 * 
 
 Additional materials for reference:
-* 
+* [BLAST on NCBI](http://blast.ncbi.nlm.nih.gov/Blast.cgi)
 
 ###Activities
 
 **Web-based BLAST**
+
+Navigate to the web interface for [NCBI's BLAST](http://blast.ncbi.nlm.nih.gov/Blast.cgi). Lots of options.
+
+search for particular sequence by taxon name or accession number, each part of record includes relevant information
+
+blastn
+
+blastp
+
+blastx
 
 **Barcode of Life**
 
