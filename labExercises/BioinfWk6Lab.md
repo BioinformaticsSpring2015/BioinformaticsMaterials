@@ -1,4 +1,4 @@
-#Bioinformatics Week 5 Lab
+#Bioinformatics Week 6 Lab
 ##Visualization
 
 Slides for the introduction to today's lab, as well as a PDF of this document, can be found on [Blackboard](http://blackboard.uttyler.edu).
