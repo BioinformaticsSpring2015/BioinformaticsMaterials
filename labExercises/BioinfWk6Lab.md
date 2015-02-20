@@ -211,7 +211,7 @@ Today we've only used a single command from `ggplot2`. There are many other comm
 3. Use ggplot2 to plot the pre-loaded `Orange` dataset as a line chart to show how circumference changes as age increases. Color code each line with the tree number. Include your code and comments.
 4. Modify your code from question 3 to change the background of the chart to the black and white theme. Include your code and comments.
 4. Use ggplot2 to create a histogram with appropriate bin widths for body weight in cats.csv (from question 2). Include your code and comments.
-5. Use ggplot2 to create a bar chart showing responses for the `globalwarmingpew.csv` dataset in `openintroData/Ch 8 Exercise Data`. Include your code and comments.
-6. Take a look at `cherry.csv` from `openintroData/Ch 2 Exercise Data`. Choose a type of visualization in ggplot2 that will display relationships among these three variables (they should be familiar to you from previous lessons in R). Include your code, comments, and a conclusion you can draw about these data.
+5. Use ggplot2 to create a bar chart showing responses for the `globalwarmingpew.csv` dataset in `openintroData/Ch 2 Exercise Data`. Include your code and comments.
+6. Take a look at `cherry.csv` from `openintroData/Ch 8 Exercise Data`. Choose a type of visualization in ggplot2 that will display relationships among these three variables (they should be familiar to you from previous lessons in R). Include your code, comments, and a conclusion you can draw about these data.
 7. How long did it take you to complete these questions?
 8. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
