@@ -10,12 +10,28 @@ You should be able to:
 2. 
 
 ###Readings:
-* 
+* [Little Book of R for Bioinformatics](https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/)
 
 Additional materials for reference:
 * [BLAST on NCBI](http://blast.ncbi.nlm.nih.gov/Blast.cgi)
 
 ###Activities
+
+**Download data and install packages for today's exercises**
+
+First we're going to set up the files that we'll be using for the rest of today's lab. Open up RStudio and your BioinformaticsR package. Create a new folder called "data" in your directory.
+
+Go to [Molecular Evolution's Sample Files page](http://www.molecularevolution.org/resources/fileformats) and download both the "Example unaligned FASTA DNA file" and "Example unaligned FASTA amino acid file." On your desktop, drag these two files to your newly created "data" folder. You should then see them appear in your RStudio file hierarchy.
+
+In RStudio, you can now install and load the packages for today's lab:
+
+```
+#install and load packages
+install.packages("seqinr", "rentrez", "bold")
+library(seqinr, rentrez, bold)
+```
+
+Now we're ready with data and software for the rest of lab.
 
 **Web-based BLAST**
 
