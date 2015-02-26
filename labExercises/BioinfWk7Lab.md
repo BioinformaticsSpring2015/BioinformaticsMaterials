@@ -6,14 +6,17 @@ Slides for the introduction to today's lab, as well as a PDF of this document, c
 ###Learning Objectives
 You should be able to:
 
-1. perform sequence searches (BLAST) using NCBI's online interface
-2. 
+1. compare web-based and command-line database searching
+2. load and analyze sequences in R
+3. perform sequence searches (BLAST) using NCBI's online interface
+4. identify sequences using the Barcode of Life database
 
 ###Readings:
-* [Little Book of R for Bioinformatics](https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/)
 
 Additional materials for reference:
 * [BLAST on NCBI](http://blast.ncbi.nlm.nih.gov/Blast.cgi)
+* [Barcode of Life](http://www.boldsystems.org)
+* [Little Book of R for Bioinformatics](https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/)
 
 ###Activities
 
@@ -33,7 +36,12 @@ library(seqinr, rentrez, bold)
 
 Now we're ready with data and software for the rest of lab.
 
-**Web-based BLAST**
+**Sequence analysis in R**
+
+
+**BLAST**
+
+*Web-based BLAST*
 
 Navigate to the web interface for [NCBI's BLAST](http://blast.ncbi.nlm.nih.gov/Blast.cgi). Lots of options.
 
@@ -45,9 +53,16 @@ blastp
 
 blastx
 
+*BLAST in R*
+
 **Barcode of Life**
 
-**Sequence searching in R**
+*Web-based Barcode of Life*
+
+*Barcode of Life in R*
+
+
+
 
 ###Assignment
 * Due Wednesday, Feb X at 5 pm
