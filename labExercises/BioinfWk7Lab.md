@@ -6,10 +6,9 @@ Slides for the introduction to today's lab, as well as a PDF of this document, c
 ###Learning Objectives
 You should be able to:
 
-1. compare web-based and command-line database searching
-2. load and analyze sequences in R
-3. perform sequence searches (BLAST) using NCBI's online interface
-4. identify sequences using the Barcode of Life database
+1. load and analyze sequences in R
+2. perform sequence searches (BLAST) using NCBI's online interface
+3. identify sequences using the online Barcode of Life database
 
 ###Readings:
 
@@ -30,8 +29,8 @@ In RStudio, you can now install and load the packages for today's lab:
 
 ```
 #install and load packages
-install.packages("seqinr", "rentrez", "bold")
-library(seqinr, rentrez, bold)
+install.packages("seqinr", "bold")
+library(seqinr, bold)
 ```
 
 Now we're ready with data and software for the rest of lab.
@@ -71,35 +70,38 @@ Now that you know a little about working with sequence data in R, we can start t
 
 **BLAST**
 
-*Web-based BLAST*
-
 Navigate to the web interface for [NCBI's BLAST](http://blast.ncbi.nlm.nih.gov/Blast.cgi). There are many different options available for searching the published sequence database. We're going to work through a few of the most commonly used options together.
 
 Click on "nucleotide blast." Copy the cow sequence from `dna.fasta.unaligned.dat.txt`, paste it in the query sequence box, and click "BLAST."
 
-The results window includes lots of different types of information. If you would like to know more about interpreting these results, click on either of two links in the upper right of the window: "How to read this page" and "Blast report description." Click on the top BLAST hit, "Bos taurus isolate 115 mitochondrion, complete genome," and download as "FASTA (complete sequence)" from the upper left of the search result. It will appear as "seqdump.txt" (probably in your Downloads folder).
+The results window includes lots of different types of information. If you would like to know more about interpreting these results, click on either of two links in the upper right of the window: "How to read this page" and "Blast report description." Click on the top BLAST hit, "Bos taurus isolate 115 mitochondrion, complete genome," and download as "FASTA (complete sequence)" from the upper left of the search result. It will appear as "seqdump.txt". 
+
+Go back to the search page and upload the entire nucleotide fasta file. When your results appear, click on "Download" then "Hit table(text)" in the window that appears. It will download as "*-Alignment.txt" (probably in your Downloads folder). 
 
 The search we just completed was a megablast, which is a variation of blastn (searches nucleotide database using nucleotide query). Return to the search page and click on the "blastx" tab in the upper left. This search accepts a nucleotide query but searches protein databases. Enter the same sequence into the query box and click "BLAST." How do these search results differ from our first search?
 
 Now click on the "blastp" tab in the search window. Copy and paste the cow sequence from `protein.fasta.unaligned.dat.txt` into the search window. How do you interpret these results?
 
-*BLAST in R*
+Move the files you've downloaded in this part of the exercise to your newly created "data" folder in your R project directory.
 
 **Barcode of Life**
-
-*Web-based Barcode of Life*
 
 Navigate to the [Barcode of Life Database](http://www.boldsystems.org) in a web browser. Select the Public Data Portal (near the bottom of the screen). This first window allows you to search for records (specimens and sequences) for specific taxa in the database. Enter "Bos" in the search window and click "Search." What information is included with each result?
 
 Click on "Identification" near the top of the screen. This allows you to enter a sequence to identify a specimen. Copy and paste the "unknown1" sequence from the `week7.fas` data file. What is the best-scoring hit? How do you interpret these results? Click on the button for "BIN page," and then the blue "FASTA" button to download the best-scoring sequences. 
 
-*Barcode of Life in R*
+```
+#search for taxonomic names
+bold_tax_name(name = "Bos")
+#search for sequences for a particular taxon
+bold_seq(taxon = "Bos")
+```
 
-
+**Interacting with databases in R**
 
 
 ###Assignment
-* Due Wednesday, Feb X at 5 pm
+* Due Wednesday, Mar 4 at 5 pm
 * Assessment criteria
 	* Technical content: X, appropriate syntax for written assessment answers
 	* Critical thinking: X, explanations for written assessment answers
