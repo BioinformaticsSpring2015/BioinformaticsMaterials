@@ -38,6 +38,36 @@ Now we're ready with data and software for the rest of lab.
 
 **Sequence analysis in R**
 
+It can be a little tricky to load sequence data into R. We're going to use parts of the `seqinr` package to import data. First, click on the `dna.fasta.unaligned.dat.txt` you added to your new `data` folder. How are the data arranged? Now import them into R and look at the resulting structure:
+
+```
+#reading sequence data into R
+nucleotide <- read.fasta(file ="data/dna.fasta.unaligned.dat.txt")
+#view data structure
+str(nucleotide)
+```
+
+There are several fasta sequences in this dataset, but the way that R structures the data makes it easy to specify a single sequence:
+
+```
+#extract on sequence (cow)
+cow <- nucleotide[[1]]
+```
+
+Then we can gather a few pieces of information about the sequence:
+
+```
+#length of cow
+length(cow)
+#base composition
+table(cow)
+#barplot from base composition
+barplot(table(cow))
+#GC content
+GC(cow)
+```
+
+Now that you know a little about working with sequence data in R, we can start to examine sequence similarity.
 
 **BLAST**
 
