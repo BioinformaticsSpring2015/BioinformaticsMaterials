@@ -41,7 +41,7 @@ It can be a little tricky to load sequence data into R. We're going to use parts
 
 ```
 #reading sequence data into R
-nucleotide <- read.fasta(file ="data/dna.fasta.unaligned.dat.txt")
+nucleotide <- read.fasta(file ="data/dna.fasta.unaligned.dat.txt", seqtype = "DNA")
 #view data structure
 str(nucleotide)
 ```
@@ -76,7 +76,9 @@ Click on "nucleotide blast." Copy the cow sequence from `dna.fasta.unaligned.dat
 
 The results window includes lots of different types of information. If you would like to know more about interpreting these results, click on either of two links in the upper right of the window: "How to read this page" and "Blast report description." Click on the top BLAST hit, "Bos taurus isolate 115 mitochondrion, complete genome," and download as "FASTA (complete sequence)" from the upper left of the search result. It will appear as "seqdump.txt". 
 
-Go back to the search page and upload the entire nucleotide fasta file. When your results appear, click on "Download" then "Hit table(text)" in the window that appears. It will download as "*-Alignment.txt" (probably in your Downloads folder). 
+Go back to the search page, scroll down to the bottom of the page, and click "Algorithm parameters." You can view a more exhaustive set of options for manipulating similarity searching. What happens to your searches if you alter any of these parameters?
+
+For your next search, upload the entire nucleotide fasta file. When your results appear, click on "Download" then "Hit table(text)" in the window that appears. It will download as "*-Alignment.txt" (probably in your Downloads folder). 
 
 The search we just completed was a megablast, which is a variation of blastn (searches nucleotide database using nucleotide query). Return to the search page and click on the "blastx" tab in the upper left. This search accepts a nucleotide query but searches protein databases. Enter the same sequence into the query box and click "BLAST." How do these search results differ from our first search?
 
@@ -90,21 +92,24 @@ Navigate to the [Barcode of Life Database](http://www.boldsystems.org) in a web 
 
 Click on "Identification" near the top of the screen. This allows you to enter a sequence to identify a specimen. Copy and paste the "unknown1" sequence from the `week7.fas` data file. What is the best-scoring hit? How do you interpret these results? Click on the button for "BIN page," and then the blue "FASTA" button to download the best-scoring sequences. 
 
+**Interacting with databases in R**
+
+We can obtain information about the records in online databases using R. The following example uses parts of the `bold` R package to extract information from BOLD:
+
 ```
 #search for taxonomic names
-bold_tax_name(name = "Bos")
+bold_tax_name(name = c("Bos", "Bison"))
 #search for sequences for a particular taxon
 bold_seq(taxon = "Bos")
 ```
 
-**Interacting with databases in R**
-
+What data is included for each of these sequences?
 
 ###Assignment
 * Due Wednesday, Mar 4 at 5 pm
 * Assessment criteria
-	* Technical content: X, appropriate syntax for written assessment answers
-	* Critical thinking: X, explanations for written assessment answers
+	* Technical content: 40, appropriate syntax for written assessment answers
+	* Critical thinking: 40, explanations for written assessment answers
 	* Documentation: 10, code comments, citations for resources used in questions embedded in answers
 	* Professional behavior: 10, class participation, assignment formatting using homework template (including code formatted in `monospace`)
 * Written assessment: 
@@ -115,8 +120,10 @@ bold_seq(taxon = "Bos")
 	* Don't forget to preview your homework before committing! 
 	* If you get stuck on a question, please consult the textbook (see readings above).
 	
-1.
-
-How long did it take you to complete these questions?
-
-Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
+1. BLAST the unknown2 sequence from week7.fas (in the class' GitHub repository data folder). Now perform the same search but with match/mismatch scores of 1,-4. How do the results from these two analyses compare?
+2. BLAST this sequence: CGATGCGATATGCGAAAA. How do you interpret the score, similarity, query coverage, and E-value for the top hits? 
+3. Import the Bos taurus mitochondrial sequence (downloaded during the BLAST exercise) into R. What is the length and GC content? Include your code and comments.
+4. Extract the loach sequence from `protein.fasta.unaligned.dat.txt` and save it in a new file called `loachAA.fas`. Include your code and comments.
+5. Import all sequences for two taxa, *Callisia* and *Gibasis*, into R from BOLD. Include your code and comments.
+6. How long did it take you to complete these questions?
+7. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
