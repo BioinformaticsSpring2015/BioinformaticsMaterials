@@ -73,15 +73,15 @@ Now that you know a little about working with sequence data in R, we can start t
 
 *Web-based BLAST*
 
-Navigate to the web interface for [NCBI's BLAST](http://blast.ncbi.nlm.nih.gov/Blast.cgi). Lots of options.
+Navigate to the web interface for [NCBI's BLAST](http://blast.ncbi.nlm.nih.gov/Blast.cgi). There are many different options available for searching the published sequence database. We're going to work through a few of the most commonly used options together.
 
-search for particular sequence by taxon name or accession number, each part of record includes relevant information
+Click on "nucleotide blast." Copy the cow sequence from `dna.fasta.unaligned.dat.txt`, paste it in the query sequence box, and click "BLAST."
 
-blastn
+The results window includes lots of different types of information. If you would like to know more about interpreting these results, click on either of two links in the upper right of the window: "How to read this page" and "Blast report description." Click on the top BLAST hit, "Bos taurus isolate 115 mitochondrion, complete genome," and download as "FASTA (complete sequence)" from the upper left of the search result. It will appear as "seqdump.txt" (probably in your Downloads folder).
 
-blastp
+The search we just completed was a megablast, which is a variation of blastn (searches nucleotide database using nucleotide query). Return to the search page and click on the "blastx" tab in the upper left. This search accepts a nucleotide query but searches protein databases. Enter the same sequence into the query box and click "BLAST." How do these search results differ from our first search?
 
-blastx
+Now click on the "blastp" tab in the search window. Copy and paste the cow sequence from `protein.fasta.unaligned.dat.txt` into the search window. How do you interpret these results?
 
 *BLAST in R*
 
