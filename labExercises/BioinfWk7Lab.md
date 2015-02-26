@@ -135,11 +135,12 @@ Click on "Identification" near the top of the screen. This allows you to enter a
 	* Don't forget to preview your homework before committing! 
 	* If you get stuck on a question, please consult the textbook (see readings above).
 	
-1. BLAST the unknown2 sequence from week7.fas (in the class' GitHub repository data folder). Now perform the same search but with match/mismatch scores of 1,-4. How do the results from these two analyses compare?
+1. BLAST the unknown2 sequence from `week7.fas` (in the class' GitHub repository data folder). Now perform the same search but with match/mismatch scores of 1,-4. How do the results from these two analyses compare?
 2. BLAST this sequence: CGATGCGATATGCGAAAA. How do you interpret the score, similarity, query coverage, and E-value for the top hits? 
-3. Import the Bos taurus mitochondrial sequence (downloaded during the BLAST exercise) into R using `seqinr`. What is the length and GC content? Include your code and comments.
+3. Import the *Bos taurus* mitochondrial sequence (downloaded during the BLAST exercise) into R using `seqinr`. What is the length and GC content? Include your code and comments.
 4. Using R, extract the loach sequence from `protein.fasta.unaligned.dat.txt` and save it in a new file called `loachAA.fas`. Include your code and comments.
 5. Import BOLD sequences for two taxa, *Callisia* and *Gibasis*, into R using the R package `bold`. Include your code and comments.
 6. Import GenBank sequences for the organism *Boa* using `rentrez` and save to a file (using `seqinr`). Include your code and comments.
-7. How long did it take you to complete these questions?
-8. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
+7. Search for the unknown3 sequence from `week7.fas` using the online BOLD database and using BLAST. Compare your results and explain your conclusion. 
+8. How long did it take you to complete these questions?
+9. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
