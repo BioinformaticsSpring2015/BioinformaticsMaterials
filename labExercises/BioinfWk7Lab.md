@@ -21,36 +21,37 @@ Additional materials for reference:
 
 **Download data and install packages for today's exercises**
 
-First we're going to set up the files that we'll be using for the rest of today's lab. Open up RStudio and your BioinformaticsR package. Create a new folder called "data" in your directory.
+First we're going to set up the files that we'll be using for the rest of today's lab. Open up RStudio and your BioinformaticsR package. Create a new folder called "data" in your directory. We've been using the same R script for several weeks now, so let's also create a new R script, call it `week7.R`, and save it in our BioinformaticsR folder.
 
 Go to [Molecular Evolution's Sample Files page](http://www.molecularevolution.org/resources/fileformats) and download both the "Example unaligned FASTA DNA file" and "Example unaligned FASTA amino acid file." On your desktop, drag these two files to your newly created "data" folder. You should then see them appear in your RStudio file hierarchy.
 
-In RStudio, you can now install and load the packages for today's lab:
+In RStudio, you can now install and load today's first package:
 
 ```
 #install and load packages
-install.packages("seqinr", "bold")
-library(seqinr, bold)
+install.packages(seqinr)
+library(seqinr)
 ```
 
 Now we're ready with data and software for the rest of lab.
 
 **Sequence analysis in R**
 
-It can be a little tricky to load sequence data into R. We're going to use parts of the `seqinr` package to import data. First, click on the `dna.fasta.unaligned.dat.txt` you added to your new `data` folder. How are the data arranged? Now import them into R and look at the resulting structure:
+It can be a little tricky to load sequence data into R. We're going to use parts of the `seqinr` package to import data. First, click on `dna.fasta.unaligned.dat` (just added to your new `data` folder). How are the data arranged? Now import them into R and look at the resulting structure:
 
 ```
 #reading sequence data into R
-nucleotide <- read.fasta(file ="data/dna.fasta.unaligned.dat.txt", seqtype = "DNA")
+nucleotide <- read.fasta(file ="data/dna.fasta.unaligned.dat", seqtype = "DNA")
 #view data structure
 str(nucleotide)
 ```
 
-There are several fasta sequences in this dataset, but the way that R structures the data makes it easy to specify a single sequence:
+There are several fasta sequences in this dataset, but the way that R structures the data makes it easy to specify a single sequence, and even save that extracted sequence to file:
 
 ```
-#extract on sequence (cow)
+#extract one sequence (cow) and save to file
 cow <- nucleotide[[1]]
+write.fasta(names="cow", sequences=cow, file.out="data/cow.fas")
 ```
 
 Then we can gather a few pieces of information about the sequence:
@@ -65,6 +66,35 @@ barplot(table(cow))
 #GC content
 GC(cow)
 ```
+
+In addition to loading data from text files, there are other options for entering data into R. We can also obtain information about records in online databases using R. We can extract sequences from multiple parts of NCBI, including GenBank:
+
+```
+#install and load packages
+install.packages("rentrez")
+library(rentrez)
+#specify search term
+salamander <- "Ambystoma[Organism]"
+#search for term
+salamanderSearch <- entrez_search(db="nuccore", term=salamander)
+#fetch sequences
+salamanderSeqs <- entrez_fetch(db="nuccore", id = salamanderSearch$ids, rettype = "fasta")
+write.fasta(names="Ambystoma", sequences=salamanderSeqs, file.out="data/salamander.fas")
+```
+
+The following example uses parts of the `bold` R package to extract information from BOLD, including installation and loading of the package:
+
+```
+#install and load packages
+install.packages(seqinr)
+library(seqinr)
+#search for taxonomic names
+bold_tax_name(name = c("Bos", "Bison"))
+#search for sequences for a particular taxon
+bold_seq(taxon = "Bos")
+```
+
+What data is included for each of these sequences?
 
 Now that you know a little about working with sequence data in R, we can start to examine sequence similarity.
 
@@ -84,26 +114,11 @@ The search we just completed was a megablast, which is a variation of blastn (se
 
 Now click on the "blastp" tab in the search window. Copy and paste the cow sequence from `protein.fasta.unaligned.dat.txt` into the search window. How do you interpret these results?
 
-Move the files you've downloaded in this part of the exercise to your newly created "data" folder in your R project directory.
-
 **Barcode of Life**
 
 Navigate to the [Barcode of Life Database](http://www.boldsystems.org) in a web browser. Select the Public Data Portal (near the bottom of the screen). This first window allows you to search for records (specimens and sequences) for specific taxa in the database. Enter "Bos" in the search window and click "Search." What information is included with each result?
 
-Click on "Identification" near the top of the screen. This allows you to enter a sequence to identify a specimen. Copy and paste the "unknown1" sequence from the `week7.fas` data file. What is the best-scoring hit? How do you interpret these results? Click on the button for "BIN page," and then the blue "FASTA" button to download the best-scoring sequences. 
-
-**Interacting with databases in R**
-
-We can obtain information about the records in online databases using R. The following example uses parts of the `bold` R package to extract information from BOLD:
-
-```
-#search for taxonomic names
-bold_tax_name(name = c("Bos", "Bison"))
-#search for sequences for a particular taxon
-bold_seq(taxon = "Bos")
-```
-
-What data is included for each of these sequences?
+Click on "Identification" near the top of the screen. This allows you to enter a sequence to identify a specimen. Copy and paste the "unknown1" sequence from the `week7.fas` data file into the "Animal" search field. What is the best-scoring hit? How do you interpret these results? Click on the button for "BIN page," and then the blue "FASTA" button to download the best-scoring sequences. 
 
 ###Assignment
 * Due Wednesday, Mar 4 at 5 pm
@@ -122,8 +137,9 @@ What data is included for each of these sequences?
 	
 1. BLAST the unknown2 sequence from week7.fas (in the class' GitHub repository data folder). Now perform the same search but with match/mismatch scores of 1,-4. How do the results from these two analyses compare?
 2. BLAST this sequence: CGATGCGATATGCGAAAA. How do you interpret the score, similarity, query coverage, and E-value for the top hits? 
-3. Import the Bos taurus mitochondrial sequence (downloaded during the BLAST exercise) into R. What is the length and GC content? Include your code and comments.
-4. Extract the loach sequence from `protein.fasta.unaligned.dat.txt` and save it in a new file called `loachAA.fas`. Include your code and comments.
-5. Import all sequences for two taxa, *Callisia* and *Gibasis*, into R from BOLD. Include your code and comments.
-6. How long did it take you to complete these questions?
-7. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
+3. Import the Bos taurus mitochondrial sequence (downloaded during the BLAST exercise) into R using `seqinr`. What is the length and GC content? Include your code and comments.
+4. Using R, extract the loach sequence from `protein.fasta.unaligned.dat.txt` and save it in a new file called `loachAA.fas`. Include your code and comments.
+5. Import BOLD sequences for two taxa, *Callisia* and *Gibasis*, into R using the R package `bold`. Include your code and comments.
+6. Import GenBank sequences for the organism *Boa* using `rentrez` and save to a file (using `seqinr`). Include your code and comments.
+7. How long did it take you to complete these questions?
+8. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
