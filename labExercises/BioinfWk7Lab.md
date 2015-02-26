@@ -15,7 +15,7 @@ You should be able to:
 
 Additional materials for reference:
 * [BLAST on NCBI](http://blast.ncbi.nlm.nih.gov/Blast.cgi)
-* [Barcode of Life](http://www.boldsystems.org)
+* [Barcode of Life Database](http://www.boldsystems.org)
 * [Little Book of R for Bioinformatics](https://a-little-book-of-r-for-bioinformatics.readthedocs.org/en/latest/)
 
 ###Activities
@@ -88,6 +88,10 @@ Now click on the "blastp" tab in the search window. Copy and paste the cow seque
 **Barcode of Life**
 
 *Web-based Barcode of Life*
+
+Navigate to the [Barcode of Life Database](http://www.boldsystems.org) in a web browser. Select the Public Data Portal (near the bottom of the screen). This first window allows you to search for records (specimens and sequences) for specific taxa in the database. Enter "Bos" in the search window and click "Search." What information is included with each result?
+
+Click on "Identification" near the top of the screen. This allows you to enter a sequence to identify a specimen. Copy and paste the "unknown1" sequence from the `week7.fas` data file. What is the best-scoring hit? How do you interpret these results? Click on the button for "BIN page," and then the blue "FASTA" button to download the best-scoring sequences. 
 
 *Barcode of Life in R*
 
