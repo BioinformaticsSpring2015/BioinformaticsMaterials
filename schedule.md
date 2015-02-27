@@ -9,3 +9,4 @@ Week  | Date |  Topic | Reading
 5 | Feb 12 | Statistical testing in R, Darwin Day! | OIS Sections 4-8
 6 | Feb 19 | Data visualizations | PCB Chapter 17
 7 | Feb 26 | Sequence searching | N/A
+8 | Mar 3 | Multiple sequence alignment | N/A
