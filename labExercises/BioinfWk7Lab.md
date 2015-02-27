@@ -86,8 +86,8 @@ The following example uses parts of the `bold` R package to extract information 
 
 ```
 #install and load packages
-install.packages(seqinr)
-library(seqinr)
+install.packages(bold)
+library(bold)
 #search for taxonomic names
 bold_tax_name(name = c("Bos", "Bison"))
 #search for sequences for a particular taxon
