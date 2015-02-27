@@ -10,3 +10,4 @@ Week  | Date |  Topic | Reading
 6 | Feb 19 | Data visualizations | PCB Chapter 17
 7 | Feb 26 | Sequence searching | N/A
 8 | Mar 3 | Multiple sequence alignment | N/A
+- | Mar 10 | Spring Break | N/A
