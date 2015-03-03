@@ -6,7 +6,8 @@ Slides for the introduction to today's lab, as well as a PDF of this document, c
 ###Learning Objectives
 You should be able to:
 
-1. 
+1. perform and compare multiple sequence alignments using a variety of algorithms using web servers
+2. import and analyze sequence matrices in R
 
 ###Readings:
 
@@ -25,11 +26,19 @@ Once you have signed up for an account, your instructor will be able to grant yo
 
 **Comparison of alignment algorithms**
 
-Navigate to the [EMBL-EBI MSA tool page](http://www.ebi.ac.uk/Tools/msa/).
+Navigate to the [EMBL-EBI MSA tool page](http://www.ebi.ac.uk/Tools/msa/). This is a resource provided by the European Molecular Biology Laboratory that will allow us to perform several multiple sequence alignment methods and compare the results.
+
+*Clustal W*
+
+Select "Launch ClustalW." Use the upload button below the text box to enter `dna.fasta.unaligned.dat`. Use the drop down menu to select "DNA," leave all other parameters as default, and click "Submit."
+
+This analysis will output several types of files. You can click on each output to view it in your browser, or right click to download to your Desktop. The most important output is the file of aligned sequences, but you may also be interested in other files containing summary statistics and alignment parameters.  There is also an option to view the alignment color-coded in Jalview (but this requires an additional plug-in installation on your computer). 
+
 
 **MSA in R**
 
 ```
+#install and load package
 install.packages("muscle")
 library(muscle)
 ```
@@ -49,6 +58,7 @@ library(muscle)
 	* Don't forget to preview your homework before committing! 
 	* If you get stuck on a question, please consult the textbook (see readings above).
 	
-1. 
+1. Why does ClustalW output a phylogenetic tree?
+2. Perform mutliple sequence alignment using the package `muscle`. Include your code and comments.
 How long did it take you to complete these questions?
 Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
