@@ -23,7 +23,16 @@ Go to the [TACC user portal](https://portal.tacc.utexas.edu/) and click "Create 
 
 Once you have signed up for an account, your instructor will be able to grant you access to Lonestar, the cluster we'll be using for class.
 
-**Download data and install packages for today's exercises**
+**Comparison of alignment algorithms**
+
+Navigate to the [EMBL-EBI MSA tool page](http://www.ebi.ac.uk/Tools/msa/).
+
+**MSA in R**
+
+```
+install.packages("muscle")
+library(muscle)
+```
 
 ###Assignment
 * Due Wednesday, Mar 17 at 5 pm (although I strongly recommend you complete it before then!)
