@@ -36,7 +36,7 @@ You'll see an intermediate screen indicating that a remote server is running you
 
 *MAFFT*
 
-Download in fasta format
+Download in fasta and/or nexus format
 
 **MSA in R**
 
@@ -44,14 +44,26 @@ We're going to use two new packages today to import sequences, perform some quic
 
 ```
 #install and load packages
-install.packages(c("muscle","ape")
-library(c(muscle,ape))
+install.packages(c("muscle","ape","seqinr")
+library(c(muscle,ape,seqinr))
 ```
 
 As we discussed last week in lab, performing sequence alignments in R isn't very efficient. We may often prefer to perform an alignment using a web-based server, download the results, and then import the aligned dataset into R. We can do this using one of the datasets we downloaded earlier:
 
 ```
-XXX
+#read fasta alignment into R using seqinr
+read.alignment(file = "data/aligned", format = "fasta")
+```
+
+Clustal format import using 
+
+Align sequences in R using `muscle`. We don't even have to read the data into R first!
+
+```
+#align sequences using muscle
+aln <- muscle(seqs = "data/dna.fasta.unaligned.dat.txt")
+#print selected alignment positions
+print.muscle(aln, from = 1, to = 708)
 ```
 
 ###Assignment
