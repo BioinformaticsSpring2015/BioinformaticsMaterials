@@ -30,17 +30,28 @@ Navigate to the [EMBL-EBI MSA tool page](http://www.ebi.ac.uk/Tools/msa/). This 
 
 *Clustal W*
 
-Select "Launch ClustalW." Use the upload button below the text box to enter `dna.fasta.unaligned.dat`. Use the drop down menu to select "DNA," leave all other parameters as default, and click "Submit."
+Select "Launch ClustalW." Use the upload button below the text box to enter `dna.fasta.unaligned.dat`. Use the drop down menu to select "DNA" to specify the type of sequences we are aligning. Note that there are several alignment parameters that you can alter. Click "Submit" to start your job. 
 
-This analysis will output several types of files. You can click on each output to view it in your browser, or right click to download to your Desktop. The most important output is the file of aligned sequences, but you may also be interested in other files containing summary statistics and alignment parameters.  There is also an option to view the alignment color-coded in Jalview (but this requires an additional plug-in installation on your computer). 
+You'll see an intermediate screen indicating that a remote server is running your analysis. This job will output several types of files. You can click on each output to view it in your browser, or right click to download to your Desktop. The most important output is the file of aligned sequences, but you may also be interested in other files containing summary statistics and alignment parameters.  There is also an option to view the alignment color-coded in Jalview (but this requires an additional plug-in installation on your computer). 
 
+*MAFFT*
+
+Download in fasta format
 
 **MSA in R**
 
+We're going to use two new packages today to import sequences, perform some quick MSAs, and view the resulting files.
+
 ```
-#install and load package
-install.packages("muscle")
-library(muscle)
+#install and load packages
+install.packages(c("muscle","ape")
+library(c(muscle,ape))
+```
+
+As we discussed last week in lab, performing sequence alignments in R isn't very efficient. We may often prefer to perform an alignment using a web-based server, download the results, and then import the aligned dataset into R. We can do this using one of the datasets we downloaded earlier:
+
+```
+XXX
 ```
 
 ###Assignment
