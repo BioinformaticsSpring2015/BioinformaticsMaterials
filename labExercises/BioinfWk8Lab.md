@@ -13,6 +13,7 @@ You should be able to:
 
 Additional materials for reference:
 * [Molecular Evolution file formats](http://www.molecularevolution.org/resources/fileformats)
+* [EMBL-EBI MSA tool page](http://www.ebi.ac.uk/Tools/msa/)
 
 ###Activities
 
@@ -36,16 +37,16 @@ You'll see an intermediate screen indicating that a remote server is running you
 
 *MAFFT*
 
-Go back to the main list of sequence alignment algorithms and select "Launch MAFFT." Upload the `dna.fasta.unaligned.dat` file again, and select ClustalW as the output format. Download these results to import into R later.
+Go back to the main list of sequence alignment algorithms and select "Launch MAFFT." Upload the `dna.fasta.unaligned.dat` file again, and select ClustalW as the output format. Download these results and rename `mafftAlign.clustal`.
 
 **MSA in R**
 
-We're going to use two new packages today to import sequences, perform some quick MSAs, and view the resulting files. First, we need to set up our R projects. Create a new folder in your `BioinformaticsR` directory called `intermediate`. This is where we will store the files we align. Move the alignments you downloaded from earlier in the lesson to this folder. Next, download the aligned data files from [Molecular Evolution's Sample Files page](http://www.molecularevolution.org/resources/fileformats). We are going to use these files as example alignments. We can do this on the command line by clicking on the "Download" button and copying the url for the following commands:
+We're going to use two new packages today to import sequences, perform some quick MSAs, and view the resulting files. First, we need to set up our R projects. Create a new folder in your `BioinformaticsR` directory called `alignments`. This is where we will store the files we align. Move the alignment you downloaded from earlier in the lesson to this folder. Next, download the aligned data files from [Molecular Evolution's Sample Files page](http://www.molecularevolution.org/resources/fileformats). We are going to use these files as example alignments. We can do this on the command line by clicking on the "Download" button and copying the url for the following commands:
 
 ```
 #download aligned example files
-download.file(url = "http://www.molecularevolution.org/molevolfiles/fileformats/dna.fasta.aligned.dat", destfile = "data/dna.fasta.aligned.dat")
-download.file(url = "http://www.molecularevolution.org/molevolfiles/fileformats/protein.fasta.aligned.dat", destfile = "data/protein.fasta.aligned.dat")
+download.file(url = "http://www.molecularevolution.org/molevolfiles/fileformats/dna.fasta.aligned.dat", destfile = "alignment/dna.fasta.aligned.dat")
+download.file(url = "http://www.molecularevolution.org/molevolfiles/fileformats/protein.fasta.aligned.dat", destfile = "alignment/protein.fasta.aligned.dat")
 ```
 
 Now we need to make sure we have all packages installed for today's activities:
@@ -61,16 +62,16 @@ As we discussed last week in lab, performing sequence alignments in R isn't very
 #load library
 library(muscle)
 #align and send to file
-muscle(seqs = "data/dna.fasta.unaligned.dat", out = "intermediate/out1.afa")
+muscle(seqs = "data/dna.fasta.unaligned.dat", out = "alignments/out1.afa")
 ```
 
-Alternatively, you can load sequences into R, align, and export, which allows you to manipulate the stored object in R. The following output should be identical to the previous output.
+Alternatively, you can load sequences into R, align, and export, which allows you to manipulate the stored object in R. This example uses protein data:
 
 ```
 #align and send to object
-dna1 <- muscle(seqs = "data/dna.fasta.unaligned.dat")
+dna1 <- muscle(seqs = "data/protein.fasta.unaligned.dat")
 #write output to file
-write.fasta(dna1, file = "intermediate/out2.afa")
+write.fasta(dna1, file = "alignments/out2.afa")
 #print selected alignment positions
 print.muscle(dna1, from = 1, to = 50)
 ```
@@ -81,22 +82,22 @@ More often than not, we may often prefer to perform an alignment using a web-bas
 #load library
 library(seqinr) #masked read.fasta and write.fasta from muscle
 #read fasta alignment into R using seqinr
-dna2 <- read.alignment(file = "data/dna.fasta.aligned.dat", format = "fasta")
+dna2 <- read.alignment(file = "alignments/dna.fasta.aligned.dat", format = "fasta")
 #make consensus
 con(dna2)
 #write consensus to outfile
-seqinr::write.fasta(names="consensus", sequences=con(dna2), file.out="intermediate/consensus.fas")
+seqinr::write.fasta(names="consensus", sequences=con(dna2), file.out="alignments/consensus.fas")
 ```
 
-Note in the previous example that loading `seqinr` caused an overwrite of some commands from `muscle`, which we loaded earlier. We make sure we're running the appropriate version of a command by specifying `seqinr::write.fasta` later.
+Note in the previous example that loading `seqinr` caused an overwrite of some commands from `muscle`, which we loaded earlier. We make sure we're running the appropriate version of a command by specifying `seqinr::write.fasta`.
 
 ```
 #load library 
 library(ape) #masks as.alignment, consensus from seqinr; muscle from muscle
 #read fasta alignment into R using ape
-dna3 <- read.dna(file = "data/dna.fasta.aligned.dat", format ="fasta")
+dna3 <- read.dna(file = "alignments/dna.fasta.aligned.dat", format ="fasta")
 #read clustal alignment in R using ape
-dna4 <- read.dna(file = "data/dna.fasta.aligned.dat", format ="clustal")
+dna4 <- read.dna(file = "alignments/dna.fasta.aligned.dat", format ="clustal")
 ```
 
 What would happen if you tried to run the command `muscle` now? How would you specify the other package?
@@ -111,13 +112,23 @@ class(dna3) #list
 class(dna4) #list
 ```
 
+There are some commands to change data from one structure to another:
+
+```
+#transform between data structures in ape
+dna3 <- as.alignment(dna3)
+class(dna3) #alignment
+```
+
+In this case, we're replacing the object `dna3` with the same data, just in a different format. If you're having problems with the data structure, you can always consider saving the file separately as text and reimporting with the correct command.
+
 ###Assignment
 * Due Wednesday, Mar 17 at 5 pm (although I strongly recommend you complete it before then!)
 * Assessment criteria
-	* Technical content: 20, appropriate syntax for written assessment answers
-	* Critical thinking: 20, explanations for written assessment answers
-	* Documentation: 5, code comments, citations for resources used in questions embedded in answers
-	* Professional behavior: 5, class participation, assignment formatting using homework template (including code formatted in `monospace`)
+	* Technical content: 40, appropriate syntax for written assessment answers
+	* Critical thinking: 40, explanations for written assessment answers
+	* Documentation: 10, code comments, citations for resources used in questions embedded in answers
+	* Professional behavior: 10, class participation, assignment formatting using homework template (including code formatted in `monospace`)
 * Written assessment: 
 	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk8Homework.md". Title (header) is "Multiple sequence alignment".
 	* Answer the following questions about the Unix tools you learned for this week's lab, including code comments where appropriate 				
@@ -130,6 +141,8 @@ class(dna4) #list
 2. Look at the multiple sequence alignment in `data/week8.txt` in the class GitHub repository. What file format is it? How do you know?
 3. Why does ClustalW output a phylogenetic tree?
 4. Download [these sequences](http://www.embl.de/~seqanal/courses/commonCourseContent/sequences/moreDivergentHemoglobins_unaligned.fasta) in R and perform a mutliple sequence alignment using the R package `muscle`. Include your code and comments.
-5. Align the same sequences from question 4 using MAFFT on the online EMBL server. How does this alignment compare to your muscle alignment from question 4?
-6. How long did it take you to complete these questions?
-7. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
+5. Align the same sequences from question 4 using MAFFT on the online EMBL server. How does this alignment compare to your muscle alignment from question 4 (hint: think about what files you receive and what's included)?
+6. Try to import `protein.fasta.aligned.dat` using `read.dna` from the ape package. What is the problem?
+7. Make a consensus sequence for mafftAlign.clustal. Include your code and comments.
+8. How long did it take you to complete these questions?
+9. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
