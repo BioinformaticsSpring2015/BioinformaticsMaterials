@@ -40,30 +40,66 @@ Download in fasta and/or nexus format
 
 **MSA in R**
 
+Create file called `intermediate`.
+
+Download files.
+
 We're going to use two new packages today to import sequences, perform some quick MSAs, and view the resulting files.
 
 ```
-#install and load packages
+#install packages
 install.packages(c("muscle","ape","seqinr")
-library(c(muscle,ape,seqinr))
+```
+
+Align sequences in R using `muscle`. We don't even have to read the data into R first!
+
+```
+#load library
+library(muscle)
+#align and send to file
+muscle(seqs = "data/dna.fasta.unaligned.dat", out = "intermediate/out1.afa")
+```
+
+Alternatively, load sequences into R, align, and export, which allows you to manipulate the stored object in R:
+
+```
+#align and send to object
+dna1 <- muscle(seqs = "data/dna.fasta.unaligned.dat")
+#write output to file
+write.fasta(dna1, file = "intermediate/out2.afa")
+#print selected alignment positions
+print.muscle(dna1, from = 1, to = 50)
 ```
 
 As we discussed last week in lab, performing sequence alignments in R isn't very efficient. We may often prefer to perform an alignment using a web-based server, download the results, and then import the aligned dataset into R. We can do this using one of the datasets we downloaded earlier:
 
 ```
+#load library
+library(seqinr) #masked read.fasta and write.fasta from muscle
 #read fasta alignment into R using seqinr
-read.alignment(file = "data/aligned", format = "fasta")
+dna2 <- read.alignment(file = "data/dna.fasta.aligned.dat", format = "fasta")
+#make consensus
+con(dna2)
+#write consensus to outfile
+seqinr::write.fasta(names="consensus", sequences=con(dna2), file.out="intermediate/consensus.fas")
 ```
 
-Clustal format import using 
-
-Align sequences in R using `muscle`. We don't even have to read the data into R first!
+Clustal format import
 
 ```
-#align sequences using muscle
-aln <- muscle(seqs = "data/dna.fasta.unaligned.dat.txt")
-#print selected alignment positions
-print.muscle(aln, from = 1, to = 708)
+#load library 
+library(ape) #masks as.alignment, consensus from seqinr; muscle from muscle
+#read fasta alignment into R using ape
+dna3 <- read.dna(file = "data/dna.fasta.aligned.dat", format ="clustal")
+```
+
+what if you tried to run muscle now? How would you specify the other package?
+
+```
+#compare classes of unaligned sequences
+class(dna1) #muscle
+class(dna2) #alignment
+class(dna3) #list
 ```
 
 ###Assignment
