@@ -12,7 +12,7 @@ You should be able to:
 ###Readings:
 
 Additional materials for reference:
-* 
+* [Molecular Evolution file formats](http://www.molecularevolution.org/resources/fileformats)
 
 ###Activities
 
@@ -36,22 +36,26 @@ You'll see an intermediate screen indicating that a remote server is running you
 
 *MAFFT*
 
-Download in fasta and/or nexus format
+Go back to the main list of sequence alignment algorithms and select "Launch MAFFT." Upload the `dna.fasta.unaligned.dat` file again, and select ClustalW as the output format. Download these results to import into R later.
 
 **MSA in R**
 
-Create file called `intermediate`.
+We're going to use two new packages today to import sequences, perform some quick MSAs, and view the resulting files. First, we need to set up our R projects. Create a new folder in your `BioinformaticsR` directory called `intermediate`. This is where we will store the files we align. Move the alignments you downloaded from earlier in the lesson to this folder. Next, download the aligned data files from [Molecular Evolution's Sample Files page](http://www.molecularevolution.org/resources/fileformats). We are going to use these files as example alignments. We can do this on the command line by clicking on the "Download" button and copying the url for the following commands:
 
-Download files.
+```
+#download aligned example files
+download.file(url = "http://www.molecularevolution.org/molevolfiles/fileformats/dna.fasta.aligned.dat", destfile = "data/dna.fasta.aligned.dat")
+download.file(url = "http://www.molecularevolution.org/molevolfiles/fileformats/protein.fasta.aligned.dat", destfile = "data/protein.fasta.aligned.dat")
+```
 
-We're going to use two new packages today to import sequences, perform some quick MSAs, and view the resulting files.
+Now we need to make sure we have all packages installed for today's activities:
 
 ```
 #install packages
 install.packages(c("muscle","ape","seqinr")
 ```
 
-Align sequences in R using `muscle`. We don't even have to read the data into R first!
+As we discussed last week in lab, performing sequence alignments in R isn't very efficient. There is one algorithm available in R that will allow us to perform alignments for small datasets. We don't even have to read the data into R first! Let's perform a test alignment on `dna.fasta.unaligned.dat` and store the output in `intermediate`.
 
 ```
 #load library
@@ -60,7 +64,7 @@ library(muscle)
 muscle(seqs = "data/dna.fasta.unaligned.dat", out = "intermediate/out1.afa")
 ```
 
-Alternatively, load sequences into R, align, and export, which allows you to manipulate the stored object in R:
+Alternatively, you can load sequences into R, align, and export, which allows you to manipulate the stored object in R. The following output should be identical to the previous output.
 
 ```
 #align and send to object
@@ -71,7 +75,7 @@ write.fasta(dna1, file = "intermediate/out2.afa")
 print.muscle(dna1, from = 1, to = 50)
 ```
 
-As we discussed last week in lab, performing sequence alignments in R isn't very efficient. We may often prefer to perform an alignment using a web-based server, download the results, and then import the aligned dataset into R. We can do this using one of the datasets we downloaded earlier:
+More often than not, we may often prefer to perform an alignment using a web-based server, download the results, and then import the aligned dataset into R. We can do this using one of the datasets we downloaded earlier:
 
 ```
 #load library
@@ -84,22 +88,27 @@ con(dna2)
 seqinr::write.fasta(names="consensus", sequences=con(dna2), file.out="intermediate/consensus.fas")
 ```
 
-Clustal format import
+Note in the previous example that loading `seqinr` caused an overwrite of some commands from `muscle`, which we loaded earlier. We make sure we're running the appropriate version of a command by specifying `seqinr::write.fasta` later.
 
 ```
 #load library 
 library(ape) #masks as.alignment, consensus from seqinr; muscle from muscle
 #read fasta alignment into R using ape
-dna3 <- read.dna(file = "data/dna.fasta.aligned.dat", format ="clustal")
+dna3 <- read.dna(file = "data/dna.fasta.aligned.dat", format ="fasta")
+#read clustal alignment in R using ape
+dna4 <- read.dna(file = "data/dna.fasta.aligned.dat", format ="clustal")
 ```
 
-what if you tried to run muscle now? How would you specify the other package?
+What would happen if you tried to run the command `muscle` now? How would you specify the other package?
+
+We can examine the data structures from each of the different alignments we read into R. This will be very important when we start to perform other commands on these sequences files later!
 
 ```
 #compare classes of unaligned sequences
 class(dna1) #muscle
 class(dna2) #alignment
 class(dna3) #list
+class(dna4) #list
 ```
 
 ###Assignment
@@ -117,7 +126,10 @@ class(dna3) #list
 	* Don't forget to preview your homework before committing! 
 	* If you get stuck on a question, please consult the textbook (see readings above).
 	
-1. Why does ClustalW output a phylogenetic tree?
-2. Perform mutliple sequence alignment using the package `muscle`. Include your code and comments.
-How long did it take you to complete these questions?
-Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
+1. What username did you choose for your account on TACC?
+2. Look at the multiple sequence alignment in `data/week8.txt` in the class GitHub repository. What file format is it? How do you know?
+3. Why does ClustalW output a phylogenetic tree?
+4. Download [these sequences](http://www.embl.de/~seqanal/courses/commonCourseContent/sequences/moreDivergentHemoglobins_unaligned.fasta) in R and perform a mutliple sequence alignment using the R package `muscle`. Include your code and comments.
+5. Align the same sequences from question 4 using MAFFT on the online EMBL server. How does this alignment compare to your muscle alignment from question 4?
+6. How long did it take you to complete these questions?
+7. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
