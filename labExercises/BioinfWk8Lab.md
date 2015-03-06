@@ -56,7 +56,7 @@ Now we need to make sure we have all packages installed for today's activities:
 install.packages(c("muscle","ape","seqinr")
 ```
 
-As we discussed last week in lab, performing sequence alignments in R isn't very efficient. There is one algorithm available in R that will allow us to perform alignments for small datasets. We don't even have to read the data into R first! Let's perform a test alignment on `dna.fasta.unaligned.dat` and store the output in `intermediate`.
+As we discussed last week in lab, performing sequence alignments in R isn't very efficient. There is one algorithm available in R that will allow us to perform alignments for small datasets. We don't even have to read the data into R first! Let's perform a test alignment on `dna.fasta.unaligned.dat` and store the output in `alignments`.
 
 ```
 #load library
@@ -97,7 +97,7 @@ library(ape) #masks as.alignment, consensus from seqinr; muscle from muscle
 #read fasta alignment into R using ape
 dna3 <- read.dna(file = "alignments/dna.fasta.aligned.dat", format ="fasta")
 #read clustal alignment in R using ape
-dna4 <- read.dna(file = "alignments/dna.fasta.aligned.dat", format ="clustal")
+dna4 <- read.dna(file = "alignments/mafftAlign.clustalw", format ="clustal")
 ```
 
 What would happen if you tried to run the command `muscle` now? How would you specify the other package?
@@ -108,8 +108,8 @@ We can examine the data structures from each of the different alignments we read
 #compare classes of unaligned sequences
 class(dna1) #muscle
 class(dna2) #alignment
-class(dna3) #list
-class(dna4) #list
+class(dna3) #DNAbin
+class(dna4) #DNAbin
 ```
 
 There are some commands to change data from one structure to another:
