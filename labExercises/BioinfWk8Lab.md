@@ -45,8 +45,8 @@ We're going to use two new packages today to import sequences, perform some quic
 
 ```
 #download aligned example files
-download.file(url = "http://www.molecularevolution.org/molevolfiles/fileformats/dna.fasta.aligned.dat", destfile = "alignment/dna.fasta.aligned.dat")
-download.file(url = "http://www.molecularevolution.org/molevolfiles/fileformats/protein.fasta.aligned.dat", destfile = "alignment/protein.fasta.aligned.dat")
+download.file(url = "http://www.molecularevolution.org/molevolfiles/fileformats/dna.fasta.aligned.dat", destfile = "alignments/dna.fasta.aligned.dat")
+download.file(url = "http://www.molecularevolution.org/molevolfiles/fileformats/protein.fasta.aligned.dat", destfile = "alignments/protein.fasta.aligned.dat")
 ```
 
 Now we need to make sure we have all packages installed for today's activities:
