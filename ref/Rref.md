@@ -61,3 +61,11 @@ dev.off()
 **Using packages**
 * `install.packages("package.name")` install packages if they are not already on computer
 * `library("package.name")` load a package that is already installed on the computer
+
+**Packages**
+* `openintro` for accessing datasets
+* `ggplot2` for data visualization
+* `seqinr` for manipulating sequence data
+* `rentrez` for obtaining sequences from GenBank
+* `bold` for obtaining sequences from BOLD
+* `muscle` for multiple sequence alignment
