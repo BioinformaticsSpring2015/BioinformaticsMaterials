@@ -7,7 +7,7 @@ Slides for the introduction to today's lab, as well as a PDF of this document, c
 You should be able to:
 
 1. Construct phylogenetic trees from multiple sequence alignments.
-2. Log on to a remote computational cluster and perform analyses.
+2. Log on to a remote computational cluster and perform analyses using Unix commands.
 
 ###Readings:
 * PCB Chapter 20: Working on remote computers
@@ -33,12 +33,31 @@ Under the last section, "Branch support," select the "no" button by the "Fast li
 
 We're ready to run our analysis! If you leave the box by "Name your analysis" blank, the program will use the input file name. Enter an email address (and confirm it), then hit "Execute and email results." You should receive a confirmation email that your analysis is running, and then a zipped result file within a few minutes. If your results don't appear, you can download the example data file from the "data" folder in the [class GitHub repository](LINK).
 
-Download and unzip the result file. You should have four files. The most important is the file that includes "tree" in the filename, because this is the phylogeny we wanted to infer. If you open up this tree in a text editor, you will see it's in Newick format, and very difficult to interpret. In a web browser, navigate to the [ETE Toolkit tree viewer](http://etetoolkit.org/treeview/). Copy and paste the results from `dna_phy_dat_txt_phyml_tree.txt` to the box below "Paste your tree in newick format" and click "tree view." You should see your tree in the window below. What are the relationships in this tree?
+Download and unzip the result file. You should have four files. The most important is the file that includes "tree" in the filename, because this is the phylogeny we wanted to infer. If you open up this tree in a text editor, you will see it's in Newick format, and very difficult to interpret. In a web browser, navigate to the [ETE Toolkit tree viewer](http://etetoolkit.org/treeview/). Copy and paste the results from `dna_phy_dat_txt_phyml_tree.txt` to the box below "Paste your tree in newick format" and click "tree view." You should see your tree in the window below. What are the relationships among species in this tree?
 
 **Phylogenetics in R on local computer**
 
+```
+#install and load packages
+install.packages("ape")
+library(ape)
+```
 
+```
+#import tree 
+tree<-read.tree(file = "trees/dna_phy_dat_txt_phyml/dna_phy_dat_txt_phyml_tree.txt")
+#plot tree
+plot(tree)
+```
 
+Building a distance tree in R
+
+```
+#import aligned matrix
+read.fasta
+#build nj tree
+nj
+```
 
 **Working remotely on TACC**
 
