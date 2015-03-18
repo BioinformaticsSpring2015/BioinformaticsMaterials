@@ -33,11 +33,11 @@ Look at the options available under the next section, "Substitution model." PhyM
 
 Under the last section, "Branch support," select the "no" button by the "Fast likelihood-based method." This allows the analysis to find a phylogenetic tree, but skip the bootstrap analysis.
 
-We're ready to run our analysis! If you leave the box by "Name your analysis" blank, the program will use the input file name. Enter an email address (and confirm it), then hit "Execute and email results." You should receive a confirmation email that your analysis is running, and then a zipped result file within a few minutes. If your results don't appear, you can download the example data file from the "data" folder in the [class GitHub repository](LINK).
+We're ready to run our analysis! If you leave the box by "Name your analysis" blank, the program will use the input file name. Enter an email address (and confirm it), then hit "Execute and email results." You should receive a confirmation email that your analysis is running, and then a zipped result file within a few minutes. If your results don't appear, you can download the example data file (`dna_phy_dat_txt_phyml.zip`) from the "data" folder in the [class GitHub repository](LINK).
 
 Download and unzip the result file. You may wish to move this folder to a new folder called `trees` in your `BioinformaticsR` folder for easy access later.
 
-If you look in your results folder, you should have four files. The most important is the file that includes "tree" in the filename, because this is the phylogeny we wanted to infer. If you open up this tree in a text editor, you will see it's in Newick format, and very difficult to interpret. In a web browser, navigate to the [ETE Toolkit tree viewer](http://etetoolkit.org/treeview/). Copy and paste the results from `dna_phy_dat_txt_phyml_tree.txt` to the box below "Paste your tree in newick format" and click "tree view." You should see your tree in the window below. What are the relationships among species in this tree?
+If you look in your results folder, you should have four files. The most important is the file that includes "tree" in the filename, because this is the phylogeny we wanted to infer. If you open up this tree in a text editor, you will see it's in Newick format, and very difficult to interpret. In a web browser, navigate to the [ETE Toolkit tree viewer](http://etetoolkit.org/treeview/). Copy and paste the results from `dna_phy_dat_txt_phyml_tree.txt` to the box below "Paste your tree in newick format" and click "tree view." You should see your tree in the window below. What are the relationships among species in this tree? Keep this window open to compare with your later analyses.
 
 **Phylogenetics in R on local computer**
 
@@ -53,16 +53,16 @@ R is not the best mechanism for performing likelihood tree inference, but you ca
 
 ```
 #import tree 
-tree<-read.tree(file = "trees/dna_phy_dat_txt_phyml/dna_phy_dat_txt_phyml_tree.txt")
+mltree<-read.tree(file = "trees/dna_phy_dat_txt_phyml/dna_phy_dat_txt_phyml_tree.txt")
 #examine data structure
-str(tree)
+str(mltree)
 #plot tree
-plot(tree)
+plot(mltree)
 #plot unrooted tree with no tip labels and red branches
-plot(tree, type="unrooted", show.tip.label=FALSE, edge.color="red")
+plot(mltree, type="unrooted", show.tip.label=FALSE, edge.color="red")
 ```
 
-What is the data structure? What are the different parts of this structure? You can view other options for visualizing this tree under the entry for `plot.phylo`.
+What is the data structure? What are the different parts of this structure? Is this the same tree you obtained earlier? You can view other options for visualizing this tree under the entry for `plot.phylo`. You may also choose to export this tree as a PDF to save for later.
 
 It is possible to build distance (neighbor-joining) tree in R from a multiple sequence alignment. Let's try this on one of our aligned files from last week:
 
@@ -75,9 +75,27 @@ njtree <- nj(dist.dna(alignedNucs))
 plot(njtree)
 ```
 
-Notice that the command we used for importing the alignment is `read.FASTA` (instead of `read.fasta` like last week). This is because `ape` has its own command for importing fasta files. 
+Notice that the command we used for importing the alignment is `read.FASTA` (instead of `read.fasta` like last week). This is because `ape` has its own command for importing fasta files. Did you obtain the same tree from the neighbor joining algorithm as from the ML analysis? How can you tell?
 
-Did you obtain the same tree from the neighbor joining algorithm as from the ML analysis? How can you tell?
+One major difference between this tree and the one we obtained earlier is that this tree is not rooted. We can write a script that will perform the entire analysis for us and run with a single command. Open a new R script named `maketree.R` with the following code:
+
+```
+library(ape)
+#import aligned matrix
+alignedNucs <- read.FASTA(file="alignment/dna.fasta.aligned.dat")
+#build nj tree
+njtree <- nj(dist.dna(alignedNucs))
+#root tree 
+njrooted <- root(njtree, c("Carp", "Loach"), resolve.root = TRUE)
+#save tree to file
+write.tree(njrooted, file="trees/njrooted.tre")
+#plot and save to file
+pdf(file="trees/njrooted.pdf")
+plot(njrooted)
+dev.off()
+```
+
+You can execute this script in R using the command `source("maketree.R)`.
 
 **Working remotely on TACC**
 
