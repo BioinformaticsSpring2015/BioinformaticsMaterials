@@ -141,6 +141,10 @@ To exit R, type `q()` and you'll see your regular shell command prompt again. Th
 
 Running bootstrap phyml job from scripts.
 
+Logging out of TACC
+
+scp of results back to local machine
+
 ###Assignment
 * Due Wednesday, Mar 25 at 5 pm
 * Assessment criteria
