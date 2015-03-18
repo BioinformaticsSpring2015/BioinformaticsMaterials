@@ -95,19 +95,51 @@ plot(njrooted)
 dev.off()
 ```
 
-You can execute this script in R using the command `source("maketree.R)`.
+You can execute this script in R using the command `source("maketree.R")`.
 
 **Working remotely on TACC**
 
-ssh
+We've talked a lot in class about computational limitations of some methods. One way to take advantage of more computationally intensive programs is to use a web server. In these cases, you use an online interface to submit your job to run on someone else's computer. There are certainly circumstances in bioinformatics in which we would like to use a larger, faster computer, but a web service is not available. Luckily, as UT System affiliates, we have access to very big, very fast, very cool computers in Austin. The catch is that working remotely on a computer generally requires use of the command line, particularly the Unix tools we learned at the beginning of the semester.
 
-orientation
+Last lab, you created a account for TACC. I've added you as a collaborator in our class project, which means you have access to resources to run large jobs. We're going to learn to upload files to TACC, run jobs remotely, and download the results to our local machines.
 
-scp
+First, open up a Cygwin window and navigate to the file containing `dna.phy.dat.txt` (probably `BioinformaticsR/alignments`). Enter the following command to upload your data to TACC, where "username" is the name you selected last week for your TACC account:
 
-phyml
+`scp dna.phy.dat.txt username@lonestar.tacc.utexas.edu:.`
 
-R
+You'll be prompted to enter `yes`, to indicate it's ok to log on, and then you'll enter the password you selected. This command is similar to the `cp` command we learned at the beginning of the semester, except this is a secure copy command used for transferring files between computers. The syntax is also similar, with the file you want to copy listed first, then the place where it will be copied (in this case, you're specifying the home directory of your personal account on TACC). You should see a line printed that lists the file as 100% uploaded.
+
+Now we can log on to TACC in the command line to work with the file remotely:
+
+`ssh username@lonestar.tacc.utexas.edu`
+
+Upon login, you'll see a lot of information printed to your screen. There are some useful hints described here, as well as the resources to which you have access. You know you are logged on to a remote resource because your command prompt has changed. It probably says something like `login1.ls4(1)$`. The `$` is the important part, because it indicates that you can enter commands to run.
+
+You can operate in this shell the same way you did during the Unix command lessons of lab (weeks 2 and 3). If you type `ls`, you should see the file you uploaded using `scp`.
+
+We're going to build a tree in interactive mode. We need to specify this mode and request a node on which to run:
+
+`idev`
+
+There will be some text printed to the screen indicating that the job has been submitted, and a job status line that shows `qw` for "queued" until you're prompted to enter "yes" for the authenticity check. You'll eventually see a new command prompt (like `c341-313$`), and you're ready to run your analysis. If you list the files in your directory, you should still see your multiple sequence alignment.
+
+One of the powerful uses of TACC is to access software without needing to install it on a local machine. You need to load the specific software you'll be using, however:
+
+`module load phyml`
+
+This command loads PhyML for us to access. If you type `phyml`, the screen should print some information about PhyML and provide a prompt to "Enter the sequence file name." This is an interactive interface that allows you to move through menus according to the on-screen directions and change the parameters of your analysis. Enter the name of your file (`dna.phy.dat.txt`) and hit enter. We're going to run the analysis on the default settings, so go ahead and type "Y" then enter.
+
+Your analysis will run and then you'll see a command prompt again. List the files in your directory and you'll see a few new files. Two files (`dna.phy.dat_phyml_stats.txt` and `dna.phy.dat_phyml_tree.txt`) are the output from PhyML; `idev*` is a record of the interactive session you are running. You can view your tree and stats files in nano if you wish. 
+
+You can also use R on Lonestar. Again, we'll need to load the module:
+
+`module load R`
+
+Then just type `R` and you should see a similar interface to your console in RStudio. We're not going to do much more with R in TACC (it takes a bit more effort to install packages and we don't have time), but try some basic arithmetic or other commands to see how working on R in the command line is similar to working in RStudio.
+
+To exit R, type `q()` and you'll see your regular shell command prompt again. Then type `exit` to leave the interactive job (you should see your original TACC command prompt again, something like `login1.ls4(1)$`.
+
+Running bootstrap phyml job from scripts.
 
 ###Assignment
 * Due Wednesday, Mar 25 at 5 pm
@@ -124,7 +156,7 @@ R
 	* Don't forget to preview your homework before committing! 
 	* If you get stuck on a question, please consult the textbook (see readings above).
 	
-1. Use the PhyML web server to build a phylogeny for the `dna.phy.dat.txt` under the JC69 substitution model. How does this tree compare to the tree inferred from HKY85 (default settings)?
+1. Use the PhyML web server to build a phylogeny for the `dna.phy.dat.txt` under the JC69 substitution model. How does this tree compare to the tree inferred from HKY85 (default settings)? Hint: you can compare the trees in text form or by visualizing online (or in R, if you're feeling adventurous).
 2. 
 8. How long did it take you to complete these questions?
 9. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
