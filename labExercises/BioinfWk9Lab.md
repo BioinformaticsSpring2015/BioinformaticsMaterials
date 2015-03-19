@@ -103,7 +103,7 @@ We've talked a lot in class about computational limitations of some methods. One
 
 Last lab, you created a account for TACC. I've added you as a collaborator in our class project, which means you have access to resources to run large jobs. We're going to learn to upload files to TACC, run jobs remotely, and download the results to our local machines.
 
-First, open up a Cygwin window and navigate to the file containing `dna.phy.dat.txt` (probably `BioinformaticsR/alignments`). Enter the following command to upload your data to TACC, where "username" is the name you selected last week for your TACC account:
+First, open up a Cygwin window. Note the command prompt that appears here: it is specific to your local machine. Navigate to the file containing `dna.phy.dat.txt` (probably `BioinformaticsR/alignments`). Enter the following command to upload your data to TACC, where "username" is the name you selected last week for your TACC account:
 
 `scp dna.phy.dat.txt username@lonestar.tacc.utexas.edu:.`
 
@@ -137,11 +137,11 @@ You can also use R on Lonestar. Again, we'll need to load the module:
 
 Then just type `R` and you should see a similar interface to your console in RStudio. We're not going to do much more with R in TACC (it takes a bit more effort to install packages and we don't have time), but try some basic arithmetic or other commands to see how working on R in the command line is similar to working in RStudio.
 
-To exit R, type `q()` and you'll see your regular shell command prompt again. Then type `exit` to leave the interactive job (you should see your original TACC command prompt again, something like `login1.ls4(1)$`.
+To exit R, type `q()` and you'll see your regular shell command prompt again. Then type `exit` to leave the interactive job (you should see your original TACC command prompt again, something like `login1.ls4(1)$`).
 
 Running bootstrap phyml job from scripts.
 
-Logging out of TACC
+When you are done working on TACC, you can logout by entering `exit`. This will return you to the first command prompt you saw today, and you should be able to continue working on your desktop computer.
 
 scp of results back to local machine
 
@@ -161,6 +161,8 @@ scp of results back to local machine
 	* If you get stuck on a question, please consult the textbook (see readings above).
 	
 1. Use the PhyML web server to build a phylogeny for the `dna.phy.dat.txt` under the JC69 substitution model. How does this tree compare to the tree inferred from HKY85 (default settings)? Hint: you can compare the trees in text form or by visualizing online (or in R, if you're feeling adventurous).
-2. 
+2. nj phylogeny in R
+3. scp
+4. using phyml command line
 8. How long did it take you to complete these questions?
 9. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
