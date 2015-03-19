@@ -163,7 +163,7 @@ Then you can visualize the results using R.
 3. Download your bootstrap results from TACC. Import the tree file (`*tree_bootstrap.txt`) into R and plot it. Include your code and comments.
 4. Use the R command `nodelabels(OBJECT$node.label)`, where OBJECT is your bootstrap tree imported in question 3, to plot the bootstrap values. What support value do you show for Rat+Mouse? Include your code and comments.
 5. Use the R command `data(woodmouse)` to load an alignment from the ape package. Construct and plot a distance (neighbor-joining) tree from this dataset. Include your code and comments.
-6. Use the R command `data(bird.orders)` to load a dataset from the ape package. Reroot the tree with Passeriformes and plot it. Include your code and comments.
+6. Use the R command `data(bird.orders)` to load a dataset from the ape package. Reroot the tree with Passeriformes and save the tree to a file named `passroot.tre`. Include your code and comments.
 7. Use the PhyML web server to build a phylogeny for `dna.phy.dat` under the JC69 substitution model. How does your resulting tree compare to the tree inferred from HKY85 (default settings)? 
 8. How long did it take you to complete these questions?
 9. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
