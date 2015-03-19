@@ -158,10 +158,12 @@ Then you can visualize the results using R.
 	* Don't forget to preview your homework before committing! 
 	* If you get stuck on a question, please consult the textbook (see readings above).
 	
-1. Use the PhyML web server to build a phylogeny for `dna.phy.dat` under the JC69 substitution model. Visualize this tree in R. How does this tree compare to the tree inferred from HKY85 (default settings)? 
-2. nj phylogeny in R
-3. What Unix command would you use to transfer a file called iamgroot.txt from your local computer to your home directory in Lonestar?
-4. using phyml command line
-5. Take a look at your bootstrap results from TACC. Import the tree file into R and view the bootstrap values using the XXX command.
+1. Describe two circumstances in which it would be advantageous to write a script (like bootstrap.sh) to run a command, rather than working with a point-and-click interface.
+2. What Unix command would you use to transfer a file called iamgroot.txt from your local computer to your home directory in Lonestar?
+3. Download your bootstrap results from TACC. Import the tree file (`*tree_bootstrap.txt`) into R and plot it. Include your code and comments.
+4. Use the R command `nodelabels(OBJECT$node.label)`, where OBJECT is your bootstrap tree imported in question 3, to plot the bootstrap values. What support value do you show for Rat+Mouse? Include your code and comments.
+5. Use the R command `data(woodmouse)` to load an alignment from the ape package. Construct and plot a distance (neighbor-joining) tree from this dataset. Include your code and comments.
+6. Use the R command `data(bird.orders)` to load a dataset from the ape package. Reroot the tree with Passeriformes and plot it. Include your code and comments.
+7. Use the PhyML web server to build a phylogeny for `dna.phy.dat` under the JC69 substitution model. How does your resulting tree compare to the tree inferred from HKY85 (default settings)? 
 8. How long did it take you to complete these questions?
 9. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
