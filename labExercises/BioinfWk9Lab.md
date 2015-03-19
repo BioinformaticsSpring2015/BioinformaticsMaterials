@@ -21,23 +21,21 @@ Additional materials for reference:
 
 Over the past few weeks, we've performed database searches and multiple sequence alignments using web servers and on a local (desktop) computer using R. Today we're going to use the same approaches to building phylogenetic trees. In addition, we'll learn to log on to a remote computational cluster to perform actions on the command line (using Unix commands in Cygwin).
 
-We've mostly been working with files in fasta format so far. Today, go to [Molecular Evolution](http://www.molecularevolution.org/resources/fileformats) and download the "Example PHYLIP DNA file" and "Example PHYLIP amino acid file" under the "PHYLIP" section. You may want to put these in your `BioinformaticsR/alignments` folder for safekeeping. You can open up one of the files in a text editor to remind you how the data are structured. Also note that the file download name uses "phy" in it to signify the format.
+We've mostly been working with files in fasta format so far. Today, go to [Molecular Evolution](http://www.molecularevolution.org/resources/fileformats) and download the "Example PHYLIP DNA file" under the "PHYLIP" section. You may want to put these in your `BioinformaticsR/alignments` folder for safekeeping. You can open up one of the files in a text editor to remind you how the data are structured. Also note that the file download name uses "phy" in it to signify the format.
 
 **Web-based phylogenetic inference**
 
 First, we're going to build a phylogenetic tree using an online interface. This will let us explore the options for tree building, without worrying too much about syntax. 
 
-Navigate to the [PhyML web server](http://www.atgc-montpellier.fr/phyml/). There are four main sections to the options available for starting a job. Under "Input Data," upload `dna.phy.dat.txt`. Are the rest of the default options in this section appropriate?
+Navigate to the [PhyML web server](http://www.atgc-montpellier.fr/phyml/). There are four main sections to the options available for starting a job. Under "Input Data," upload the phylip file you downloaded earlier (e.g., `dna.phy.dat`). Are the rest of the default options in this section appropriate?
 
-Look at the options available under the next section, "Substitution model." PhyML estimates trees in a maximum likelihood framework, so there are options available for specifying the model of molecular evolution. There are also options listed below "Tree searching" to change the heuristic strategy for exploring tree topology. We'll leave all options at default for now. 
+Look at the options available under the next section, "Substitution model." PhyML estimates trees in a maximum likelihood framework, so there are options available for specifying the model of molecular evolution. There are also options listed below "Tree searching" to change the heuristic strategy for exploring tree topology. We'll leave all options for this and the last section ("Branch support") at default for now. 
 
-Under the last section, "Branch support," select the "no" button by the "Fast likelihood-based method." This allows the analysis to find a phylogenetic tree, but skip the bootstrap analysis.
-
-We're ready to run our analysis! If you leave the box by "Name your analysis" blank, the program will use the input file name. Enter an email address (and confirm it), then hit "Execute and email results." You should receive a confirmation email that your analysis is running, and then a zipped result file within a few minutes. If your results don't appear, you can download the example data file (`dna_phy_dat_txt_phyml.zip`) from the "data" folder in the [class GitHub repository](https://github.com/BioinformaticsSpring2015/BioinformaticsMaterials/blob/master/data/dna_phy_dat_txt_phyml.zip).
+We're ready to run our analysis! If you leave the box by "Name your analysis" blank, the program will use the input file name. Enter an email address (and confirm it), then hit "Execute and email results." You'll get a pop-up window asking you if your file is actually phylip format; click yes. You should receive a confirmation email that your analysis is running, and then a zipped result file within a few minutes. If your results don't appear, you can download the example data file (`dna_phy_dat_txt_phyml.zip`) from the "data" folder in the [class GitHub repository](https://github.com/BioinformaticsSpring2015/BioinformaticsMaterials/blob/master/data/dna_phy_dat_txt_phyml.zip).
 
 Download and unzip the result file. You may wish to move this folder to a new folder called `trees` in your `BioinformaticsR` folder for easy access later.
 
-If you look in your results folder, you should have four files. The most important is the file that includes "tree" in the filename, because this is the phylogeny we wanted to infer. If you open up this tree in a text editor, you will see it's in Newick format, and very difficult to interpret. In a web browser, navigate to the [ETE Toolkit tree viewer](http://etetoolkit.org/treeview/). Copy and paste the results from `dna_phy_dat_txt_phyml_tree.txt` to the box below "Paste your tree in newick format" and click "tree view." You should see your tree in the window below. What are the relationships among species in this tree? Keep this window open to compare with your later analyses.
+If you look in your results folder, you should have four files. The most important is the file that includes "tree" in the filename, because this is the phylogeny we wanted to infer. If you open up this tree in a text editor, you will see it's in Newick format, and very difficult to interpret. We're going to use R to view the tree.
 
 **Phylogenetics in R on local computer**
 
@@ -53,7 +51,7 @@ R is not the best mechanism for performing likelihood tree inference, but you ca
 
 ```
 #import tree 
-mltree<-read.tree(file = "trees/dna_phy_dat_txt_phyml/dna_phy_dat_txt_phyml_tree.txt")
+mltree<-read.tree(file = "trees/dna_phy_dat_phyml/dna_phy_dat_phyml_tree.txt")
 #examine data structure
 str(mltree)
 #plot tree
@@ -73,29 +71,13 @@ alignedNucs <- read.FASTA(file="alignments/dna.fasta.aligned.dat")
 njtree <- nj(dist.dna(alignedNucs))
 #plot tree
 plot(njtree)
-```
-
-Notice that the command we used for importing the alignment is `read.FASTA` (instead of `read.fasta` like last week). This is because `ape` has its own command for importing fasta files. Did you obtain the same tree from the neighbor joining algorithm as from the ML analysis? How can you tell?
-
-One major difference between this tree and the one we obtained earlier is that this tree is not rooted. We can write a script that will perform the entire analysis for us and run with a single command. Open a new R script named `maketree.R` with the following code:
-
-```
-library(ape)
-#import aligned matrix
-alignedNucs <- read.FASTA(file="alignment/dna.fasta.aligned.dat")
-#build nj tree
-njtree <- nj(dist.dna(alignedNucs))
 #root tree 
 njrooted <- root(njtree, c("Carp", "Loach"), resolve.root = TRUE)
 #save tree to file
 write.tree(njrooted, file="trees/njrooted.tre")
-#plot and save to file
-pdf(file="trees/njrooted.pdf")
-plot(njrooted)
-dev.off()
 ```
 
-You can execute this script in R using the command `source("maketree.R")`.
+Notice that the command we used for importing the alignment is `read.FASTA` (instead of `read.fasta` like last week). This is because `ape` has its own command for importing fasta files. Compare the plotted trees to the PhyML tree from earlier. What are the results? 
 
 **Working remotely on TACC**
 
@@ -103,11 +85,13 @@ We've talked a lot in class about computational limitations of some methods. One
 
 Last lab, you created a account for TACC. I've added you as a collaborator in our class project, which means you have access to resources to run large jobs. We're going to learn to upload files to TACC, run jobs remotely, and download the results to our local machines.
 
-First, open up a Cygwin window. Note the command prompt that appears here: it is specific to your local machine. Navigate to the file containing `dna.phy.dat.txt` (probably `BioinformaticsR/alignments`). Enter the following command to upload your data to TACC, where "username" is the name you selected last week for your TACC account:
+First, open up a Cygwin window. Note the command prompt that appears here: it is specific to your local machine. Navigate to the file containing `dna.phy.dat` (probably `BioinformaticsR/alignments`). Enter the following command to upload your data to TACC, where "username" is the name you selected last week for your TACC account:
 
-`scp dna.phy.dat.txt username@lonestar.tacc.utexas.edu:.`
+`scp dna.phy.dat username@lonestar.tacc.utexas.edu:.`
 
-You'll be prompted to enter `yes`, to indicate it's ok to log on, and then you'll enter the password you selected. This command is similar to the `cp` command we learned at the beginning of the semester, except this is a secure copy command used for transferring files between computers. The syntax is also similar, with the file you want to copy listed first, then the place where it will be copied (in this case, you're specifying the home directory of your personal account on TACC). You should see a line printed that lists the file as 100% uploaded. You may want to open a text editor to save these commands with notes (like you've done in RStudio).
+You'll be prompted to enter `yes`, to indicate it's ok to log on, and then you'll enter the password you selected. Please note that no characters will appear on the screen as you submit your password! 
+
+This command is similar to the `cp` command we learned at the beginning of the semester, except this is a secure copy command used for transferring files between computers. The syntax is also similar, with the file you want to copy listed first, then the place where it will be copied (in this case, you're specifying the home directory of your personal account on TACC). You should see a line printed that lists the file as 100% uploaded. You may want to open a text editor to save these commands with notes (like you've done in RStudio).
 
 Now we can log on to TACC in the command line to work with the file remotely:
 
@@ -121,13 +105,13 @@ We're going to build a tree in interactive mode. We need to specify this mode an
 
 `idev`
 
-There will be some text printed to the screen indicating that the job has been submitted, and a job status line that shows `qw` for "queued" until you're prompted to enter "yes" for the authenticity check. You'll eventually see a new command prompt (like `c341-313$`), and you're ready to run your analysis. If you list the files in your directory, you should still see your multiple sequence alignment. Note that this interactive node will only be open for half an hour at most. When that time ends, it will automatically end the job (you can always log back in using `idev`). Also, you can run `phyml` without first submitting an interactive job, but it's good practice to get a node allocated if you'll be running any commands of importance (requiring computational resources).
+You'll be prompted to say whether you want commands added to your profile; it's ok to say "yes." There will be some text printed to the screen indicating that the job has been submitted, and a job status line that shows `qw` for "queued" until you're prompted to enter "yes" for the authenticity check. You'll eventually see a new command prompt (like `c341-313$`), and you're ready to run your analysis. If you list the files in your directory, you should still see your multiple sequence alignment. Note that this interactive node will only be open for half an hour at most. When that time ends, it will automatically end the job (you can always log back in using `idev`). Also, you can run `phyml` without first submitting an interactive job, but it's good practice to get a node allocated if you'll be running any commands of importance (requiring computational resources).
 
 One of the powerful uses of TACC is to access software without needing to install it on a local machine. You need to load the specific software you'll be using, however:
 
 `module load phyml`
 
-This command loads PhyML for us to access. If you type `phyml`, the screen should print some information about PhyML and provide a prompt to "Enter the sequence file name." This is an interactive interface that allows you to move through menus according to the on-screen directions and change the parameters of your analysis. Enter the name of your file (`dna.phy.dat.txt`) and hit enter. Then type `R` to change the run ID to `justtree`. You can then use `+` to move throughout the menu options. We're going to run the analysis on the default model settings, so go ahead and type `Y` then enter.
+This command loads PhyML for us to access. If you type `phyml`, the screen should print some information about PhyML and provide a prompt to "Enter the sequence file name." This is an interactive interface that allows you to move through menus according to the on-screen directions and change the parameters of your analysis. Enter the name of your file (`dna.phy.dat`) and hit enter. Then type `R` to change the run ID to `justtree`. You can then use `+` to move throughout the menu options. We're going to run the analysis on the default model settings, so go ahead and type `Y` then enter.
 
 Your analysis will run and then you'll see a command prompt again. List the files in your directory and you'll see a few new files. Two files (`dna.phy.dat_phyml_stats_justtree.txt` and `dna.phy.dat_phyml_tree_justtree.txt`) are the output from PhyML; `idev*` is a record of the interactive session you are running. You can view your tree and stats files in nano if you wish. 
 
@@ -157,7 +141,7 @@ The final task you need to perform is downloading your results from Lonestar to 
 
 `scp username@lonestar.tacc.utexas.edu:*justtree.txt .`
 
-Then you can visualize the results using either the web-based interface or in R.
+Then you can visualize the results using R.
 
 ###Assignment
 * Due Wednesday, Mar 25 at 5 pm
@@ -174,10 +158,10 @@ Then you can visualize the results using either the web-based interface or in R.
 	* Don't forget to preview your homework before committing! 
 	* If you get stuck on a question, please consult the textbook (see readings above).
 	
-1. Use the PhyML web server to build a phylogeny for the `dna.phy.dat.txt` under the JC69 substitution model. How does this tree compare to the tree inferred from HKY85 (default settings)? Hint: you can compare the trees in text form or by visualizing online (or in R, if you're feeling adventurous).
+1. Use the PhyML web server to build a phylogeny for `dna.phy.dat` under the JC69 substitution model. Visualize this tree in R. How does this tree compare to the tree inferred from HKY85 (default settings)? 
 2. nj phylogeny in R
 3. What Unix command would you use to transfer a file called iamgroot.txt from your local computer to your home directory in Lonestar?
 4. using phyml command line
-5. What files were output from the bootstrap analysis on TACC?
+5. Take a look at your bootstrap results from TACC. Import the tree file into R and view the bootstrap values using the XXX command.
 8. How long did it take you to complete these questions?
 9. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
