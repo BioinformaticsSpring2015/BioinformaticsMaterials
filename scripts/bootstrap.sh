@@ -10,6 +10,4 @@
 #$ -M username@patriots.uttyler.com	# Address for email notification
 #$ -m be	# Email at Begin and End of job
 
-set -x	# Echo commands
-
-ibrun phyml -i dna.phy.dat -d nt -n 1 -b 100 --run_id bootstrap -m GTR -f m -c 4 -a e -o tlr -s NNI
+ibrun phyml -i dna.phy.dat -b 100 --run_id bootstrap
