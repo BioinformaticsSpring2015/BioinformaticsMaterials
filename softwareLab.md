@@ -11,7 +11,7 @@
 
 * **Text editor:** [Notepad++](http://notepad-plus-plus.org) or [jEdit](http://www.jedit.org)
 * **Unix shell emulator:** [Cygwin](https://www.cygwin.com), which has the option to install many other tools as well. 
-  * tools required for this class: nano, wget, zip, unzip, make
+  * tools required for this class: nano, wget, zip, unzip, make, openssh
   * other tools that might be useful: perl, python
   * The installation instructions on Cygwin are fairly straightforward. Go to the [Cygwin website](https://www.cygwin.com) and select the page on the left to "Download Cygwin." Click on `setup-x86_64.exe` to download the file. When the download is complete, click on it to open the installer. On most machines, you should be able to click through the default settings (it also probably doesn't matter which mirror you select for downloading). While lots of great tools are added by default, you will need to add some additional packages (listed above). Search for the package name; it may appear in a few categories. Expand each category (click `+`) until you find the exact name for the package and click on Skip; it will change to Install. Do the same for each additional package. Then click next, then Finish. 
   * If you have already installed Cygwin and need to add more tools, you can follow the same general procedure listed above.
