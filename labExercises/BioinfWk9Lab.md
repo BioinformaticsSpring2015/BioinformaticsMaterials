@@ -85,7 +85,9 @@ We've talked a lot in class about computational limitations of some methods. One
 
 Last lab, you created a account for TACC. I've added you as a collaborator in our class project, which means you have access to resources to run large jobs. We're going to learn to upload files to TACC, run jobs remotely, and download the results to our local machines.
 
-First, open up a Cygwin window. Note the command prompt that appears here: it is specific to your local machine. Log on:
+First, go to the [TACC portal](https://portal.tacc.utexas.edu/home) and log in to ensure your account is active. 
+
+Next, open up a Cygwin window. Note the command prompt that appears here: it is specific to your local machine. Log on:
 
 `ssh username@lonestar.tacc.utexas.edu`
 
