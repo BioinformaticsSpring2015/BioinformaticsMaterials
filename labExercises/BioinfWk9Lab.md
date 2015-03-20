@@ -51,7 +51,7 @@ R is not the best mechanism for performing likelihood tree inference, but you ca
 
 ```
 #import tree 
-mltree<-read.tree(file = "trees/dna_phy_dat_phyml/dna_phy_dat_phyml_tree.txt")
+mltree<-read.tree(file = "trees/dna_phy_dat_phyml_tree.txt")
 #examine data structure
 str(mltree)
 #plot tree
@@ -85,21 +85,23 @@ We've talked a lot in class about computational limitations of some methods. One
 
 Last lab, you created a account for TACC. I've added you as a collaborator in our class project, which means you have access to resources to run large jobs. We're going to learn to upload files to TACC, run jobs remotely, and download the results to our local machines.
 
-First, open up a Cygwin window. Note the command prompt that appears here: it is specific to your local machine. Navigate to the file containing `dna.phy.dat` (probably `BioinformaticsR/alignments`). Enter the following command to upload your data to TACC, where "username" is the name you selected last week for your TACC account:
-
-`scp dna.phy.dat username@lonestar.tacc.utexas.edu:.`
-
-You'll be prompted to enter `yes`, to indicate it's ok to log on, and then you'll enter the password you selected. Please note that no characters will appear on the screen as you submit your password! 
-
-This command is similar to the `cp` command we learned at the beginning of the semester, except this is a secure copy command used for transferring files between computers. The syntax is also similar, with the file you want to copy listed first, then the place where it will be copied (in this case, you're specifying the home directory of your personal account on TACC). You should see a line printed that lists the file as 100% uploaded. You may want to open a text editor to save these commands with notes (like you've done in RStudio).
-
-Now we can log on to TACC in the command line to work with the file remotely:
+First, open up a Cygwin window. Note the command prompt that appears here: it is specific to your local machine. Log on:
 
 `ssh username@lonestar.tacc.utexas.edu`
 
+You'll be prompted to enter `yes`, to indicate it's ok to log on, and then you'll enter the password you selected. Please note that no characters will appear on the screen as you submit your password! 
+
 Upon login, you'll see a lot of information printed to your screen. There are some useful hints described here, as well as the resources to which you have access. You know you are logged on to a remote resource because your command prompt has changed. It probably says something like `login1.ls4(1)$`. The `$` is the important part, because it indicates that you can enter commands to run.
 
-You can operate in this shell the same way you did during the Unix command lessons of lab (weeks 2 and 3). If you type `ls`, you should see the file you uploaded using `scp`.
+You can operate in this shell the same way you did during the Unix command lessons of lab (weeks 2 and 3).
+
+In another Cygwin shell, navigate to the file containing `dna.phy.dat` (probably `BioinformaticsR/alignments`). Enter the following command to upload your data to TACC, where "username" is the name you selected last week for your TACC account:
+
+`scp dna.phy.dat username@lonestar.tacc.utexas.edu:.`
+
+This command is similar to the `cp` command we learned at the beginning of the semester, except this is a secure copy command used for transferring files between computers. The syntax is also similar, with the file you want to copy listed first, then the place where it will be copied (in this case, you're specifying the home directory of your personal account on TACC). You should see a line printed that lists the file as 100% uploaded. You may want to open a text editor to save these commands with notes (like you've done in RStudio).
+
+Now go back to the shell where you are logged on to TACC. If you type `ls`, you should see the file you uploaded using `scp`.
 
 We're going to build a tree in interactive mode. We need to specify this mode and request a node on which to run:
 
@@ -125,7 +127,7 @@ You can run R scripts in Lonestar using the same `source(script.R)` command we u
 
 To exit R, type `q()` and you'll see your regular shell command prompt again. Then type `exit` to leave the interactive job (you should see your original TACC command prompt again, something like `login1.ls4(1)$`).
 
-Our final exercise will be running a complete (non-interactive) job on Lonestar. First, copy everything from [this example shell script](https://github.com/BioinformaticsSpring2015/BioinformaticsMaterials/raw/wk9/scripts/bootstrap.sh) and save in a text editor with the name `bootstrap.sh`. This command runs a boostrap analysis in PhyML, which takes much longer than a single analysis (this is why we need to submit a job for it). Note that there are multiple commands in this file, each of which assist the computer in setting up your analysis, running the analysis, and notifying you when it is complete. Update the -M command with your email and save. Then open up a new Cygwin window, navigate to the folder containing this file, and upload to Lonestar:
+Our final exercise will be running a complete (non-interactive) job on Lonestar. First, copy everything from [this example shell script](https://github.com/BioinformaticsSpring2015/BioinformaticsMaterials/blob/master/scripts/bootstrap.sh) and save in a text editor with the name `bootstrap.sh`. This command runs a boostrap analysis in PhyML, which takes much longer than a single analysis (this is why we need to submit a job for it). Note that there are multiple commands in this file, each of which assist the computer in setting up your analysis, running the analysis, and notifying you when it is complete. Update the -M command with your email and save. Then open up a new Cygwin window, navigate to the folder containing this file, and upload to Lonestar:
 
 `scp bootstrap.sh username@lonestar.tacc.utexas.edu:.`
 
@@ -160,7 +162,7 @@ Then you can visualize the results using R.
 	
 1. Describe two circumstances in which it would be advantageous to write a script (like bootstrap.sh) to run a command, rather than working with a point-and-click interface.
 2. What Unix command would you use to transfer a file called iamgroot.txt from your local computer to your home directory in Lonestar?
-3. Download your bootstrap results from TACC. Import the tree file (`*tree_bootstrap.txt`) into R and plot it. Include your code and comments.
+3. Download your bootstrap results from TACC (or if your run failed, download the example results file, `bootstrapResults.zip` from the [data folder](https://github.com/BioinformaticsSpring2015/BioinformaticsMaterials/tree/master/data). Import the tree file (`*tree_bootstrap.txt`) into R and plot it. Include your code and comments.
 4. Use the R command `nodelabels(OBJECT$node.label)`, where OBJECT is your bootstrap tree imported in question 3, to plot the bootstrap values. What support value do you show for Rat+Mouse? Include your code and comments.
 5. Use the R command `data(woodmouse)` to load an alignment from the ape package. Construct and plot a distance (neighbor-joining) tree from this dataset. Include your code and comments.
 6. Use the R command `data(bird.orders)` to load a dataset from the ape package. Reroot the tree with Passeriformes and save the tree to a file named `passroot.tre`. Include your code and comments.
