@@ -1,5 +1,5 @@
 #Bioinformatics Week 10 Lab
-##Genome assembly
+##Genome analysis
 
 Slides for the introduction to today's lab, as well as a PDF of this document, can be found on [Blackboard](http://blackboard.uttyler.edu).
 
@@ -7,7 +7,7 @@ Slides for the introduction to today's lab, as well as a PDF of this document, c
 You should be able to:
 
 1. Identify steps in a genomic workflow
-2. Implement steps required to XXX
+2. Implement steps required to map reads and detect variants from NGS data
 
 ###Readings:
 
@@ -21,16 +21,13 @@ Additional materials for reference:
 
 In a web browser, navigate to [Galaxy](https://usegalaxy.org) and apply for an account. You don't need to have an account to perform analyses, but this will allow you to access your files later.
 
-*Orientation* Once you have logged in to your account, take a moment to orient yourself to the web interface (link to Galaxy help?). The panel on the right lists your data usage and files with which you are working. The panel on the left shows the categories of analysis possible. If you click on a category, it will expand to show the specific tasks available. If you click on a task, it will fill the center window with the options for that command, as well as data you have loaded that may be used for this particular analysis.
+*Orientation* Once you have logged in to your account, take a moment to orient yourself to the web interface (note the "Help" section in the top toolbar). The panel on the right lists your data usage and files with which you are working. The panel on the left shows the categories of analysis possible. If you click on a category, it will expand to show the specific tasks available. If you click on a task, it will fill the center window with the options for that command, as well as data you have loaded that may be used for this particular analysis.
 
 *Load sequence reads* We're going to use existing data available on Galaxy that other researchers have shared for public use. Click on "Shared Data" in the toolbar at the top of the page, then "Data Libraries" in the drop down menu. You should see a list of data packages. Use the search box at the top of this list to find "mtProjectDemo" and click on the link. Click on "Blood-PCR1" and select "Import this data into selected histories." On the next page, confirm the import and a green box will appear near the top of the page. 
 
 Click on "Analyze Data" in the toolbar at the top of the page to return to your home page. You should see your data file loaded in the right pane. Click on the title of the data in the right pane to preview the data file, or the eye (it says "View Data" if you scroll over) to see more lines. What is the type and format of these data?
 
-These data were sequenced from human
-Goals of analysis.  
-
-Today we're going to start with raw sequence reads in fastq format, pre-process these data (filter and trim), XXX
+These data were sequenced from human tissue samples and represent sequence reads from the mitochondrial genome (mitogenome). Today we are going to start with raw sequence reads in fastq format, pre-process these data (filter and trim), map to a reference genome, and perform a variant analysis to determine how the raw reads differ from the previously sequenced results.
 
 **Quality assessment and filtering of raw sequence reads**
 
@@ -61,33 +58,30 @@ BAM files aren't human readable, but we can look at the summary of the analysis 
 
 **Variant detection**
 
-"NGS: SAM Tools" and "Mpileup", Select your reference in the drop down menu beneath "Choose the source for the reference list". Make sure your BWA/BAM file is specified under "BAM file". Choose "Perform a genotype likelihood computation", which creates bcf file showing both indels and SNPs for our raw sequence data relative to the reference. 
+While the reads are mapped, we don't have a good sense of which variants are biologically relevant. For this, we need to perform a variant analysis. Go to the "NGS: SAM Tools" category and select "Mpileup". Select your reference in the drop down menu beneath "Choose the source for the reference list". Make sure your BWA/BAM file is specified under "BAM file". Choose "Perform a genotype likelihood computation", which create a bcf file showing both indels and SNPs for our raw sequence data relative to the reference. 
 
-"NGS: SAM Tools" and "bcftools view", choose bcf file. pencil icon, Datatype tab to change to vcf
+Now we need to summarize the results of these results by going back to "NGS: SAM Tools" and choosing "bcftools view". Select your bcf file as input data and run the analysis. When it is complete, click on the pencil icon in the result box. Click the "Datatype" tab and select vcf as the format.
 
-Visualization in top toolbar, then New Track Browser. Add Custom Build, select reference, select vcf file. Variants appear colored
-
-**Visualizing results**
-
-Download data
-
+Go back to the visualization view and repeat the steps above, this time selecting the vcf file as the dataset. What do these results mean?
 
 ###Assignment
-* Due Wednesday, X at 5 pm
+* Due Wednesday, April a at 5 pm
 * Assessment criteria
 	* Technical content: 40, appropriate syntax for written assessment answers
 	* Critical thinking: 40, explanations for written assessment answers
 	* Documentation: 10, code comments, citations for resources used in questions embedded in answers
 	* Professional behavior: 10, class participation, assignment formatting using homework template (including code formatted in `monospace`)
 * Written assessment: 
-	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk10Homework.md". Title (header) is "Genome assembly".
+	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk10Homework.md". Title (header) is "Genome analysis".
 	* Answer the following questions about the tools you learned for this week's lab, including code comments where appropriate 				
 	* Use appropriate Markdown formatting, including `monospace` when referencing commands you entered. 
 	* If you choose to copy and paste the questions before answering, it might help to copy from the Raw view. 
 	* Don't forget to preview your homework before committing! 
 	* If you get stuck on a question, please consult the textbook (see readings above).
 	
-1. 
-
+1. Run FastQC on the quality trimmed file (from step 2 under *Filtering and trimming*). Why did we perform the "Filter Fastq" step, given these results?
+2. Create a new visualization using the same reference sequence, and add both the vcf and BAM file as datasets. Why aren't all of the variants (colored base pairs) from the BAM analysis listed in the vcf track? What do these variants represent?
+3. Describe two ways this lab would've been easier if you had performed the analysis on the command line, instead of through a point-and-click online interface.
+4. 
 8. How long did it take you to complete these questions?
 9. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
