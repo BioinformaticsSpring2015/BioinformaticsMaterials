@@ -81,7 +81,10 @@ Go back to the visualization view and repeat the steps above, this time selectin
 	
 1. Run FastQC on the quality trimmed file (from step 2 under *Filtering and trimming*). Why did we perform the "Filter Fastq" step, given these results?
 2. Create a new visualization using the same reference sequence, and add both the vcf and BAM file as datasets. Why aren't all of the variants (colored base pairs) from the BAM analysis listed in the vcf track? What do these variants represent?
-3. Describe two ways this lab would've been easier if you had performed the analysis on the command line, instead of through a point-and-click online interface.
-4. 
+3. What is the difference between these two tools: "Fastq Quality Trimmer" and "Filter Fastq"?
+4. Load the "Blood-1 small sample" dataset from the same library used previously in this lab. Run FastQC on this dataset. What accounts for the differences in initial quality of this dataset and the Blood-PCR1 dataset?
+5. Apply a filtering or trimming method to improve the FastQC results of "Blood-1 small sample". Include the program you choose, parameters you implement, and number of reads remaining after filtering.
+6. Describe two ways you feel this lab would've been harder if you had performed the analysis on the command line, instead of through a point-and-click online interface.
+7. Describe two ways you feel this lab would've been easier if you had performed the analysis on the command line, instead of through a point-and-click online interface.
 8. How long did it take you to complete these questions?
 9. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
