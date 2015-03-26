@@ -19,7 +19,7 @@ Additional materials for reference:
 
 **Orientation to Galaxy**
 
-In a web browser, navigate to [Galaxy](https://usegalaxy.org) and apply for an account. You don't need to have an account to perform analyses, but this will allow you to access your files later.
+In a web browser, navigate to [Galaxy](https://usegalaxy.org) and apply for an account by going to "User" in the top toolbar and clicking "Register". You don't need to have an account to perform analyses, but this will allow you to access your files later.
 
 *Orientation* Once you have logged in to your account, take a moment to orient yourself to the web interface (note the "Help" section in the top toolbar). The panel on the right lists your data usage and files with which you are working. The panel on the left shows the categories of analysis possible. If you click on a category, it will expand to show the specific tasks available. If you click on a task, it will fill the center window with the options for that command, as well as data you have loaded that may be used for this particular analysis.
 
@@ -33,20 +33,19 @@ These data were sequenced from human tissue samples and represent sequence reads
 
 *Running FastQC* First we're going to assess the raw (unprocessed) data. FastQC is a program that summarizes and visualizes a number of useful statistics about the distribution of sequence data. Click on "NGS: QC and manipulation", then "FastQC." Apply the default options; you should note that your fastq data file is auto-detected as selected as the input data. You will see two new boxes (RawData and Webpage) appear in the window to the right. These boxes may appear gray if they are waiting in the queue to be run. They will turn yellow when the analysis is being conducted, then green when the results are available. 
 
-*Interpreting FastQC output* We're most interested in the "webpage" result from FastQC. If you click on the button showing an eye in this box, the middle pane will show the visualized results from this analysis. You can see examples of "good" and "bad" sequence reads for different types of data on the [FastQC website](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). You can also look at [the manual](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/) for a more in-depth description of each visualization. It should be apparent that the measures with a green checkmark are acceptable, yellow exclamation points are questionable (but likely acceptable), and red X marks require further attention. Are there any problems with these data?
+*Interpreting FastQC output* We're most interested in the "webpage" result from FastQC. If you click on the button showing an eye in this box, the middle pane will show the visualized results from this analysis. You can see examples of "good" and "bad" sequence reads for different types of data on the [FastQC website](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). You can also look at [the manual](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/) for a more in-depth description of each visualization. It should be apparent that the measures with a green checkmark are acceptable, yellow exclamation points are questionable (but likely acceptable), and red X marks require further attention. Are there any problems with these data? Note that we're most concerned with the graph for "Per base sequence quality".
 
 *Filtering and trimming* You can manipulate this data file in many different ways. We're going to apply a few steps to these data. Each step should be applied to the output data file from the previous step, which should be loaded by default as the The program names for each step are described below, with a short description of why we applied each command what options are appropriate:
 
-1. Fastq Groomer: converts file format. Default options.
-2. FASTQ Quality Trimmer: removes positions in sequences with low quality scores
-3. Filter FASTQ: removes reads from dataset with overall low quality scores for the entire sequence
-4. FastQC: compare these results to your previous assessment. What issues remain?
+1. FASTQ Quality Trimmer: removes positions in sequences with low quality scores. Enter "20" for "Quality score".
+2. Filter FASTQ: removes reads from dataset with overall low quality scores for the entire sequence. Enter "50" for "Minimum size", "20" for "Minimum quality", and "5" for "Maximum number of bases allowed outside of quality range".
+3. FastQC: compare these results to your previous assessment. What issues remain?
 
 Now that we are confident our reads are of acceptable quality, we are ready to compare them to a previously published genome. 
 
 **Read mapping**
 
-*Load reference sequence* We need to load a previously sequenced mitochondrial genome to use for comparison to our data. Go back to the "Get Data" category and select "Upload data". Select the button for "Paste/Fetch Data". Navigate in another window to the [Cambridge Reference Sequence for Human Mitochondrial DNA](http://www.ncbi.nlm.nih.gov/nuccore/NC_012920.1?report=fasta&log$=seqview&format=text) and copy all text. Paste this text in the window in Galaxy and click "Start". You should see the data appear in the right pane. Rename this data "humanMT" using the pencil (edit) button. 
+*Load reference sequence* We need to load a previously sequenced mitochondrial genome to use for comparison to our data. Go back to the "Get Data" category and select "Upload data". Select the button for "Paste/Fetch Data". Navigate in another window to the [Cambridge Reference Sequence for Human Mitochondrial DNA](http://www.ncbi.nlm.nih.gov/nuccore/NC_012920.1?report=fasta&log$=seqview&format=text) and copy all text. Paste this text in a text editor and save the file as "humanMT.fas". Go back to Galaxy and upload it using "Choose local file". You should see the data appear in the right pane. Rename this data "humanMT" using the pencil (edit) button. 
 
 *Index reference sequence* The sequence that you just uploaded will be our reference sequence. Genome analysis programs require this data be indexed in a particular way, so now click on "User" in the top toolbar, then select "Custom Builds" from the drop-down menu. Enter "Human mitogenome" in the "Name" field, and "humanMT_Cam" in the "Key" field. Your uploaded data file should already be selected in the data menu, so click "Submit" and you will see it being processed in the "Current Custom Builds" section above.
 
@@ -65,7 +64,7 @@ Now we need to summarize the results of these results by going back to "NGS: SAM
 Go back to the visualization view and repeat the steps above, this time selecting the vcf file as the dataset. What do these results mean?
 
 ###Assignment
-* Due Wednesday, April a at 5 pm
+* Due Wednesday, April 1 at 5 pm
 * Assessment criteria
 	* Technical content: 40, appropriate syntax for written assessment answers
 	* Critical thinking: 40, explanations for written assessment answers
