@@ -27,7 +27,7 @@ If you look back at your work space, the "reads" is the file containing the fast
 
 Under "NGS: QC and manipulation," choose "Select high quality segments." Galaxy should autodetect and enter "454 reads" in the "Reads" field and "454 qualities" in the "Quality scores" field for you. Select a minimal quality score of 20 and minimal length of contiguous segment as 50. 454 should be pre-selected for you under "Select technology," and leave the default option for "DO NO trigger splitting." While this doesn't report exactly how many sequences were filtered out, the file size does decrease.
 
-"FASTA to Tabular" under "NGS: QC and manipulation" to convert to a tab-delimited file format, leave number of columns as 1?
+"FASTA to Tabular" under "Convert formats" to convert to a tab-delimited file format, leave number of columns as 1?
 
 Under "Text Manipulation," select "Add column". "TripA" as value and "YES" to iterate, should autodetect dataset.
 
