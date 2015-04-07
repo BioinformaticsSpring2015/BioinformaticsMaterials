@@ -23,7 +23,7 @@ Navigate to the [Galaxy website](https://usegalaxy.org). Log in and click on the
 
 Select "Data Libraries" in the "Shared Data" drop down menu at the top of the screen. Search for "windshield" and click on the result to view the data files. Click on the boxes next to "Trip A left Side Reads" and "Trip A Left Side QV" and then hit Go to import these data to your current history.
 
-"454 reads" is the file containing the fasta sequences, while "454 qualities" is a separate file containing quality scores. 
+If you look back at your work space, the "reads" is the file containing the fasta sequences, while "QV" is a separate file containing quality scores. 
 
 Under "NGS: QC and manipulation," choose "Select high quality segments." Galaxy should autodetect and enter "454 reads" in the "Reads" field and "454 qualities" in the "Quality scores" field for you. Select a minimal quality score of 20 and minimal length of contiguous segment as 50. 454 should be pre-selected for you under "Select technology," and leave the default option for "DO NO trigger splitting." While this doesn't report exactly how many sequences were filtered out, the file size does decrease.
 
