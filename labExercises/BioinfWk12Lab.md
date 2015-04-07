@@ -1,4 +1,4 @@
-#Bioinformatics Week 10 Lab
+#Bioinformatics Week 12 Lab
 ##Comparative genomics
 
 Slides for the introduction to today's lab, as well as a PDF of this document, can be found on [Blackboard](http://blackboard.uttyler.edu).
