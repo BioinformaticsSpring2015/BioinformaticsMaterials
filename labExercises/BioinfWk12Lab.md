@@ -62,13 +62,10 @@ Then select "Summarize taxonomy" to count the sequences from each taxnomic group
 	* Don't forget to preview your homework before committing! 
 	* If you get stuck on a question, please consult readings above.
 	
-1. What does megablast do? Why did we use it for this lab?
+1. At the beginning of this exercise, we used the "Select first" tool to extract a subset of our data. What Unix command could you have used to accomplish this task, had you been on the command line?
 2. Why did we add "TripA" to the sequence IDs?
-3. Why did we calculate sequence length and add it to the megablast results?
-4. How would you expect your final results to differ if you do not filter the data? Now re-run the last few steps on the unfiltered dataset. Was your hypothesis supported?
-3. 
-4. 
-
-
-8. How long did it take you to complete these questions?
-9. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
+3. What does megablast do? Why did we use it for this lab?
+4. Why did we calculate sequence length and add it to the megablast results?
+5. How would you expect your final results to differ if you do not filter the megablast results by sequence length? Now re-run the last few steps on the unfiltered dataset. Was your hypothesis supported?
+6. How long did it take you to complete these questions?
+7. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
