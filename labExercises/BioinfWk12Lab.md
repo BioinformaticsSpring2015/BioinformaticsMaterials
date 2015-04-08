@@ -31,7 +31,7 @@ Additional materials for reference:
 
 **Sequence searching**
 
-*Megablast* Under "NGS: Mapping" select "Megablast." Should autodetect dataset as output from tabular-to-FASTA. Select "wgs" for "against target database," 28 as word size, 80 as report hit threshold, and 0.0001 as e-value cutoff. Perform another "Megablast" with the same parameters, except select "nt" as the target database.
+*Megablast* Under "NGS: Mapping" select "Megablast." Galaxy should autodetect the dataset output from tabular-to-FASTA conversion. Select "wgs" for "against target database," 28 as word size, 80 as report hit threshold, and 0.0001 as e-value cutoff. Perform another "Megablast" with the same parameters, except select "nt" as the target database.
 
 *Manually upload Megablast results, if jobs take too long* Running megablast is a big job, so we're going to take a shortcut and upload example results files (which should be identical to the results your jobs will get after they run). Download megablast.zip from the [GitHub BioinformaticsSpring2015/data folder](https://github.com/BioinformaticsSpring2015/BioinformaticsMaterials/tree/master/data). Unzip the file. Go back to Galaxy and select "Upload File" under the "Get Data" section in the lefthand toolbar. Drag the files to the window and click "Start" to upload these files. The files will appear in the righthand toolbar. When they turn green (meaning loaded and available), preview the data in one of the files. What data is included in each column?
 
