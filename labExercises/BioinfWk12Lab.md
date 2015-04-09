@@ -33,9 +33,11 @@ Additional materials for reference:
 
 *Megablast* Under "NGS: Mapping" select "Megablast." Galaxy should autodetect the dataset output from tabular-to-FASTA conversion. Select "wgs" for "against target database," 28 as word size, 80 as report hit threshold, and 0.0001 as e-value cutoff. Perform another "Megablast" with the same parameters, except select "nt" as the target database.
 
-*Manually upload Megablast results, if jobs take too long* Running megablast is a big job, so we're going to take a shortcut and upload example results files (which should be identical to the results your jobs will get after they run). Download megablast.zip from the [GitHub BioinformaticsSpring2015/data folder](https://github.com/BioinformaticsSpring2015/BioinformaticsMaterials/tree/master/data). Unzip the file. Go back to Galaxy and select "Upload File" under the "Get Data" section in the lefthand toolbar. Drag the files to the window and click "Start" to upload these files. The files will appear in the righthand toolbar. When they turn green (meaning loaded and available), preview the data in one of the files. What data is included in each column?
+*Manually upload Megablast results, if jobs take too long* Running megablast is a big job, so we're going to take a shortcut and upload example results files (which should be identical to the results your jobs will get after they run). Download week12.zip from the [GitHub BioinformaticsSpring2015/data folder](https://github.com/BioinformaticsSpring2015/BioinformaticsMaterials/tree/master/data). Unzip the file. Go back to Galaxy and select "Upload File" under the "Get Data" section in the lefthand toolbar. Drag the two megablast results files to the window and click "Start" to upload these files. The files will appear in the righthand toolbar. When they turn green (meaning loaded and available), preview the data in one of the files. What data is included in each column?
 
-*Concatenate megablast searches and filter by sequence length* Under "Text Manipulation," select "Concatenate datasets" to combine the results from the two megablast searches. Next, create a new tabular dataset including the length of each sequence by going to "FASTA manipulation" and running "Compute sequence length" on the tabular-to-fasta converted data. Add the sequence length to the megablast results by going to the "Join, Subtract, and Group" category and selecting "Join two Datasets." Join your concatenated megablast results with the computed sequence lengths on column 1 (unique names for each sequence). Finally, under "Filter and sort," select "Filter." The megablast results with sequence lengths should be autodetected as the file to filter. Use the following condition to filter: "c5/c15 < 0.5". This filter removes megablast hits that cover less than 50% of the sequence read. What data columns are included in this filter?
+*Concatenate megablast searches and filter by sequence length* Under "Text Manipulation," select "Concatenate datasets" to combine the results from the two megablast searches. Next, create a new tabular dataset including the length of each sequence by going to "FASTA manipulation" and running "Compute sequence length" on the tabular-to-fasta converted data. Add the sequence length to the megablast results by going to the "Join, Subtract, and Group" category and selecting "Join two Datasets." Join your concatenated megablast results with the computed sequence lengths on column 1 (unique names for each sequence). This step may take a long time, so you can also choose to upload the example file in the week12 folder downloaded from GitHub.
+
+Finally, under "Filter and sort," select "Filter." The megablast results with sequence lengths should be autodetected as the file to filter. Use the following condition to filter: "c5/c15 < 0.5". This filter removes megablast hits that cover less than 50% of the sequence read. What data columns are included in this filter?
 
 **Metagenomic analysis**
 
@@ -66,7 +68,8 @@ Then select "Summarize taxonomy" to count the sequences from each taxnomic group
 2. Why did we add "TripA" to the sequence IDs?
 3. What does megablast do? Why did we use it for this lab?
 4. Why did we calculate sequence length and add it to the megablast results?
-5. How would you expect your final results to differ if you do not filter the megablast results by sequence length? Now re-run the last few steps on the unfiltered dataset. Was your hypothesis supported?
-6. How could you determine which mammals (from Mammalia) were matched to sequences in this dataset?
-7. How long did it take you to complete these questions?
-8. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
+5. How could you determine which mammals (from Mammalia) were matched to sequences in this dataset? Please reference the specific file you'd use.
+6. Write a few sentences describing the composition and abundance of taxonomic groups in your results, as displayed by your phylogeny.
+7. How do your results compare to Figure 2A in Kosakovsky Pond, et al. 2009? What accounts for any differences, if any?
+8. How long did it take you to complete these questions?
+9. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
