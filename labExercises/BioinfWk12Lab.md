@@ -45,7 +45,7 @@ First, select "Fetch taxonomic representation." Input your filtered data file (s
 
 Next, select "Find lowest diagnostic rank" and input your taxonomic data file (from last step, should autodetect). Require the lowest rank to be at least Subkingdom. This command reconciles differing blast results to the most specific identification possible.
 
-Then select "Summarize taxonomy" to count the sequences from each taxnomic group in your results. Finally, select "Summarize phylogeny" on the summarized taxonomy file, showing ranks from root to Class. How do you interpret these results?
+Then select "Summarize taxonomy" to count the sequences from each taxnomic group ("Fetch taxonomic representation on data") in your results. Finally, select "Draw phylogeny" and enter your "lowest diagnostic rank" file, showing ranks from root to Class. How do you interpret these results?
 
 ###Assignment
 * Due Wednesday, April 15 at 5 pm
@@ -56,8 +56,8 @@ Then select "Summarize taxonomy" to count the sequences from each taxnomic group
 	* Professional behavior: 10, class participation, assignment formatting using homework template (including code formatted in `monospace`)
 * Written assessment: 
 	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk10Homework.md". Title (header) is "Metagenomics".
-	* Answer the following questions about the tools you learned for this week's lab, including code comments where appropriate 				
-	* Use appropriate Markdown formatting, including `monospace` when referencing commands you entered. 
+	* Answer the following questions about the tools you learned for this week's lab, including references to specific Galaxy tools where appropriate
+	* Use appropriate Markdown formatting 
 	* If you choose to copy and paste the questions before answering, it might help to copy from the Raw view. 
 	* Don't forget to preview your homework before committing! 
 	* If you get stuck on a question, please consult readings above.
