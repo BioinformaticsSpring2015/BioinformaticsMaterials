@@ -67,5 +67,6 @@ Then select "Summarize taxonomy" to count the sequences from each taxnomic group
 3. What does megablast do? Why did we use it for this lab?
 4. Why did we calculate sequence length and add it to the megablast results?
 5. How would you expect your final results to differ if you do not filter the megablast results by sequence length? Now re-run the last few steps on the unfiltered dataset. Was your hypothesis supported?
-6. How long did it take you to complete these questions?
-7. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
+6. How could you determine which mammals (from Mammalia) were matched to sequences in this dataset?
+7. How long did it take you to complete these questions?
+8. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
