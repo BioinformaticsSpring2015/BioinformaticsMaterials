@@ -1,5 +1,5 @@
 #Bioinformatics Week 12 Lab
-##Comparative genomics
+##Metagenomics
 
 Slides for the introduction to today's lab, as well as a PDF of this document, can be found on [Blackboard](http://blackboard.uttyler.edu).
 
@@ -55,7 +55,7 @@ Then select "Summarize taxonomy" to count the sequences from each taxnomic group
 	* Documentation: 10, code comments, citations for resources used in questions embedded in answers
 	* Professional behavior: 10, class participation, assignment formatting using homework template (including code formatted in `monospace`)
 * Written assessment: 
-	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk10Homework.md". Title (header) is "Comparative genomics".
+	* create new file in your homework repository, `LastnameHomework`, called `LastnameWk10Homework.md". Title (header) is "Metagenomics".
 	* Answer the following questions about the tools you learned for this week's lab, including code comments where appropriate 				
 	* Use appropriate Markdown formatting, including `monospace` when referencing commands you entered. 
 	* If you choose to copy and paste the questions before answering, it might help to copy from the Raw view. 
