@@ -37,7 +37,7 @@ Additional materials for reference:
 
 *Concatenate megablast searches and filter by sequence length* Under "Text Manipulation," select "Concatenate datasets" to combine the results from the two megablast searches. Next, create a new tabular dataset including the length of each sequence by going to "FASTA manipulation" and running "Compute sequence length" on the tabular-to-fasta converted data. Add the sequence length to the megablast results by going to the "Join, Subtract, and Group" category and selecting "Join two Datasets." Join your concatenated megablast results with the computed sequence lengths on column 1 (unique names for each sequence). This step may take a long time, so you can also choose to upload the example file in the week12 folder downloaded from GitHub.
 
-Finally, under "Filter and sort," select "Filter." The megablast results with sequence lengths should be autodetected as the file to filter. Use the following condition to filter, making sure there are no spaces: "c5/c15<0.5". This filter removes megablast hits that cover less than 50% of the sequence read. What data columns are included in this filter?
+Finally, under "Filter and sort," select "Filter." The megablast results with sequence lengths should be autodetected as the file to filter. Use the following condition to filter, making sure there are no spaces: "c5/c15>0.5". This filter removes megablast hits that cover less than 50% of the sequence read. What data columns are included in this filter?
 
 **Metagenomic analysis**
 
