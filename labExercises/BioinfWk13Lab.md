@@ -47,13 +47,19 @@ The files you've uploaded have been processed in the same manner as [last week](
 4. "Metagenomics analyses" then "Summarize taxonomy" on your fetched taxonomc representation file
 5. "Metagenomics analyses" then "Draw phylogeny" on your lowest diagnostic rank file
 
-You should perform all of these steps on each of your four files. You may find it helpful to use the "pencil" button to rename each file to keep your samples straight.
+You should perform all of these steps on each of your four files. Your instructor may also assign you comparisons to perform. You may find it helpful to use the "pencil" button to rename each file to keep your samples straight.
 
 Visually inspect the results of each of your four samples. Which taxon is the most abundant?
 
 **Compare parameters**
 
-Now that you have your initial results, we can start preparing data files for input into the Poisson two-sample test.
+Now that you have your initial results, we can prepare our data files for input into the Poisson two-sample test. First, join your taxonomic results files for your two samples of interest by going to the "Join, Subtract, and Group" category and selecting the "Join two datasets" command, specifying field 2 for both files (this column indicates taxonomic identification). Change each option to keep all lines of input, and fill empty columns with 0. Examine the resulting file for the structure of data and names of columns.
+
+Perform the statistical test by returning to the "Metagenomics analyses" section and selecting "Poisson two sample test." Enter your joined dataset file and select 3 for first column and 6 for second column (these correspond to the read counts for the first and second samples, respectively). Leave the D-value at 1 and correction method as Bonferroni.
+
+Your resulting file will add columns to your taxonomic reads table. These new data include several different statistical measures, including p-values. We're most interested in the last column, which contains the most conservative estimates for p-value. To make these data more interpretable, go to "Filter and Sort" and choose the "Filter" command for the Poisson two sample test results, specifying `c12<0.05`. What does this filter do?
+
+Inspect the results. How many phyla are significantly differentiated? Compare the number of differentiated phyla with other statistical comparisons you perform, and with those obtained by your classmates. Do these results match your expectations?
 
 ###Assignment
 * Due Wednesday, April 22 at 5 pm
