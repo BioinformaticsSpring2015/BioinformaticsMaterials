@@ -82,9 +82,9 @@ You should conduct two Poisson two-sample tests to compare different samples of 
 Sample  | Most common taxon
 ------------- | -------------
 TripALeft  | Gammaproteobacteria
-TripALeft  | TAXON
-TripBRight  | TAXON
+TripARight  | TAXON
 TripBLeft  | TAXON
+TripBRight  | TAXON
 
 2. Write a few sentences to describe the steps we used to reformat the data files to input into the Poisson two sample test command. Why were these steps necessary? Refer to specific commands and options in Galaxy in your answer.
 3. Why did we perform a filtering step following the Poisson two sample test?
