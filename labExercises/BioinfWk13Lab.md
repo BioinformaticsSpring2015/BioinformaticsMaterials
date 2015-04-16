@@ -50,7 +50,7 @@ You should perform all of these steps on each of your four files. You may find i
 
 Visually inspect the results of each of your four samples. Which taxon is the most abundant?
 
-**Compare parameters**
+**Compare samples**
 
 Now that you have your initial results, we can prepare our data files for input into the Poisson two-sample test. First, join your taxonomic results files for your two samples of interest by going to the "Join, Subtract, and Group" category and selecting the "Join two datasets" command, specifying field 2 for both files (this column indicates taxonomic identification). Change each option to keep all lines of input, and fill empty columns with 0. Examine the resulting file for the structure of data and names of columns.
 
