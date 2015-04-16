@@ -75,9 +75,25 @@ Inspect the results. How many phyla are significantly differentiated? Compare th
 	* If you choose to copy and paste the questions before answering, it might help to copy from the Raw view. 
 	* Don't forget to preview your homework before committing! 
 	* If you get stuck on a question, please consult readings above.
-	
-1. What is the most common taxon for each of your analyzed samples? Make a table that shows each sample with the most abundant taxon.
-2. Describe the steps you implemented to reformat your data files to input into the Poisson two sample test command.
-3. Report and interpret results
-8. How long did it take you to complete these questions?
-9. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
+
+You should conduct two poisson two-sample tests to compare different aspects of the windsheild splatter data. One test should compare different samples (i.e., TripALeft vs TripARight), while one test should be methodological (i.e., TripALeftFiltered vs TripALeftUnfiltered). You may also report on findings from your classmates to improve your ability to summarize these data.
+
+1. What is the most common taxon for each of your analyzed samples? Use the following table to report your results, adding as many columns as you need to report your results. The results we obtained last week as a class have already been completed.
+
+Sample  | Most common taxon
+------------- | -------------
+TripALeft (filtered)  | Gammaproteobacteria
+YOUR SAMPLE  | TAXON
+
+2. Write a few sentences to describe the steps we used to reformat the data files to input into the Poisson two sample test command. Why were these steps necessary? Refer to specific commands and options in Galaxy in your answer.
+3. Why did we perform a filtering step following the Poisson two sample test?
+4. What were the results from your Poisson two sample tests? Fill in the following table with the specific comparison you performed and some basic information about the number of significantly differentiated taxa. Also write a sentence describing what you can conclude from these results.
+
+Comparison  | Total number of significant taxa | Number of significant phyla
+------------- | ------------- | -------------
+TripXLeft filtered vs TripXRight filtered  | 1500 | 14
+COMPARISON 2 | NUMBER | NUMBER
+
+4. Give one example of a data processing step we performed today that you could have also accomplished using R or Unix commands. You do not need to include complete syntax, but please include the name of the command from both Galaxy and its equivalent in R or Unix.
+5. How long did it take you to complete these questions?
+6. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
