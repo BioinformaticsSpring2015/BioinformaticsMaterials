@@ -19,7 +19,7 @@ Additional materials for reference:
 
 **Planning sample comparisons**
 
-Last week, we performed a series of analysis to determine the taxonomic composition (richness and abundance) in a metagenomic sample. This week we will have two goals: first, we'll determine whether different filtering parameters substantially alter our taxonomic composition, and second, determine whether there are differences between the samples.
+Last week, we performed a series of analysis to determine the taxonomic composition (richness and abundance) in a single metagenomic sample. This week we will determine whether there are differences between the samples.
 
 Take a look at the files you created as a part of our workflow last week. Which file(s) contains the data on taxonomic abundance? 
 
@@ -31,7 +31,7 @@ You should have some ideas about how you can reformat your data to input into th
 
 **Load data**
 
-We learned last week that it takes a long time (generally overnight) for the megablast results to process, so we're going to start with the concatenated megablast results that have been joined with the sequence length field. 
+We learned last week that it takes a long time (generally overnight) for the megablast results to process, so we're going to start with the concatenated megablast results that have been filtered for alignment matches of at least 50%. 
 
 Create a new history in Galaxy and name it something like "windshield hypothesis testing."
 
@@ -39,15 +39,14 @@ Go to the [class repository data folder](https://github.com/BioinformaticsSpring
 
 **Filter data**
 
-The files you've uploaded have been processed in the same manner as [last week](https://github.com/BioinformaticsSpring2015/BioinformaticsMaterials/blob/master/labExercises/BioinfWk12Lab.md), up until the last step before "Metagenomic analysis." Here is a brief overview of the remaining steps, as we performed them last week:
+The files you've uploaded have been processed in the same manner as [last week](https://github.com/BioinformaticsSpring2015/BioinformaticsMaterials/blob/master/labExercises/BioinfWk12Lab.md), up through the last step before "Metagenomic analysis." Here is a brief overview of the remaining steps, as we performed them last week:
 
-1. "Filter and Sort" then "Filter" on your joined megablast results using the filter "c5/c15<0.5"
-2. "Metagenomics analyses" then "Fetch taxonomic representation" on your filtered data file, with GIs in column 2 and name in column 1
-3. "Metagenomics analyses" then "Find lowest diagnostic rank" on your fetched taxonomic representation file and require the lowest rank to be at least "Subkingdom"
-4. "Metagenomics analyses" then "Summarize taxonomy" on your fetched taxonomc representation file
-5. "Metagenomics analyses" then "Draw phylogeny" on your lowest diagnostic rank file
+1. "Metagenomics analyses" then "Fetch taxonomic representation" on your filtered data file, with GIs in column 2 and name in column 1
+2. "Metagenomics analyses" then "Find lowest diagnostic rank" on your fetched taxonomic representation file and require the lowest rank to be at least "Subkingdom"
+3. "Metagenomics analyses" then "Summarize taxonomy" on your fetched taxonomc representation file
+4. "Metagenomics analyses" then "Draw phylogeny" on your lowest diagnostic rank file
 
-You should perform all of these steps on each of your four files. Your instructor may also assign you comparisons to perform. You may find it helpful to use the "pencil" button to rename each file to keep your samples straight.
+You should perform all of these steps on each of your four files. You may find it helpful to use the "pencil" button to rename each file to keep your samples straight.
 
 Visually inspect the results of each of your four samples. Which taxon is the most abundant?
 
@@ -59,7 +58,7 @@ Perform the statistical test by returning to the "Metagenomics analyses" section
 
 Your resulting file will add columns to your taxonomic reads table. These new data include several different statistical measures, including p-values. We're most interested in the last column, which contains the most conservative estimates for p-value. To make these data more interpretable, go to "Filter and Sort" and choose the "Filter" command for the Poisson two sample test results, specifying `c12<0.05`. What does this filter do?
 
-Inspect the results. How many phyla are significantly differentiated? Compare the number of differentiated phyla with other statistical comparisons you perform, and with those obtained by your classmates. Do these results match your expectations?
+Inspect the results. How many phyla are significantly differentiated? To complete the homework question, you will need to perform two Poisson tests, both of which compare two samples (the choice of samples is up to you). Compare the number of differentiated phyla with other statistical comparisons you perform, and with those obtained by your classmates. Do these results match your expectations?
 
 ###Assignment
 * Due Wednesday, April 22 at 5 pm
@@ -76,14 +75,16 @@ Inspect the results. How many phyla are significantly differentiated? Compare th
 	* Don't forget to preview your homework before committing! 
 	* If you get stuck on a question, please consult readings above.
 
-You should conduct two poisson two-sample tests to compare different aspects of the windsheild splatter data. One test should compare different samples (i.e., TripALeft vs TripARight), while one test should be methodological (i.e., TripALeftFiltered vs TripALeftUnfiltered). You may also report on findings from your classmates to improve your ability to summarize these data.
+You should conduct two Poisson two-sample tests to compare different samples of the windsheild splatter data (i.e., TripALeft vs TripARight). You may also report on findings from your classmates to improve your ability to summarize these data.
 
 1. What is the most common taxon for each of your analyzed samples? Use the following table to report your results, adding as many columns as you need to report your results. The results we obtained last week as a class have already been completed.
 
 Sample  | Most common taxon
 ------------- | -------------
-TripALeft (filtered)  | Gammaproteobacteria
-YOUR SAMPLE  | TAXON
+TripALeft  | Gammaproteobacteria
+TripALeft  | TAXON
+TripBRight  | TAXON
+TripBLeft  | TAXON
 
 2. Write a few sentences to describe the steps we used to reformat the data files to input into the Poisson two sample test command. Why were these steps necessary? Refer to specific commands and options in Galaxy in your answer.
 3. Why did we perform a filtering step following the Poisson two sample test?
