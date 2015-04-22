@@ -6,18 +6,24 @@ Slides for the introduction to today's lab, as well as a PDF of this document, c
 ###Learning Objectives
 You should be able to:
 
-1. 
+1. Design a workflow to answer specified questions
+2. Write code to accomplish each step in the workflow
 
 ###Readings:
-* 
-
-Additional materials for reference:
-* 
+* [R cheat sheet](https://github.com/BioinformaticsSpring2015/BioinformaticsMaterials/blob/master/ref/Rref.md)
 
 ###Activities
 
-**Subheading**
+Over the last few weeks, we used the online Galaxy interface to develop and implement workflows to perform next-generation sequencing analysis. Today we're going back to R to design and implement a workflow to answer a few specific questions. We'll apply tools we already learn to manipulate data and obtain a meaningful answer.
 
+One of the big questions in bioinformatics is accessing information. We've worked with several databases this semester, and today we'll revisit two of them to compare what data is available. We can phrase this objective as a question: for a given taxon, are there the same number of sequences in BOLD and Entrez? We'll also use some of the data we obtain to look at diversity within a group of organisms. This second question becomes: are sequences from the same taxon very similar? Together we will plan and implement a series of steps in R to answer these two quesitons.
+
+Today's lab:
+* Pick a genus of animal (you'll need to know the scientific name). You will collect data on this animal and compile it with data from the rest of the class to test whether both databases contain the same number of sequences per taxon.
+* With the help of your instructor, develop a plan to obtain data from the databases (first question).
+* Implement your plan to collect these data and compile the class results.
+* With the help of your instructor, develop a plan to describe diversity in your extracted sequences (second question).
+* Implement your plan and interpret your results.
 
 ###Assignment
 * Due Wednesday, April 29 at 5 pm (but you should be able to finish before you leave today!)
@@ -34,8 +40,8 @@ Additional materials for reference:
 	* Don't forget to preview your homework before committing! 
 	* If you get stuck on a question, please consult readings above.
 
-You should conduct two Poisson two-sample tests to compare different samples of the windsheild splatter data (i.e., TripALeft vs TripARight). You may also report on findings from your classmates to improve your ability to summarize these data.
-
-1. 
-5. How long did it take you to complete these questions?
-6. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
+1. Outline the steps (in human-readable language) used to conduct today's workflow.
+2. Enter all code (with comments) used to accomplish today's workflow.
+3. Do BOLD and Entrez contain different numbers of sequences for the species our class sampled today? How do you know?
+4. How long did it take you to obtain these data for one taxon? How long do you estimate it would take you to use your code to obtain data for another taxon? When would it be worth the time to write the code, rather than performing these tasks with online tools? 
+5. Type SUBMIT as the answer to this question when you are ready for this assignment to be graded.
